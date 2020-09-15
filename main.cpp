@@ -10,9 +10,6 @@ int main(int argc, char* argv[]) {
 	character ch1(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
 	character ch2(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
 
-	//character* ch1 = new character(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
-	//character* ch2 = new character(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
-
 	std::cout << ch1 << ch2 << std::endl;
 
 	do
@@ -47,6 +44,4 @@ int main(int argc, char* argv[]) {
 
 	} while (!someoneDied);
 
-	//delete ch1;
-	//delete ch2;
 }
