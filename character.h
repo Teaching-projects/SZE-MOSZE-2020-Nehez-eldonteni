@@ -12,7 +12,6 @@ public:
 	~character() {}
 
 	std::string getName() const { return name; }
-	//int getMaxHP() { return maxHP; }
 	int getCurrentHP() const { return currentHP; }
 	int getAttack() const { return attack; }
 
@@ -24,10 +23,10 @@ public:
 	friend std::ostream& operator<<(std::ostream & os, const character & ch);
 
 private:
-	std::string name;
-	int maxHP;
+	const std::string name;
+	const int maxHP;
 	int currentHP;
-	int attack;
+	const int attack;
 };
 
 #endif
