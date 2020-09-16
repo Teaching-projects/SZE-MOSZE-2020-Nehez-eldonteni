@@ -25,12 +25,12 @@ int main(int argc, char* argv[]) {
 
 			if (ch1.isDead())
 			{
-				std::cout << ch1.getName() << " died. " << ch2.getName() << " wins. Remaining HP: "<< ch2.getCurrentHP() << std::endl;
+				std::cout << ch2.getName() << " wins. Remaining HP: "<< ch2.getCurrentHP() << std::endl;
 				someoneDied = true;
 			}
 			else if (ch2.isDead())
 			{
-				std::cout << ch2.getName() << " died. " << ch1.getName() << " wins. Remaining HP: " << ch1.getCurrentHP() << std::endl;
+				std::cout << ch1.getName() << " wins. Remaining HP: " << ch1.getCurrentHP() << std::endl;
 				someoneDied = true;
 			}
 
