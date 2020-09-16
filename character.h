@@ -2,6 +2,7 @@
 #define CHARACTER_H
 
 #include <iostream>
+#include <fstream>
 
 class character
 {
@@ -16,6 +17,8 @@ public:
 	int getAttack() const { return attack; }
 
 	bool isDead() const { return currentHP == 0; }
+
+	static character parseUnit(std::string name);
 
 	void attackEnemy(character& opponent) const { opponent.takeDamage(*this); }
 	void takeDamage(const character& opponent) { (currentHP - opponent.getAttack() < 0) ? currentHP = 0 : currentHP -= opponent.getAttack(); }
