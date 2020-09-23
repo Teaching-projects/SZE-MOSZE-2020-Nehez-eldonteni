@@ -3,11 +3,10 @@ name: Output_test
 on: push
 
 jobs:
-        build:
+        build_and_test:
                 runs-on: ubuntu-latest
                 steps: 
                 - uses: actions/checkout@v2
                 - run: g++ -std=c++17 *.cpp
-                - run: ./diff_script.sh
-                - run: diff fight.txt manual_calculation.txt 
+                - run: ./testing/diff_script.sh 
 
