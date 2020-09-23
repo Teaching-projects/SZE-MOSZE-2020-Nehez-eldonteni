@@ -8,6 +8,6 @@ jobs:
                 steps: 
                 - uses: actions/checkout@v2
                 - run: g++ -std=c++17 *.cpp
-		- run: cd testing
+		- run: cd testing/
                 - run: ./diff_script.sh 
 
