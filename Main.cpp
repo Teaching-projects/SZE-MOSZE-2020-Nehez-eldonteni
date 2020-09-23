@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "character.h"
+#include "Character.h"
 #include "FileNotFoundException.h"
 
 int main(int argc, char* argv[]) {
@@ -9,8 +9,8 @@ int main(int argc, char* argv[]) {
 	bool someoneDied = false;
 
 	try {
-		character ch1 = character::parseUnit(argv[1]);
-		character ch2 = character::parseUnit(argv[2]);
+		Character ch1 = Character::parseUnit(argv[1]);
+		Character ch2 = Character::parseUnit(argv[2]);
 
 		do
 		{
@@ -39,6 +39,9 @@ int main(int argc, char* argv[]) {
 		} while (!someoneDied);
 	}
 	catch (FileNotFoundException ex) {
-		std::cout << ex.message() << std::endl;
+		std::cout << ex << std::endl;
+		return 1;
 	}
+
+	return 0;
 }
