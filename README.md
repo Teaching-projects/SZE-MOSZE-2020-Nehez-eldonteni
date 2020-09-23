@@ -16,6 +16,6 @@ until one of them dies (hp goes down to 0).
 
 Every character's information is stored in json files inside the "units" folder. The program reads the json files given as command line arguments with a static method in character.h (if anything is wrong with the files it throws a custom exception). It reads out all the information and feeds it to the constructor which creates the new characters. After this, the created characters start fighting. The outcome of the fight is shown on the command line output.
 
-We also made a shell script that outputs all the scenarios into a single file and compares it to the manually calculated results to make sure the program works properly.
+We have a shell script that outputs all the scenarios into a single file and compares it to the manually calculated results to make sure the program works properly.
 
-We created a Git Actions pipeline that tests the program on every push with the help of our shell script.
+We also have a Git Actions pipeline that tests the program on every push with the help of our shell script.
