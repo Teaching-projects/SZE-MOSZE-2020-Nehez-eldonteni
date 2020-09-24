@@ -7,7 +7,7 @@ class FileNotFoundException : public std::string
 {
 public:
 	FileNotFoundException(std::string message) :std::string(message) {}
-	~FileNotFoundException() {}
+	
 };
 
 #endif
