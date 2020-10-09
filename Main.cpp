@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
 
 			if (ch1.isDead())
 			{
-				std::cout << ch2.getName() << " wins. Remaining HP: "<< ch2.getCurrentHP() << std::endl;
+				std::cout << ch2.getName() << " wins. Remaining HP: " << ch2.getCurrentHP() << std::endl;
 				someoneDied = true;
 			}
 			else if (ch2.isDead())
