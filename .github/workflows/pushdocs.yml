@@ -1,29 +1,28 @@
 name: pushdocs.yml
 
 on:
-	push:
-		branches:
-			- attackspeed
-			- gh-pages
+  push:	
+    branches:	
+      - attackspeed
+      - gh-pages
 
 jobs:
-	deploy:
-		name: Deploy to github pages
-		runs-on: ubuntu-latest
-		steps:
-		- uses: actions/checkout@attackspeed
-		
-		- run: sudo apt-get install doxygen
-		- run: sudo apt-get install graphviz
-		- run: doxygen doxconf
-		
-		- name: Push git subdir as branch
 
-	uses: s0/git-pusblish-subdir-action@v2.4.0
-	
-	env:
-		REPO: self
-		BRANCH: gh-pages
-		FOLDER: DOCS/html
-		GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@attackspeed
+    
+    - run: sudo apt-get install doxygen
+    - run: sudo apt-get install graphviz
+    - run: doxygen doxconf
 
+    - name: Push git subdirectory as branch
+      uses: s0/git-publish-subdir-action@v2.4.0
+
+      env:
+        REPO: self
+        BRANCH: gh-pages
+        FOLDER: DOCS/html
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
