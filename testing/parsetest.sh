@@ -2,4 +2,4 @@
 
 cd testing
 cmake CMakeLists.txt
-make && ./runTests
+make ./runTests
