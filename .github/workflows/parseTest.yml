@@ -1,22 +1,18 @@
-name: JSONParse tests
+name: JSONParse_tests
 
 on: push
 
 jobs:
-        build_and_run_test:
+        build_and_run_tests:
                 runs-on: ubuntu-latest
                 steps: 
                 - uses: actions/checkout@v2
-                
-                - name: install gtest, cmake
                 - run: sudo apt install libgtest-dev
                 - run: sudo apt install cmake
-                
-                - name: symbolic links
+
                 - run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest.a
                 - run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
-                
-                - name: run tests
+
                 - run: cd tests
                 - run: cmake CMakeLists.txt
                 - run: make
