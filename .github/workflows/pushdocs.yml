@@ -3,7 +3,7 @@ name: pushdocs.yml
 on:
   push:	
     branches:	
-      - attackspeed
+      - master
       - gh-pages
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest    
     steps:
-    - uses: actions/checkout@attackspeed
+    - uses: actions/checkout@master
     
     - run: sudo apt-get install doxygen
     - run: sudo apt-get install graphviz
