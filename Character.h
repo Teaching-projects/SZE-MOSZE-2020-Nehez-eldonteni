@@ -21,7 +21,6 @@ public:
 	bool isDead() const { return currentHP == 0; }
 
 	static Character parseUnit(const std::string& name);
-	static Character parseUnit(std::istream& stream);
 
 	void attackEnemy(Character& opponent) const { opponent.takeDamage(*this); }
 	void takeDamage(const Character& opponent) { (currentHP - opponent.getAttack() < 0) ? currentHP = 0 : currentHP -= opponent.getAttack(); }

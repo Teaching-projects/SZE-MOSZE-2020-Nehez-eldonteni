@@ -51,6 +51,7 @@ jsonMap JSONParser::parse(const std::string & text) {
 		if (text.find('{') < 0)
 			throw FileNotFoundException("Couldn't open file");
 
+		ifsJSON.close();
 		return stringParse(text);
 	}
 	else
@@ -61,9 +62,10 @@ jsonMap JSONParser::parse(const std::string & text) {
 		while (std::getline(ifsJSON, line)) {
 			textFromFile += line;
 		}
+		
+		ifsJSON.close();
 		return stringParse(textFromFile);
 	}
-	ifsJSON.close();
 }
 
 jsonMap JSONParser::parse(std::istream& stream)
