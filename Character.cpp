@@ -9,13 +9,7 @@ std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	return os;
 }
 
-/**
-	 * \brief A function that returns a character object with the data read from a JSON file given as parameter
-	 * \param fileName
-	 * \return A character object from the input 
-	 * 
-	 * This function provides all the data for the program to process like name, hp, dmg and cooldowns.
-	*/
+
 Character Character::parseUnit(const std::string& fileName)
 {
 	std::ifstream ifsJSON(fileName);

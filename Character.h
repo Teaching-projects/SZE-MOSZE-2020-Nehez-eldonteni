@@ -67,11 +67,13 @@ public:
 	bool isDead() const { return currentHP <= 0; }
 
 	/**
-	 * \brief Essential function that makes the character parsing possible
-	 * \param name
-	 * \return This function returns a character object
+	 * \brief A function that returns a character object with the data read from a JSON file given as parameter
+	 * \param fileName 
+	 * \return A character object from the input 
+	 * 
+	 * This function provides all the data for the program to process like name, hp, dmg and cooldowns.
 	*/
-	static Character parseUnit(const std::string& name);
+	static Character parseUnit(const std::string& fileName);
 
 	
 	/**
