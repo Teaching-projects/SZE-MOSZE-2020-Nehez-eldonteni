@@ -10,7 +10,7 @@ public:
 	Character(std::string _name, int _maxHP, int _attack) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack(_attack)
 	{}
 
-	~Character() {}
+	virtual ~Character() {}
 
 	std::string getName() const { return name; }
 	int getCurrentHP() const { return currentHP; }

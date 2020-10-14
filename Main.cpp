@@ -6,6 +6,7 @@
 #include "FileNotFoundException.h"
 
 int main(int argc, char* argv[]) {
+	(void)argc;
 	int round = 0;
 	bool someoneDied = false;
 
@@ -14,8 +15,12 @@ int main(int argc, char* argv[]) {
 
 	try {
 
+		
+		
 		std::string sCh1 = argv[1];
 		std::string sCh2 = argv[2];
+		
+		
 
 		if (sCh1.substr(sCh1.find_last_of('/') + 1, 3) == "adv") {
 			ch1 = new Adventurer(Character::parseUnit(sCh1));
@@ -61,6 +66,7 @@ int main(int argc, char* argv[]) {
 		std::cout << ex << std::endl;
 		return 1;
 	}
+	
 
 	delete ch1;
 	delete ch2;
