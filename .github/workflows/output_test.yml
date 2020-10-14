@@ -9,7 +9,7 @@ jobs:
                 - uses: actions/checkout@v2
                 - run: sudo apt-get install -y valgrind cppcheck
                 - run: cppcheck *.cpp --enable=warning --error-exitcode=1
-                - run: cppcheck *.cpp --enable=warning,style,performance --output-file=styleformance.txt
+                - run: cppcheck *.cpp --enable=warning,style,performance --output-file=testing/styleformance.txt
                 - uses: actions/upload-artifact@v2
                   with:
                         name: styleformance
