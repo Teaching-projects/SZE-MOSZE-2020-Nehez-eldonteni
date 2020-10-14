@@ -5,7 +5,7 @@
 
 
 std::ostream& operator<<(std::ostream& os, const Character& ch) {
-	os << ch.getName() << ": HP: " << ch.getCurrentHP() << ", DMG: " << ch.getAttack() << ", ATKSPEED: " << ch.getAttackspeed() << std::endl;
+	os << ch.getName() << ": HP: " << ch.getCurrentHP() << ", DMG: " << ch.getAttack() << ", ATKSPEED: " << ch.getCooldown() << std::endl;
 	return os;
 }
 
@@ -14,7 +14,7 @@ std::ostream& operator<<(std::ostream& os, const Character& ch) {
 	 * \param fileName
 	 * \return A character object from the input 
 	 * 
-	 * This function provides all the data for the program to process
+	 * This function provides all the data for the program to process like name, hp, dmg and cooldowns.
 	*/
 Character Character::parseUnit(const std::string& fileName)
 {
@@ -52,35 +52,37 @@ Character Character::parseUnit(const std::string& fileName)
 	return Character(name, hp, atk, as);
 }
 /**
-	 * \brief This function makes a character take damage from another character(given as parameter)
-	 * \param Character
-	 * 
+	 * \brief This function makes a character take damage from another character by subsractin damage from HP
+	 * \param opponent
 	 * This function is essential for the fight system of the game	 
 	*/
 void Character::takeDamage(Character & opponent) {
-	opponent.currentHP -= this->getAttack();
 	this->currentHP -= opponent.getAttack();
+}
 
-	bool thisAttackOpponent = true;
+/**
+ * \brief The fight takes place in this complex function
+ * \param opponent
+ * 
+ * In this function the characters attack each other and start their attack cooldowns. They fight until one of them reaches 0 HP and dies.
+*/
+void Character::attackEnemy(Character& opponent){
+	opponent.takeDamage(*this);
+	this->takeDamage(opponent);
 
 	while (!(this->isDead()) && !(opponent.isDead()))
 	{
-		if (thisAttackOpponent) {
-			while (!(opponent.isDead()) && this->getCurrentAttackspeed() <= opponent.getCurrentAttackspeed()) {
-				opponent.currentHP -= this->getAttack();
+		if (this->getCurrentCooldown() <= opponent.getCurrentCooldown())
+		{
+			opponent.takeDamage(*this);
 
-				opponent.currentAttackspeed -= this->getCurrentAttackspeed();
-				this->currentAttackspeed = this->getAttackspeed();
-			}
+			this->currentCooldown += this->cooldown;
 		}
-		else {
-			while (!(this->isDead()) && opponent.getCurrentAttackspeed() <= this->getCurrentAttackspeed()) {
-				this->currentHP -= opponent.getAttack();
-
-				this->currentAttackspeed -= opponent.getCurrentAttackspeed();
-				opponent.currentAttackspeed = opponent.getAttackspeed();
-			}
+		else
+		{
+			this->takeDamage(opponent);
+			
+			opponent.currentCooldown += opponent.cooldown;
 		}
-		thisAttackOpponent = !thisAttackOpponent;
 	}
 }
