@@ -1,6 +1,6 @@
-Halis wins. Remaining HP: 40
-Kowa wins. Remaining HP: 4400
-Halis wins. Remaining HP: 40
-Kowa wins. Remaining HP: 4430
-Kowa wins. Remaining HP: 4500
-Kowa wins. Remaining HP: 4500
+Halis wins. Remaining HP: 133
+Halis wins. Remaining HP: 121
+Halis wins. Remaining HP: 133
+Codos wins. Remaining HP: 130
+Halis wins. Remaining HP: 121
+Codos wins. Remaining HP: 45
