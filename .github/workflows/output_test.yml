@@ -3,7 +3,7 @@ name: Output_test
 on: push
 
 jobs:
-        build_and_test:
+        Testing:
                 runs-on: ubuntu-latest
                 steps: 
                 - uses: actions/checkout@v2
@@ -11,7 +11,7 @@ jobs:
                 - run: cppcheck *.cpp --enable=warning --error-exitcode=1
                 - run: cppcheck *.cpp --enable=warning,style,performance --output-file=styleformance.txt
                 - uses: actions/upload-artifact@v2
-                - with:
+                  with:
                         name: styleformance
                         path: ./testing/styleformance.txt
                 - run: clang++ *.cpp -Wall -Wextra
