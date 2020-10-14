@@ -39,3 +39,23 @@ Character Character::parseUnit(const std::string& fileName)
 
 	return Character(name, hp, atk);
 }
+
+void Character::attackEnemy(Character & opponent) {
+	opponent.takeDamage(*this);
+}
+
+int Character::takeDamage(Character & opponent) {
+	int damageTaken = 0;
+
+	if (currentHP - opponent.getAttack() < 0) {
+		damageTaken = currentHP;
+
+		currentHP = 0;
+	}
+	else {
+		currentHP -= opponent.getAttack();
+		damageTaken = opponent.getAttack();
+	}
+
+	return damageTaken;
+}

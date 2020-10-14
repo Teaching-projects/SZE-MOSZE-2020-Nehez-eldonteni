@@ -14,22 +14,23 @@ public:
 
 	std::string getName() const { return name; }
 	int getCurrentHP() const { return currentHP; }
+	int getMaxHP() const { return maxHP; }
 	int getAttack() const { return attack; }
 
 	bool isDead() const { return currentHP == 0; }
 
 	static Character parseUnit(const std::string& name);
 
-	void attackEnemy(Character& opponent) const { opponent.takeDamage(*this); }
-	void takeDamage(const Character& opponent) { (currentHP - opponent.getAttack() < 0) ? currentHP = 0 : currentHP -= opponent.getAttack(); }
+	virtual void attackEnemy(Character& opponent);
+	int takeDamage(Character& opponent);
 
 	friend std::ostream& operator<<(std::ostream & os, const Character & ch);
 
-private:
+protected:
 	const std::string name;
-	const int maxHP;
+	int maxHP;
 	int currentHP;
-	const int attack;
+	int attack;
 };
 
 #endif
