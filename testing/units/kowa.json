@@ -1,6 +1,7 @@
 {
 	"name": "Kowa",
 	"hp": 4500,
-	"dmg": 6000
+	"dmg": 6000,
+	"attackcooldown": 5.5
 }
 
