@@ -20,7 +20,6 @@ public:
 private:
 	int xp;
 
-	int takeDamage(Character& opponent);
 	void increaseXP(int xpAmmount);
 };
 
