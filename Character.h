@@ -99,7 +99,7 @@ protected:
 	 * \brief The fight takes place in this complex function
 	 * \param opponent
 	*/
-	int attackEnemy(Character& opponent);
+	virtual int attackEnemy(Character& opponent);
 
 	///This function substracts the opponent's attack damage from the character's HP
 	int takeDamage(Character& opponent);
