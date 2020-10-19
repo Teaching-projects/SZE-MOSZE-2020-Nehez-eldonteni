@@ -9,8 +9,8 @@ int main(int argc, char* argv[]) {
 	int round = 0;
 	bool someoneDied = false;
 
-	Character* ch1;
-	Character* ch2;
+	Character* ch1 = nullptr;
+	Character* ch2 = nullptr;
 
 	try {
 		if (argc < 3)
