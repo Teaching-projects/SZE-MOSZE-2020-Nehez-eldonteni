@@ -62,14 +62,14 @@ int main(int argc, char* argv[]) {
 		delete ch1;
 		delete ch2;
 	}
-	catch (FileNotFoundException ex) {
+	catch (FileNotFoundException& ex) {
 		std::cout << ex << std::endl;
 
 		delete ch1;
 		delete ch2;
 
 		return 1;
-	}catch (std::runtime_error e)
+	}catch (std::runtime_error& e)
      {
          std::cout << "Error: " << e.what() << std::endl;
 
