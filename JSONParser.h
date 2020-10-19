@@ -13,12 +13,13 @@ typedef std::map<std::string, std::string> jsonMap;
 class JSONParser
 {
 public:
-	static jsonMap parse(const std::string& text);
-	static jsonMap parse(std::istream& stream);
+	static jsonMap parseFile(const std::string& text);
+	static jsonMap parseString(const std::string& text);
+	static jsonMap parseStream(std::istream& stream);
 
 private:
-	static void cleanJSONWord(std::string& text);
 	static jsonMap stringParse(const std::string& text);
+	static void cleanJSONWord(std::string& text);
 };
 
 #endif

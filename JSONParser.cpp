@@ -1,20 +1,18 @@
 #include "JSONParser.h"
 
 void JSONParser::cleanJSONWord(std::string& text) {
-	int firstQuotMPos = text.find('"');
+	int start = 0;
+	while (start < (int)text.length() && (text[start] == ' ' || text[start] == '\t' ||text[start] == '\"' || text[start] == '{'))
+		start++;
 
-	if (firstQuotMPos >= 0) {
-		int lastQuotMPos = text.find('"', firstQuotMPos + 1);
-		text = text.substr(firstQuotMPos + 1, lastQuotMPos - (firstQuotMPos + 1));
-	}
-	else
-	{
-		int firstChar = text.find_first_not_of(' ');
-		text = text.substr(firstChar, text.find_last_not_of(' ' | ',' | '}') - firstChar + 1);
-	}
+	int end = text.length() - 1;;
+	while (end >= 0 && (text[end] == ' ' || text[end] == '\t' || text[end] == '\"' || text[end] == '}')) 
+		end--;
+
+	text = text.substr(start, end - start + 1);
 }
 
-jsonMap JSONParser::stringParse(const std::string& text)
+jsonMap JSONParser::stringParse(const std::string & text)
 {
 	jsonMap characterData;
 
@@ -44,34 +42,31 @@ jsonMap JSONParser::stringParse(const std::string& text)
 	return characterData;
 }
 
-jsonMap JSONParser::parse(const std::string & text) {
-	std::ifstream ifsJSON(text);
-
-	if (ifsJSON.fail()) {
-		if (text.find('{') < 0)
-			throw FileNotFoundException("Couldn't open file");
-
-		ifsJSON.close();
-		return stringParse(text);
-	}
-	else
-	{
-		std::string line;
-		std::string textFromFile = "";
-
-		while (std::getline(ifsJSON, line)) {
-			textFromFile += line;
-		}
-		
-		ifsJSON.close();
-		return stringParse(textFromFile);
-	}
+jsonMap JSONParser::parseString(const std::string & text) {
+	return stringParse(text);
 }
 
-jsonMap JSONParser::parse(std::istream& stream) {
-	std::string line="";
+jsonMap JSONParser::parseFile(const std::string & text) {
+	std::ifstream ifsJSON(text);
+
+	if (ifsJSON.fail())
+		throw FileNotFoundException("Couldn't open file");
+
+	std::string line;
 	std::string textFromFile = "";
-	while (std::getline(stream, line)){
+
+	while (std::getline(ifsJSON, line)) {
+		textFromFile += line;
+	}
+
+	ifsJSON.close();
+	return stringParse(textFromFile);
+}
+
+jsonMap JSONParser::parseStream(std::istream & stream) {
+	std::string line = "";
+	std::string textFromFile = "";
+	while (std::getline(stream, line)) {
 		textFromFile += line;
 	}
 
