@@ -1,6 +1,7 @@
 {
     "name": "Halis",
-	"hp": 100,
+	"hp": 120,
 	"dmg": 100
+	"attackcooldown": 4.3
 }
 

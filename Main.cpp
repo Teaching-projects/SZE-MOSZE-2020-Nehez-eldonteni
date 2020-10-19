@@ -6,8 +6,6 @@
 #include "FileNotFoundException.h"
 
 int main(int argc, char* argv[]) {
-	int round = 0;
-	bool someoneDied = false;
 
 	Character* ch1 = nullptr;
 	Character* ch2 = nullptr;
@@ -33,32 +31,17 @@ int main(int argc, char* argv[]) {
 			ch2 = new Character(Character::parseUnit(sCh2));
 		}
 
-		do
+		ch1->fight(*ch2);
+
+		if (ch1->isDead())
 		{
-			if (round % 2 == 0)
-			{
-				ch1->attackEnemy(*ch2);
-			}
-			else
-			{
-				ch2->attackEnemy(*ch1);
-			}
+			std::cout << ch2->getName() << " wins. Remaining HP: " << ch2->getCurrentHP() << std::endl;			
+		}
+		else if (ch2->isDead())
+		{
+			std::cout << ch1->getName() << " wins. Remaining HP: " << ch1->getCurrentHP() << std::endl;
+		}
 
-			if (ch1->isDead())
-			{
-				std::cout << ch2->getName() << " wins. Remaining HP: " << ch2->getCurrentHP() << std::endl;
-				someoneDied = true;
-			}
-			else if (ch2->isDead())
-			{
-				std::cout << ch1->getName() << " wins. Remaining HP: " << ch1->getCurrentHP() << std::endl;
-				someoneDied = true;
-			}
-
-			++round;
-
-		} while (!someoneDied);
-		
 		delete ch1;
 		delete ch2;
 	}

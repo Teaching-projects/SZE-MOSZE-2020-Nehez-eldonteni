@@ -17,6 +17,7 @@ void Adventurer::increaseXP(int xpAmmount)
 }
 
 void Adventurer::attackEnemy(Character& opponent){
-	int damageDealt = opponent.takeDamage(*this);
+	int damageDealt = Character::attackEnemy(*this);
+	this->currentCooldown += this->cooldown;
 	increaseXP(damageDealt);
 }

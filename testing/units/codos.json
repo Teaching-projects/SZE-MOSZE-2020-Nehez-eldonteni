@@ -2,4 +2,5 @@
 	"name": "Codos",
 	"hp": 300,
 	"dmg": 70
+	"attackcooldown": 12.5
 }
