@@ -1,3 +1,16 @@
+/**
+ * \class Adventurer
+ * 
+ * \brief Adventurer class
+ * 
+ * \author AnonymDavid
+ * 
+ * \version 1.1
+ * 
+ * \date 2020/10/21 18:59
+ * 
+ * Created on 2020/10/21 18:59
+*/
 #ifndef ADVENTURER_H
 #define ADVENTURER_H
 

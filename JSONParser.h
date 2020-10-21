@@ -1,3 +1,16 @@
+/**
+ * \class JSONParser
+ * 
+ * \brief JSONParser class
+ * 
+ * \author AnonymDavid
+ * 
+ * \version 1.1
+ * 
+ * \date 2020/10/21 18:59
+ * 
+ * Created on 2020/10/21 18:59
+*/
 #ifndef JSONPARSER_H
 #define JSONPARSER_H
 
