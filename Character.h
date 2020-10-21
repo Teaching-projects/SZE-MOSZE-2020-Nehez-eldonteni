@@ -92,7 +92,7 @@ protected:
 	int maxHP;	///< Maximum HP of the character
 	int currentHP;	///< Current HP of the character
 	int attack;	///< Attack damage of the character
-	const double cooldown;	///< Time needed between attacks of the character
+	double cooldown;	///< Time needed between attacks of the character
 	double currentCooldown;	///< Time remaining for the character's next attack
 
 	/**

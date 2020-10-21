@@ -9,7 +9,8 @@ void Adventurer::increaseXP(int xpAmmount)
 	{
 		maxHP = (int)round(maxHP * 1.10);
 		attack = (int)round(attack * 1.10);
-
+		cooldown = cooldown * 0.9;
+		
 		currentHP = maxHP;
 
 		xp -= 100;
