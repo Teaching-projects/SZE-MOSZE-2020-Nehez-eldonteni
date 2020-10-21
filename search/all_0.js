@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['attackenemy',['attackEnemy',['../class_character.html#aa1c70444c2adfc1ec355a737a11aff6b',1,'Character']]]
+  ['adventurer',['Adventurer',['../class_adventurer.html',1,'']]],
+  ['attack',['attack',['../class_character.html#aa383249e76a6d24d83a7129d2c20e169',1,'Character']]],
+  ['attackenemy',['attackEnemy',['../class_adventurer.html#a341288725c23646284fb600c8c650732',1,'Adventurer::attackEnemy()'],['../class_character.html#aedbb23b3bb88a35f048e888a116a6e1b',1,'Character::attackEnemy()']]]
 ];
