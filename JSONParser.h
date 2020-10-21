@@ -18,7 +18,6 @@ public:
 	static jsonMap parseStream(std::istream& stream);
 
 private:
-	static jsonMap stringParse(const std::string& text);
 	static void cleanJSONWord(std::string& text);
 };
 
