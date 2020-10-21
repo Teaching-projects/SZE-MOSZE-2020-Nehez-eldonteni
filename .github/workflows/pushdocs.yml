@@ -6,6 +6,7 @@ on:
       - master
       - attackspeed
       - gh-pages
+      - jsonparser
 
 jobs:
   deploy:
