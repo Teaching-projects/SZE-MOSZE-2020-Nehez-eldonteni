@@ -82,6 +82,12 @@ public:
 	
 
 	void fight(Character& opponent);
+	
+	/**
+	 * \brief The fight takes place in this complex function
+	 * \param opponent
+	*/
+	virtual int attackEnemy(Character& opponent);
 
 	/// Makes the output look better
 	friend std::ostream& operator<<(std::ostream & os, const Character & ch);
@@ -94,12 +100,6 @@ protected:
 	int attack;	///< Attack damage of the character
 	double cooldown;	///< Time needed between attacks of the character
 	double currentCooldown;	///< Time remaining for the character's next attack
-
-	/**
-	 * \brief The fight takes place in this complex function
-	 * \param opponent
-	*/
-	virtual int attackEnemy(Character& opponent);
 
 	///This function substracts the opponent's attack damage from the character's HP
 	int takeDamage(Character& opponent);

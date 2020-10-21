@@ -16,11 +16,11 @@ public:
 	Adventurer(Character ch) :Character(ch.getName(), ch.getMaxHP(), ch.getAttack(), ch.getCooldown()), xp(0) {}
 	~Adventurer(){}
 
-	void increaseXP(int xpAmmount);
+	virtual int attackEnemy(Character& opponent);
 private:
 	int xp;
 
-	virtual int attackEnemy(Character& opponent);
+	void increaseXP(int xpAmmount);
 };
 
 #endif
