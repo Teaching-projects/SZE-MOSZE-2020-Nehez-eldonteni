@@ -3,10 +3,18 @@ name: Output_test
 on: push
 
 jobs:
-        build_and_test:
+        Testing:
                 runs-on: ubuntu-latest
                 steps: 
                 - uses: actions/checkout@v2
-                - run: g++ -std=c++17 *.cpp
+                - run: sudo apt-get install -y valgrind cppcheck
+                - run: cppcheck *.cpp --enable=warning --error-exitcode=1
+                - run: cppcheck *.cpp --enable=warning,style,performance --output-file=testing/styleformance.txt
+                - uses: actions/upload-artifact@v2
+                  with:
+                        name: styleformance
+                        path: ./testing/styleformance.txt
+                - run: clang++ *.cpp -Wall -Wextra
+                - run: valgrind --leak-check=full --error-exitcode=1 ./a.out testing/units/advHalis.json testing/units/codos.json
                 - run: ./testing/diff_script.sh 
 

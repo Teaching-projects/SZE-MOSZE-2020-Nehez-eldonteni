@@ -25,8 +25,7 @@ public:
 	Character(std::string _name, int _maxHP, int _attack, double _cooldown) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack(_attack), cooldown(_cooldown), currentCooldown(_cooldown)
 	{}
 
-	/// Destructor for the class
-	~Character() {}
+	virtual ~Character() {}
 
 	/**
 	 * \brief Simple getter function that returns the name of the character
@@ -40,6 +39,12 @@ public:
 	 * \return The current HP of the character
 	*/
 	int getCurrentHP() const { return currentHP; }
+	/**
+	 * \brief Simple getter function that returns the max HP of the character
+	 * \param none
+	 * \return The max HP of the character
+	*/
+	int getMaxHP() const { return maxHP; }
 	/**
 	 * \brief Simple getter function that returns the attack damage of the character
 	 * \param none
@@ -74,27 +79,30 @@ public:
 	 * This function provides all the data for the program to process like name, hp, dmg and cooldowns.
 	*/
 	static Character parseUnit(const std::string& fileName);
+	
 
+	void fight(Character& opponent);
 	
 	/**
 	 * \brief The fight takes place in this complex function
 	 * \param opponent
 	*/
-	void attackEnemy(Character& opponent);
+	virtual int attackEnemy(Character& opponent);
 
 	/// Makes the output look better
 	friend std::ostream& operator<<(std::ostream & os, const Character & ch);
 
-private:
+
+protected:
 	const std::string name;	///< Name of the character
-	const int maxHP;	///< Maximum HP of the character
+	int maxHP;	///< Maximum HP of the character
 	int currentHP;	///< Current HP of the character
-	const int attack;	///< Attack damage of the character
-	const double cooldown;	///< Time needed between attacks of the character
+	int attack;	///< Attack damage of the character
+	double cooldown;	///< Time needed between attacks of the character
 	double currentCooldown;	///< Time remaining for the character's next attack
 
 	///This function substracts the opponent's attack damage from the character's HP
-	void takeDamage(Character& opponent);
+	int takeDamage(Character& opponent);
 };
 
 #endif

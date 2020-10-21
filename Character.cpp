@@ -3,14 +3,13 @@
 
 #include <string>
 
-
-std::ostream& operator<<(std::ostream& os, const Character& ch) {
+std::ostream &operator<<(std::ostream &os, const Character &ch)
+{
 	os << ch.getName() << ": HP: " << ch.getCurrentHP() << ", DMG: " << ch.getAttack() << ", ATKSPEED: " << ch.getCooldown() << std::endl;
 	return os;
 }
 
-
-Character Character::parseUnit(const std::string& fileName)
+Character Character::parseUnit(const std::string &fileName)
 {
 	std::ifstream ifsJSON(fileName);
 
@@ -45,13 +44,22 @@ Character Character::parseUnit(const std::string& fileName)
 
 	return Character(name, hp, atk, as);
 }
-/**
-	 * \brief This function makes a character take damage from another character by subsractin damage from HP
-	 * \param opponent
-	 * This function is essential for the fight system of the game	 
-	*/
-void Character::takeDamage(Character & opponent) {
-	this->currentHP -= opponent.getAttack();
+
+void Character::fight(Character& opponent){
+	this->attackEnemy(opponent);
+	opponent.attackEnemy(*this);
+
+	while (!(this->isDead()) && !(opponent.isDead()))
+	{
+		if (this->getCurrentCooldown() <= opponent.getCurrentCooldown())
+		{
+			this->attackEnemy(opponent);
+		}
+		else
+		{
+			opponent.attackEnemy(*this);
+		}
+	}
 }
 
 /**
@@ -60,23 +68,34 @@ void Character::takeDamage(Character & opponent) {
  * 
  * In this function the characters attack each other and start their attack cooldowns. They fight until one of them reaches 0 HP and dies.
 */
-void Character::attackEnemy(Character& opponent){
-	opponent.takeDamage(*this);
-	this->takeDamage(opponent);
+int Character::attackEnemy(Character &opponent)
+{
+	int damageDealt = opponent.takeDamage(*this);
+	this->currentCooldown += this->cooldown;
 
-	while (!(this->isDead()) && !(opponent.isDead()))
+	return damageDealt;
+}
+
+/**
+	 * \brief This function makes a character take damage from another character by subsractin damage from HP
+	 * \param opponent
+	 * This function is essential for the fight system of the game	 
+	*/
+int Character::takeDamage(Character &opponent)
+{
+	int damageTaken = 0;
+
+	if (currentHP - opponent.getAttack() < 0)
 	{
-		if (this->getCurrentCooldown() <= opponent.getCurrentCooldown())
-		{
-			opponent.takeDamage(*this);
+		damageTaken = currentHP;
 
-			this->currentCooldown += this->cooldown;
-		}
-		else
-		{
-			this->takeDamage(opponent);
-			
-			opponent.currentCooldown += opponent.cooldown;
-		}
+		currentHP = 0;
 	}
+	else
+	{
+		currentHP -= opponent.getAttack();
+		damageTaken = opponent.getAttack();
+	}
+
+	return damageTaken;
 }
