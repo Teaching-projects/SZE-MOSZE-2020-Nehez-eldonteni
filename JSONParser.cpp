@@ -2,7 +2,7 @@
 
 void JSONParser::cleanJSONWord(std::string& text) {
 	int start = 0;
-	
+
 	int qMarkCount = 0;
 
 	while (start < (int)text.length() && (text[start] == ' ' || text[start] == '\t' ||text[start] == '\"' || text[start] == '{')){
@@ -54,8 +54,8 @@ jsonMap JSONParser::parseString(const std::string & text) {
 	return characterData;
 }
 
-jsonMap JSONParser::parseFile(const std::string & text) {
-	std::ifstream ifsJSON(text);
+jsonMap JSONParser::parseFile(const std::string & fileName) {
+	std::ifstream ifsJSON(fileName);
 
 	if (ifsJSON.fail())
 		throw FileNotFoundException("Couldn't open file");
