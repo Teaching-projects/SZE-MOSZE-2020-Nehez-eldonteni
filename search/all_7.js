@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_character.html#a7232f233b2759b8eadeeabf7b653838f',1,'Character']]]
+  ['nehez_5fdonteni',['nehez_donteni',['../autotoc_md0.html',1,'']]],
+  ['name',['name',['../class_character.html#a1cbd8bdd76b3f41ec82315e95e5bcacd',1,'Character']]]
 ];

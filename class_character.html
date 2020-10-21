@@ -91,6 +91,10 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#ad534c55aa15d730350fa347404683930">Character</a> (std::string _name, int _maxHP, int _attack, double _cooldown)</td></tr>
 <tr class="memdesc:ad534c55aa15d730350fa347404683930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class that puts the input parameters into data members. <br /></td></tr>
 <tr class="separator:ad534c55aa15d730350fa347404683930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ec409c562122c4464e8a9d3be5f6d2"><td class="memItemLeft" align="right" valign="top"><a id="af3ec409c562122c4464e8a9d3be5f6d2"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#af3ec409c562122c4464e8a9d3be5f6d2">~Character</a> ()</td></tr>
+<tr class="memdesc:af3ec409c562122c4464e8a9d3be5f6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for the class. <br /></td></tr>
+<tr class="separator:af3ec409c562122c4464e8a9d3be5f6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad79f892fe576c7ef0804cad502d94517"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#ad79f892fe576c7ef0804cad502d94517">getName</a> () const</td></tr>
 <tr class="memdesc:ad79f892fe576c7ef0804cad502d94517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple getter function that returns the name of the character.  <a href="#ad79f892fe576c7ef0804cad502d94517">More...</a><br /></td></tr>
 <tr class="separator:ad79f892fe576c7ef0804cad502d94517"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,11 +116,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6581a9a16111768ae65603d060fca9d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a6581a9a16111768ae65603d060fca9d7">isDead</a> () const</td></tr>
 <tr class="memdesc:a6581a9a16111768ae65603d060fca9d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns if either a character is dead or not.  <a href="#a6581a9a16111768ae65603d060fca9d7">More...</a><br /></td></tr>
 <tr class="separator:a6581a9a16111768ae65603d060fca9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3196e7403fd8139e5b72127f3d8e4d4a"><td class="memItemLeft" align="right" valign="top"><a id="a3196e7403fd8139e5b72127f3d8e4d4a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>fight</b> (<a class="el" href="class_character.html">Character</a> &amp;opponent)</td></tr>
+<tr class="memitem:a3196e7403fd8139e5b72127f3d8e4d4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a3196e7403fd8139e5b72127f3d8e4d4a">fight</a> (<a class="el" href="class_character.html">Character</a> &amp;opponent)</td></tr>
+<tr class="memdesc:a3196e7403fd8139e5b72127f3d8e4d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fight takes place in this complex function.  <a href="#a3196e7403fd8139e5b72127f3d8e4d4a">More...</a><br /></td></tr>
 <tr class="separator:a3196e7403fd8139e5b72127f3d8e4d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbb23b3bb88a35f048e888a116a6e1b"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#aedbb23b3bb88a35f048e888a116a6e1b">attackEnemy</a> (<a class="el" href="class_character.html">Character</a> &amp;opponent)</td></tr>
-<tr class="memdesc:aedbb23b3bb88a35f048e888a116a6e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fight takes place in this complex function.  <a href="#aedbb23b3bb88a35f048e888a116a6e1b">More...</a><br /></td></tr>
+<tr class="memdesc:aedbb23b3bb88a35f048e888a116a6e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function attacks another character and sets cooldown for next attack.  <a href="#aedbb23b3bb88a35f048e888a116a6e1b">More...</a><br /></td></tr>
 <tr class="separator:aedbb23b3bb88a35f048e888a116a6e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -128,7 +132,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a285823deb7eaeab888477594a10b6626"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_character.html#a285823deb7eaeab888477594a10b6626">takeDamage</a> (<a class="el" href="class_character.html">Character</a> &amp;opponent)</td></tr>
-<tr class="memdesc:a285823deb7eaeab888477594a10b6626"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function substracts the opponent's attack damage from the character's HP.  <a href="#a285823deb7eaeab888477594a10b6626">More...</a><br /></td></tr>
+<tr class="memdesc:a285823deb7eaeab888477594a10b6626"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function makes a character take damage from another character by subsracting damage from HP.  <a href="#a285823deb7eaeab888477594a10b6626">More...</a><br /></td></tr>
 <tr class="separator:a285823deb7eaeab888477594a10b6626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -196,16 +200,42 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </table>
 </div><div class="memdoc">
 
-<p>The fight takes place in this complex function. </p>
+<p>This function attacks another character and sets cooldown for next attack. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">opponent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The damage inflicted on the opponent. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_adventurer.html#a341288725c23646284fb600c8c650732">Adventurer</a>.</p>
+
+</div>
+</div>
+<a id="a3196e7403fd8139e5b72127f3d8e4d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3196e7403fd8139e5b72127f3d8e4d4a">&#9670;&nbsp;</a></span>fight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Character::fight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_character.html">Character</a> &amp;&#160;</td>
+          <td class="paramname"><em>opponent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The fight takes place in this complex function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">opponent</td><td>In this function the characters attack each other and start their attack cooldowns. They fight until one of them reaches 0 HP and dies. </td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Reimplemented in <a class="el" href="class_adventurer.html#a341288725c23646284fb600c8c650732">Adventurer</a>.</p>
 
 </div>
 </div>
@@ -507,8 +537,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </table>
 </div><div class="memdoc">
 
-<p>This function substracts the opponent's attack damage from the character's HP. </p>
-<p>This function makes a character take damage from another character by subsractin damage from HP.</p>
+<p>This function makes a character take damage from another character by subsracting damage from HP. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">opponent</td><td>This function is essential for the fight system of the game </td></tr>

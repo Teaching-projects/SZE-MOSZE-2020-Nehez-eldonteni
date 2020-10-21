@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parseunit',['parseUnit',['../class_character.html#af16c7d51499cd062ba109a257f593607',1,'Character']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../class_character.html#a7232f233b2759b8eadeeabf7b653838f',1,'Character']]]
 ];
