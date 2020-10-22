@@ -15,6 +15,8 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
+#include "JSONParser.h"
+
 #include <iostream>
 #include <fstream>
 
@@ -24,7 +26,7 @@ public:
 	/// Constructor for the class that puts the input parameters into data members
 	Character(std::string _name, int _maxHP, int _attack, double _cooldown) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack(_attack), cooldown(_cooldown), currentCooldown(_cooldown)
 	{}
-
+	/// Virtual destructor for the class
 	virtual ~Character() {}
 
 	/**
@@ -80,12 +82,18 @@ public:
 	*/
 	static Character parseUnit(const std::string& fileName);
 	
-
-	void fight(Character& opponent);
-	
 	/**
 	 * \brief The fight takes place in this complex function
 	 * \param opponent
+	 * 
+	 * In this function the characters attack each other and start their attack cooldowns. They fight until one of them reaches 0 HP and dies.
+	*/
+	void fight(Character& opponent);
+	
+	/**
+	 * \brief This function attacks another character and sets cooldown for next attack.
+	 * \param opponent
+	 * \return The damage inflicted on the opponent.
 	*/
 	virtual int attackEnemy(Character& opponent);
 
@@ -101,7 +109,11 @@ protected:
 	double cooldown;	///< Time needed between attacks of the character
 	double currentCooldown;	///< Time remaining for the character's next attack
 
-	///This function substracts the opponent's attack damage from the character's HP
+	/**
+	 * \brief This function makes a character take damage from another character by subsracting damage from HP
+	 * \param opponent
+	 * This function is essential for the fight system of the game	 
+	*/
 	int takeDamage(Character& opponent);
 };
 
