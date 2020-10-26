@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - master
-      - attackspeed
+      - documentation
       - gh-pages
-      - jsonparser
 
 jobs:
   deploy:
