@@ -1,14 +1,7 @@
 name:  pushdocs.yml
 
 on:
-  push:
-    branches:
-      - master
-      - documentation
-      - gh-pages
-      - unittests
-      - refactor
-      - unittests
+  push
 
 jobs:
   deploy:
