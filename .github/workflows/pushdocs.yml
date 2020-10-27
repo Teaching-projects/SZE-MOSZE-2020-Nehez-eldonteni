@@ -6,6 +6,9 @@ on:
       - master
       - documentation
       - gh-pages
+      - unittests
+      - refactor
+      - unittests
 
 jobs:
   deploy:
