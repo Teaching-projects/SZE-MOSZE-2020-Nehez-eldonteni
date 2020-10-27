@@ -1,12 +1,7 @@
 name:  pushdocs.yml
 
 on:
-  push:
-    branches:
-      - master
-      - attackspeed
-      - gh-pages
-      - jsonparser
+  push
 
 jobs:
   deploy:

@@ -5,6 +5,10 @@
 #include "Adventurer.h"
 #include "FileNotFoundException.h"
 
+/**
+ * This is the main file where the action takes place
+*/
+
 int main(int argc, char* argv[]) {
 
 	Character* ch1 = nullptr;
