@@ -5,7 +5,7 @@ void JSONParser::cleanJSONWord(std::string& text) {
 
 	int qMarkCount = 0;
 
-	while (start < (int)text.length() && (text[start] == ' ' || text[start] == '\t' ||text[start] == '\"' || text[start] == '{')){
+	while (start < (int)text.length() && (text[start] == ' ' || text[start] == '\t' || text[start] == '\"' || text[start] == '{')){
 		if (text[start] == '\"')
 			qMarkCount++;
 		start++;
@@ -30,6 +30,10 @@ jsonMap JSONParser::parseString(const std::string & text) {
 
 	int currentSearchPos = 0;
 
+	int colonCount = 0;
+	int commaCount = 0;
+	int dataCount = 0;
+
 	while (currentSearchPos < (int)text.length())
 	{
 		int colonPos = text.find(':', currentSearchPos);
@@ -37,8 +41,12 @@ jsonMap JSONParser::parseString(const std::string & text) {
 
 		if (commaPos < 0)
 			commaPos = text.length();
+		else
+			commaCount++;
 
 		if (colonPos >= 0) {
+			colonCount++;
+
 			std::string key = text.substr(currentSearchPos, colonPos - currentSearchPos);
 			std::string value = text.substr(colonPos + 1, commaPos - (colonPos + 1));
 
@@ -46,10 +54,15 @@ jsonMap JSONParser::parseString(const std::string & text) {
 			cleanJSONWord(value);
 
 			characterData[key] = value;
+
+			dataCount++;
 		}
 
 		currentSearchPos = commaPos + 1;
 	}
+
+	if(dataCount != colonCount || commaCount != colonCount - 1)
+		throw std::runtime_error("Wrong JSON syntax!");
 
 	return characterData;
 }
