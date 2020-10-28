@@ -1,0 +1,14 @@
+name: JSONParse_tests
+
+on: push
+
+jobs:
+        build_and_run_tests:
+                runs-on: ubuntu-latest
+                steps: 
+                - uses: actions/checkout@v2
+                - run: sudo apt install libgtest-dev
+                - run: sudo apt install cmake
+
+                - run: make codeTests
+
