@@ -16,5 +16,4 @@ jobs:
                 - run: make
                 - run: make valgrind
                 - run: make outputTests
-                - run: [[ "$(diff testing/fight.txt testing/manual_calculation.txt)" = "" ]] && echo "Successful comparison! No difference between files." && exit 0 || echo "Something went wrong! There is a difference." && exit 1
-
+                - run: if [ "$(diff testing/fight.txt testing/manual_calculation.txt)" = "" ]; then echo "Successful comparison! No difference between files." && exit 0; else echo "Something went wrong! There is a difference." && exit 1; fi
