@@ -45,7 +45,7 @@ int main(int argc, char** argv){
                 std::back_inserter(monster_files));
         }
     } catch (const JSON::ParseException& e) {bad_exit(4);}
-
+    
     try { 
         Hero hero{Hero::parse(hero_file)};
         std::list<Monster> monsters;
