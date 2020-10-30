@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['getattack',['getAttack',['../class_character.html#aaaa4b78668224b53fa593afe0a818cd1',1,'Character']]],
-  ['getcooldown',['getCooldown',['../class_character.html#a0157dd2c927064b7551b98a9c5a41308',1,'Character']]],
-  ['getcurrentcooldown',['getCurrentCooldown',['../class_character.html#a0f14c32cce50838c74f34f1cdd66ee78',1,'Character']]],
-  ['getcurrenthp',['getCurrentHP',['../class_character.html#a678ad66c929f2dd8e5d33663be8a1f7a',1,'Character']]],
-  ['getmaxhp',['getMaxHP',['../class_character.html#a6eedfaea70dc15a219b3dc8f646d3e23',1,'Character']]],
-  ['getname',['getName',['../class_character.html#ad79f892fe576c7ef0804cad502d94517',1,'Character']]]
+  ['getattackcooldown',['getAttackCoolDown',['../class_monster.html#ad84dbe06c7a2aa7f75164dd9db52daf3',1,'Monster']]],
+  ['getcurrentcooldown',['getCurrentCooldown',['../class_monster.html#a5d50addb9eec96898dc7754b7dd87e22',1,'Monster']]],
+  ['getdamage',['getDamage',['../class_monster.html#a5872e19f684e0a81ead15da3e82992ad',1,'Monster']]],
+  ['gethealthpoints',['getHealthPoints',['../class_monster.html#acbfb552014439fe02d10f2492e60fe34',1,'Monster']]],
+  ['getmaxhealthpoints',['getMaxHealthPoints',['../class_monster.html#a40a95011990070ee04c4e4518ad8a668',1,'Monster']]],
+  ['getname',['getName',['../class_monster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]]
 ];

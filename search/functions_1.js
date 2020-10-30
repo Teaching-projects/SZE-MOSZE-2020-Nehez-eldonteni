@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['character',['Character',['../class_character.html#ad534c55aa15d730350fa347404683930',1,'Character']]]
+  ['fighttildeath',['fightTilDeath',['../class_monster.html#a2d5460f3c1dadc9d1a7a21bf16fc7824',1,'Monster']]]
 ];
