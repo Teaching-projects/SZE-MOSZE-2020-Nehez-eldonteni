@@ -28,9 +28,9 @@ memcheck:
 outputTests:
 	> testing/fight.txt
 
-	./a.out scenario1.json >> testing/fight.txt
+	./game scenario1.json >> testing/fight.txt
 	echo "" >> testing/fight.txt
-	./a.out scenario2.json >> testing/fight.txt
+	./game scenario2.json >> testing/fight.txt
 
 	if [ "$$(diff testing/fight.txt testing/manual_calculation.txt)" = "" ]; then echo "Successful comparison! No difference between files." && exit 0; else echo "Something went wrong! There is a difference." && exit 1; fi
 
