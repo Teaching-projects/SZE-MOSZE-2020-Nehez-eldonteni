@@ -1,10 +1,10 @@
 OBJS := Monster.o Hero.o Main.o JSON.o
 
 build: $(OBJS)
-	g++ -std=c++17 -Wall -Wextra -o game $(OBJS)
+	g++ -fPIC -std=c++17 -Wall -Wextra -o game $(OBJS)
 
 Main.o: Main.cpp
-	clang++ -std=c++17 -Wall -Wextra -c Main.cpp
+	clang++ -fPIC -std=c++17 -Wall -Wextra -c Main.cpp
 
 JSON.o: JSON.cpp JSON.h
 	g++ -std=c++17 -Wall -Wextra -c JSON.cpp
