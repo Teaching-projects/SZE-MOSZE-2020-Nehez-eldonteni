@@ -15,6 +15,6 @@ jobs:
                         name: styleformance
                         path: ./testing/styleformance.txt
                 - run: clang++ *.cpp -Wall -Wextra
-                - run: valgrind --leak-check=full --error-exitcode=1 ./a.out testing/units/advHalis.json testing/units/codos.json
+                - run: valgrind --leak-check=full --error-exitcode=1 ./a.out scenario1.json
                 - run: ./testing/diff_script.sh 
 

@@ -1,15 +1,12 @@
 #!/bin/bash
 
-cd testing/ && > fight.txt
+> testing/fight.txt
 
-../a.out units/advHalis.json units/codos.json >> fight.txt
-../a.out units/advHalis.json units/kowa.json >> fight.txt
-../a.out units/codos.json units/advHalis.json >> fight.txt
-../a.out units/codos.json units/kowa.json >> fight.txt
-../a.out units/kowa.json units/advHalis.json >> fight.txt
-../a.out units/kowa.json units/codos.json >> fight.txt
+./a.out scenario1.json >> testing/fight.txt
+echo "" >> testing/fight.txt
+./a.out scenario2.json >> testing/fight.txt
 
-DIFF=$(diff fight.txt manual_calculation.txt)
+DIFF=$(diff testing/fight.txt testing/manual_calculation.txt)
 if [ "$DIFF" == "" ]; then
 	echo "Successful comparison! No difference between files."
 	exit 0

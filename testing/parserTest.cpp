@@ -1,83 +1,50 @@
 #include <gtest/gtest.h>
 
-#include "../JSONParser.h"
+#include "../JSON.h"
 
 TEST(MulTest, stringTest) {
-	std::string JSONText = "{\"name\": \"Halis\",\"hp\": 8600,\"dmg\": 6900,\"attackcooldown\": 4.3}}";
+	std::string JSONText = "{\"name\": \"Halis\",\"health_points\": 8600,\"damage\": 6900,\"attack_cooldown\": 4.3}}";
 	
-    std::map<std::string, std::string> actual;
-    std::map<std::string, std::string> expected {
-        {"name", "Halis"},
-        {"hp", "8600"},
-        {"dmg", "6900"},
-        {"attackcooldown", "4.3"}
-    };
+    JSON actual = JSON::parseFromString(JSONText);
 
-    actual = JSONParser::parseString(JSONText);
-
-    ASSERT_EQ(expected.size(), actual.size());
-
-    for(auto data : expected){
-        ASSERT_EQ(actual[data.first], data.second);
-    }
+    ASSERT_EQ(actual.get<std::string>("name"), "Halis");
+    ASSERT_EQ(actual.get<int>("health_points"), 8600);
+    ASSERT_EQ(actual.get<int>("damage"), 6900);
+    ASSERT_EQ(actual.get<double>("attack_cooldown"), 4.3);
 }
 
 TEST(MulTest, fileTest) {
 	std::string filename = "units/kowa.json";
 	
-	std::map<std::string, std::string> actual;
-    std::map<std::string, std::string> expected {
-        {"name", "Kowa"},
-        {"hp", "200"},
-        {"dmg", "85"},
-        {"attackcooldown", "5.5"}
-    };
-	
-    actual = JSONParser::parseFile(filename);
-    
-    ASSERT_EQ(expected.size(), actual.size());
+    JSON actual = JSON::parseFromFile(filename);
 
-    for(auto data : expected){
-        ASSERT_EQ(actual[data.first], data.second);
-    }
+    ASSERT_EQ(actual.get<std::string>("name"), "Kowa");
+    ASSERT_EQ(actual.get<int>("health_points"), 200);
+    ASSERT_EQ(actual.get<int>("damage"), 85);
+    ASSERT_EQ(actual.get<double>("attack_cooldown"), 5.5);
 }
 
 TEST(MulTest, streamTest) {
-	
-	std::map<std::string, std::string> actual;
-    std::map<std::string, std::string> expected {
-        {"name", "Codos"},
-        {"hp", "300"},
-        {"dmg", "70"},
-        {"attackcooldown", "12.5"}
-    };
 	std::fstream file("units/codos.json");
     
-    actual = JSONParser::parseStream(file);
+    JSON actual = JSON::parseFromStream(file);
 
-    ASSERT_EQ(expected.size(), actual.size());
-
-    for(auto data : expected){
-        ASSERT_EQ(actual[data.first], data.second);
-    }
+    ASSERT_EQ(actual.get<std::string>("name"), "Codos");
+    ASSERT_EQ(actual.get<int>("health_points"), 300);
+    ASSERT_EQ(actual.get<int>("damage"), 70);
+    ASSERT_EQ(actual.get<double>("attack_cooldown"), 12.5);
 }
 
 TEST(MulTest, syntaxErrorTest) {
 	try{
         std::string filename = "units/badkowa.json";
-	
-        std::map<std::string, std::string> actual;
-        std::map<std::string, std::string> expected {
-            {"name", "Kowa"},
-            {"hp", "200"},
-            {"dmg", "85"},
-            {"attackcooldown", "5.5"}
-        };
         
-        actual = JSONParser::parseFile(filename);
+        JSON actual = JSON::parseFromFile(filename);
+        
+        ASSERT_TRUE(false);
     }
-    catch (std::runtime_error& e){
-        ASSERT_STREQ(e.what(), "Wrong JSON syntax!");
+    catch (JSON::ParseException& e){
+        ASSERT_TRUE(true);
     }
 }
 
