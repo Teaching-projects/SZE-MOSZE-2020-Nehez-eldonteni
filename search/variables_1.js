@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cooldown',['cooldown',['../class_monster.html#a1ba3290bba498348fdc00e92fcee7728',1,'Monster']]],
-  ['currentcooldown',['currentCooldown',['../class_monster.html#a16a270ab914231602914b4110be2beb0',1,'Monster']]],
-  ['currenthp',['currentHP',['../class_monster.html#a36312995e0db390b1ce7cc75baf8cd9f',1,'Monster']]]
+  ['cooldown',['cooldown',['../class_character.html#a38f902cbfcc09caa30f95170025c6ca0',1,'Character']]],
+  ['currentcooldown',['currentCooldown',['../class_character.html#a1939ea118aba97e823a1da65af009ead',1,'Character']]],
+  ['currenthp',['currentHP',['../class_character.html#a94c828a56970fdba54a2fb277c43129f',1,'Character']]]
 ];

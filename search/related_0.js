@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_monster.html#adced22bfe10d1e8e29fa82ea9489d8e8',1,'Monster']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../class_character.html#a7232f233b2759b8eadeeabf7b653838f',1,'Character']]]
 ];
