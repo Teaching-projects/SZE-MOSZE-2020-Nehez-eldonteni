@@ -1,4 +1,4 @@
-name: JSONParse_tests
+name: code_tests
 
 on: push
 

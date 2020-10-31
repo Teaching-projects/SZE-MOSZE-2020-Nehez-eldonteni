@@ -1,6 +1,6 @@
 {
 	"name": "Codos",
-	"hp": 300,
-	"dmg": 70,
-	"attackcooldown": 12.5
+	"health_points": 300,
+	"damage": 70,
+	"attack_cooldown": 12.5
 }

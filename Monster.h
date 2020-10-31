@@ -67,7 +67,7 @@ public:
 	double getCurrentCooldown() const { return currentCooldown; }
 
 	/**
-	 * \brief This function resets the cooldown
+	 * \brief This function resets the attack cooldown of the monster
 	 * \param none
 	*/
 	void resetCooldown() {
@@ -75,9 +75,9 @@ public:
 	}
 
 	/**
-	 * \brief This function returns if either a Monster is dead or not
+	 * \brief This function returns if either a Monster is alive or dead
 	 * \param none
-	 * \return True or false value based on the Monster's state(dead or not)
+	 * \return True or false value based on the Monster's state(alive or dead)
 	*/
 	bool isAlive() const { return currentHP > 0; }
 
@@ -99,7 +99,7 @@ public:
 	void fightTilDeath(Monster& opponent);
 	
 	/**
-	 * \brief This function attacks another Monster and sets cooldown for next attack.
+	 * \brief This function attacks another Monster.
 	 * \param opponent
 	 * \return The damage inflicted on the opponent.
 	*/

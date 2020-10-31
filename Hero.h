@@ -28,15 +28,25 @@ public:
 		:Monster(_name, _maxHP, _attack, _cooldown), 
 		xp(0), level(1), xpPerLevel(_xpPerLevel), hpPerLevel(_hpPerLevel), damagePerLevel(_damagePerLevel), cdMultiplierPerLevel(_cdMultiplierPerLevel) {}
 
-	/// Second constructor for the class that lets you make an Adverturer object from a Character object.
+	/// Second constructor for the class that lets you make a Hero object from a Monster object.
 	Hero(Monster ch) :Monster(ch.getName(), ch.getMaxHealthPoints(), ch.getDamage(), ch.getAttackCoolDown()), 
 	xp(0), level(1), xpPerLevel(0), hpPerLevel(0), damagePerLevel(0), cdMultiplierPerLevel(0) {}
 
 	/// Destruktor for the class.
 	~Hero(){}
 	
+	/**
+	 * \brief This function is an override of the parse function in the base class.
+	 * \param opponent
+	 * \return A Hero object from the input 
+	*/
 	static Hero parse(const std::string& fileName);
 
+	/**
+	 * \brief This function returns the level of the Hero.
+	 * \param opponent
+	 * \return The level of the hero.
+	*/
 	int getLevel() const { return level; }
 
 	/**
@@ -48,18 +58,18 @@ public:
 	*/
 	virtual int attackEnemy(Monster& opponent);
 private:
-	int xp;
-	int level;
-	double xpPerLevel;
-	double hpPerLevel;
-	double damagePerLevel;
-	double cdMultiplierPerLevel;
+	int xp; ///< Experience points of the Hero
+	int level; ///< Level of the Hero
+	double xpPerLevel; ///< The required XP ammount needed for levelup
+	double hpPerLevel; ///< Ammount of HP gain on levelup
+	double damagePerLevel; ///< Ammount of damage gain on levelup
+	double cdMultiplierPerLevel; ///< Multiplier for attack cooldown on levelup
 	
 	/**
 	 * \brief This function increases the xp ammount of this object and checks for levelup. 
 	 * \param opponent
 	 * 
-	 * In this function if the Monster reached the required ammount of xp (100) it levels up, raising its max hp, attack by 10%, heals to full and lowers its cooldown by 10%.
+	 * In this function if the Hero reached the required ammount of xp (xpPerLevel) it levels up, raising its max hp, attack, heals to full and lowers its cooldown.
 	*/
 	void increaseXP(int xpAmmount);
 };
