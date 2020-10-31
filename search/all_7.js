@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nehez_5fdonteni',['nehez_donteni',['../autotoc_md0.html',1,'']]],
-  ['name',['name',['../class_character.html#a1cbd8bdd76b3f41ec82315e95e5bcacd',1,'Character']]]
+  ['maxhp',['maxHP',['../class_monster.html#a21dc0aa9f78dbffb7f1a1e0048dfbd4a',1,'Monster']]],
+  ['monster',['Monster',['../class_monster.html',1,'Monster'],['../class_monster.html#a03cb50af9ec659b9a1ba79193861ddc9',1,'Monster::Monster()']]]
 ];

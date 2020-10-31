@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['adventurer',['Adventurer',['../class_adventurer.html#a6de0acff615f68d966081e09df954e17',1,'Adventurer::Adventurer(std::string _name, int _maxHP, int _attack, double _cooldown)'],['../class_adventurer.html#a6b56968104d6e57c03229b413ad1b99e',1,'Adventurer::Adventurer(Character ch)']]],
-  ['attackenemy',['attackEnemy',['../class_adventurer.html#a341288725c23646284fb600c8c650732',1,'Adventurer::attackEnemy()'],['../class_character.html#aedbb23b3bb88a35f048e888a116a6e1b',1,'Character::attackEnemy()']]]
+  ['attackenemy',['attackEnemy',['../class_hero.html#a084850e5fcd438d000ea1d411e70f5bf',1,'Hero::attackEnemy()'],['../class_monster.html#a1ef1eba5e12b55fc24ec0d9893cbaa6e',1,'Monster::attackEnemy()']]]
 ];

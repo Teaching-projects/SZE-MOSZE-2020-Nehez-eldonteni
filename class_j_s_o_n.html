@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Nehez eldonteni: JSONParser Class Reference</title>
+<title>Nehez eldonteni: JSON Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,39 +61,59 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="class_j_s_o_n_parser-members.html">List of all members</a>  </div>
+<a href="class_j_s_o_n-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">JSONParser Class Reference</div>  </div>
+<div class="title">JSON Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_j_s_o_n_parser.html" title="JSONParser class. ">JSONParser</a> class.  
- <a href="class_j_s_o_n_parser.html#details">More...</a></p>
+<p><a class="el" href="class_j_s_o_n.html" title="JSON class. ">JSON</a> class.  
+ <a href="class_j_s_o_n.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_j_s_o_n_8h_source.html">JSON.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n_1_1_parse_exception.html">ParseException</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa2fc10324dada992c7d94096f3a39833"><td class="memItemLeft" align="right" valign="top"><a id="aa2fc10324dada992c7d94096f3a39833"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>JSON</b> (jsonMap _jsonData)</td></tr>
+<tr class="separator:aa2fc10324dada992c7d94096f3a39833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95c8567c7aa2e21dc93a9d4edbd6d32"><td class="memItemLeft" align="right" valign="top"><a id="aa95c8567c7aa2e21dc93a9d4edbd6d32"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>count</b> (std::string key)</td></tr>
+<tr class="separator:aa95c8567c7aa2e21dc93a9d4edbd6d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e05c25394240770da452ee6c13ed5bf"><td class="memTemplParams" colspan="2"><a id="a6e05c25394240770da452ee6c13ed5bf"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6e05c25394240770da452ee6c13ed5bf"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (std::string key)</td></tr>
+<tr class="separator:a6e05c25394240770da452ee6c13ed5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a71e5c54a6ffb7b98b152c9e71b3381f6"><td class="memItemLeft" align="right" valign="top">static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n_parser.html#a71e5c54a6ffb7b98b152c9e71b3381f6">parseFile</a> (const std::string &amp;fileName)</td></tr>
-<tr class="memdesc:a71e5c54a6ffb7b98b152c9e71b3381f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads data from file.  <a href="#a71e5c54a6ffb7b98b152c9e71b3381f6">More...</a><br /></td></tr>
-<tr class="separator:a71e5c54a6ffb7b98b152c9e71b3381f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a161980fd83202073742116a06e9355ca"><td class="memItemLeft" align="right" valign="top">static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n_parser.html#a161980fd83202073742116a06e9355ca">parseString</a> (const std::string &amp;text)</td></tr>
-<tr class="memdesc:a161980fd83202073742116a06e9355ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads data from string.  <a href="#a161980fd83202073742116a06e9355ca">More...</a><br /></td></tr>
-<tr class="separator:a161980fd83202073742116a06e9355ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c36f9a8d9b3ad339c660a216f882e1"><td class="memItemLeft" align="right" valign="top">static jsonMap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n_parser.html#ae7c36f9a8d9b3ad339c660a216f882e1">parseStream</a> (std::istream &amp;stream)</td></tr>
-<tr class="memdesc:ae7c36f9a8d9b3ad339c660a216f882e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads data from istream.  <a href="#ae7c36f9a8d9b3ad339c660a216f882e1">More...</a><br /></td></tr>
-<tr class="separator:ae7c36f9a8d9b3ad339c660a216f882e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc450ba5a4dd1c69754408c55d22da4c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_j_s_o_n.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#abc450ba5a4dd1c69754408c55d22da4c">parseFromFile</a> (const std::string &amp;fileName)</td></tr>
+<tr class="memdesc:abc450ba5a4dd1c69754408c55d22da4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads data from file.  <a href="#abc450ba5a4dd1c69754408c55d22da4c">More...</a><br /></td></tr>
+<tr class="separator:abc450ba5a4dd1c69754408c55d22da4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27bac8830e4e679f4085732a6922e6a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_j_s_o_n.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#ac27bac8830e4e679f4085732a6922e6a">parseFromString</a> (const std::string &amp;text)</td></tr>
+<tr class="memdesc:ac27bac8830e4e679f4085732a6922e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads data from string.  <a href="#ac27bac8830e4e679f4085732a6922e6a">More...</a><br /></td></tr>
+<tr class="separator:ac27bac8830e4e679f4085732a6922e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758c56273583ac45534be352849a7879"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_j_s_o_n.html">JSON</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a758c56273583ac45534be352849a7879">parseFromStream</a> (std::istream &amp;stream)</td></tr>
+<tr class="memdesc:a758c56273583ac45534be352849a7879"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function reads data from istream.  <a href="#a758c56273583ac45534be352849a7879">More...</a><br /></td></tr>
+<tr class="separator:a758c56273583ac45534be352849a7879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_j_s_o_n_parser.html" title="JSONParser class. ">JSONParser</a> class. </p>
+<div class="textblock"><p><a class="el" href="class_j_s_o_n.html" title="JSON class. ">JSON</a> class. </p>
 <dl class="section author"><dt>Author</dt><dd>AnonymDavid</dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.1</dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020/10/21 18:59</dd></dl>
 <p>Created on 2020/10/21 18:59 </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a71e5c54a6ffb7b98b152c9e71b3381f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71e5c54a6ffb7b98b152c9e71b3381f6">&#9670;&nbsp;</a></span>parseFile()</h2>
+<a id="abc450ba5a4dd1c69754408c55d22da4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc450ba5a4dd1c69754408c55d22da4c">&#9670;&nbsp;</a></span>parseFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,7 +122,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">jsonMap JSONParser::parseFile </td>
+          <td class="memname"><a class="el" href="class_j_s_o_n.html">JSON</a> JSON::parseFromFile </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>fileName</em></td><td>)</td>
@@ -127,8 +147,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae7c36f9a8d9b3ad339c660a216f882e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7c36f9a8d9b3ad339c660a216f882e1">&#9670;&nbsp;</a></span>parseStream()</h2>
+<a id="a758c56273583ac45534be352849a7879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758c56273583ac45534be352849a7879">&#9670;&nbsp;</a></span>parseFromStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +157,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">jsonMap JSONParser::parseStream </td>
+          <td class="memname"><a class="el" href="class_j_s_o_n.html">JSON</a> JSON::parseFromStream </td>
           <td>(</td>
           <td class="paramtype">std::istream &amp;&#160;</td>
           <td class="paramname"><em>stream</em></td><td>)</td>
@@ -162,8 +182,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a161980fd83202073742116a06e9355ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a161980fd83202073742116a06e9355ca">&#9670;&nbsp;</a></span>parseString()</h2>
+<a id="ac27bac8830e4e679f4085732a6922e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27bac8830e4e679f4085732a6922e6a">&#9670;&nbsp;</a></span>parseFromString()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +192,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">jsonMap JSONParser::parseString </td>
+          <td class="memname"><a class="el" href="class_j_s_o_n.html">JSON</a> JSON::parseFromString </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>text</em></td><td>)</td>
