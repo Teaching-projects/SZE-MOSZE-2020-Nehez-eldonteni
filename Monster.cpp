@@ -1,49 +1,50 @@
-#include "Character.h"
-#include "FileNotFoundException.h"
+#include "Monster.h"
 
 #include <string>
 
-std::ostream &operator<<(std::ostream &os, const Character &ch)
+std::ostream &operator<<(std::ostream &os, const Monster &ch)
 {
-	os << ch.getName() << ": HP: " << ch.getCurrentHP() << ", DMG: " << ch.getAttack() << ", ATKSPEED: " << ch.getCooldown() << std::endl;
+	os << ch.getName() << ": HP: " << ch.getHealthPoints() << ", DMG: " << ch.getDamage() << ", ATKSPEED: " << ch.getAttackCoolDown() << std::endl;
 	return os;
 }
 
-Character Character::parseUnit(const std::string& text) {
-	jsonMap characterData = JSONParser::parseFile(text);
-	return Character(characterData["name"], std::stoi(characterData["hp"]), std::stoi(characterData["dmg"]), std::stod(characterData["attackcooldown"]));
+Monster Monster::parse(const std::string& text) {
+	JSON data = JSON::parseFromFile(text);
+	
+	return Monster(data.get<std::string>("name"), data.get<int>("health_points"), data.get<int>("damage"),  data.get<double>("attack_cooldown"));
 }
 
-void Character::fight(Character& opponent){
-	this->attackEnemy(opponent);
-	opponent.attackEnemy(*this);
+void Monster::fightTilDeath(Monster& opponent){
+	this->resetCooldown();
+	opponent.resetCooldown();
 
-	while (!(this->isDead()) && !(opponent.isDead()))
+	while (this->isAlive() && opponent.isAlive())
 	{
 		if (this->getCurrentCooldown() <= opponent.getCurrentCooldown())
 		{
 			this->attackEnemy(opponent);
+			this->currentCooldown += this->cooldown;
 		}
 		else
 		{
 			opponent.attackEnemy(*this);
+			opponent.currentCooldown += opponent.cooldown;
 		}
 	}
 }
 
-int Character::attackEnemy(Character &opponent)
+int Monster::attackEnemy(Monster &opponent)
 {
 	int damageDealt = opponent.takeDamage(*this);
-	this->currentCooldown += this->cooldown;
 
 	return damageDealt;
 }
 
-int Character::takeDamage(Character &opponent)
+int Monster::takeDamage(Monster &opponent)
 {
 	int damageTaken = 0;
 
-	if (currentHP - opponent.getAttack() < 0)
+	if (currentHP - opponent.getDamage() < 0)
 	{
 		damageTaken = currentHP;
 
@@ -51,8 +52,8 @@ int Character::takeDamage(Character &opponent)
 	}
 	else
 	{
-		currentHP -= opponent.getAttack();
-		damageTaken = opponent.getAttack();
+		currentHP -= opponent.getDamage();
+		damageTaken = opponent.getDamage();
 	}
 
 	return damageTaken;

@@ -1,6 +1,6 @@
-#include "JSONParser.h"
+#include "JSON.h"
 
-void JSONParser::cleanJSONWord(std::string& text) {
+void JSON::cleanJSONWord(std::string& text) {
 	int start = 0;
 
 	int qMarkCount = 0;
@@ -19,13 +19,13 @@ void JSONParser::cleanJSONWord(std::string& text) {
 	}
 
 	if (qMarkCount % 2 != 0 || qMarkCount > 2){
-		throw std::runtime_error("Wrong JSON syntax!");
+		throw ParseException("Wrong JSON syntax!");
 	}
 
 	text = text.substr(start, end - start + 1);
 }
 
-jsonMap JSONParser::parseString(const std::string & text) {
+JSON JSON::parseFromString(const std::string & text) {
 	jsonMap characterData;
 
 	int currentSearchPos = 0;
@@ -37,12 +37,22 @@ jsonMap JSONParser::parseString(const std::string & text) {
 	while (currentSearchPos < (int)text.length())
 	{
 		int colonPos = text.find(':', currentSearchPos);
-		int commaPos = text.find(',', currentSearchPos);
+
+		int commaPos = currentSearchPos;
+		bool goodCommaPos = true;
+
+		while (commaPos < (int)text.length() && (!goodCommaPos || text[commaPos] != ',')) {
+			if (text[commaPos] == '\"')
+				goodCommaPos = !goodCommaPos;
+
+			++commaPos;
+		}
+
+		if (text[commaPos]==',')
+			commaCount++;
 
 		if (commaPos < 0)
 			commaPos = text.length();
-		else
-			commaCount++;
 
 		if (colonPos >= 0) {
 			colonCount++;
@@ -50,10 +60,17 @@ jsonMap JSONParser::parseString(const std::string & text) {
 			std::string key = text.substr(currentSearchPos, colonPos - currentSearchPos);
 			std::string value = text.substr(colonPos + 1, commaPos - (colonPos + 1));
 
+			bool valueIsString = (value.find('\"') != std::string::npos);
+
 			cleanJSONWord(key);
 			cleanJSONWord(value);
-
-			characterData[key] = value;
+			
+			if (valueIsString)
+				characterData[key] = value;
+			else if (value.find('.') != std::string::npos)
+				characterData[key] = std::stod(value);
+			else
+				characterData[key] = std::stoi(value);
 
 			dataCount++;
 		}
@@ -61,17 +78,18 @@ jsonMap JSONParser::parseString(const std::string & text) {
 		currentSearchPos = commaPos + 1;
 	}
 
-	if(dataCount != colonCount || commaCount != colonCount - 1)
-		throw std::runtime_error("Wrong JSON syntax!");
+	if(dataCount != colonCount || commaCount != colonCount - 1){
+		throw ParseException("Wrong JSON syntax!");
+	}
 
-	return characterData;
+	return JSON(characterData);
 }
 
-jsonMap JSONParser::parseFile(const std::string & fileName) {
+JSON JSON::parseFromFile(const std::string & fileName) {
 	std::ifstream ifsJSON(fileName);
 
 	if (ifsJSON.fail())
-		throw FileNotFoundException("Couldn't open file");
+		throw ParseException("Couldn't open file");
 
 	std::string line;
 	std::string textFromFile = "";
@@ -81,15 +99,15 @@ jsonMap JSONParser::parseFile(const std::string & fileName) {
 	}
 
 	ifsJSON.close();
-	return parseString(textFromFile);
+	return parseFromString(textFromFile);
 }
 
-jsonMap JSONParser::parseStream(std::istream & stream) {
+JSON JSON::parseFromStream(std::istream & stream) {
 	std::string line = "";
 	std::string textFromFile = "";
 	while (std::getline(stream, line)) {
 		textFromFile += line;
 	}
 
-	return parseString(textFromFile);
+	return parseFromString(textFromFile);
 }
