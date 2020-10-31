@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['takedamage',['takeDamage',['../class_monster.html#a15d49c5ebaee321e856ce6ba9614ca4c',1,'Monster']]]
+  ['resetcooldown',['resetCooldown',['../class_monster.html#a25ce188a4b9c3fa05f43e7fdfddc4b47',1,'Monster']]]
 ];

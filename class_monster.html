@@ -114,16 +114,16 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memdesc:a5d50addb9eec96898dc7754b7dd87e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple getter function that returns the time needed for the <a class="el" href="class_monster.html" title="Monster class. ">Monster</a>'s next attack.  <a href="#a5d50addb9eec96898dc7754b7dd87e22">More...</a><br /></td></tr>
 <tr class="separator:a5d50addb9eec96898dc7754b7dd87e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25ce188a4b9c3fa05f43e7fdfddc4b47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster.html#a25ce188a4b9c3fa05f43e7fdfddc4b47">resetCooldown</a> ()</td></tr>
-<tr class="memdesc:a25ce188a4b9c3fa05f43e7fdfddc4b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function resets the cooldown.  <a href="#a25ce188a4b9c3fa05f43e7fdfddc4b47">More...</a><br /></td></tr>
+<tr class="memdesc:a25ce188a4b9c3fa05f43e7fdfddc4b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function resets the attack cooldown of the monster.  <a href="#a25ce188a4b9c3fa05f43e7fdfddc4b47">More...</a><br /></td></tr>
 <tr class="separator:a25ce188a4b9c3fa05f43e7fdfddc4b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77ad18c44b3fb2df92b30ece4dc7847b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster.html#a77ad18c44b3fb2df92b30ece4dc7847b">isAlive</a> () const</td></tr>
-<tr class="memdesc:a77ad18c44b3fb2df92b30ece4dc7847b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns if either a <a class="el" href="class_monster.html" title="Monster class. ">Monster</a> is dead or not.  <a href="#a77ad18c44b3fb2df92b30ece4dc7847b">More...</a><br /></td></tr>
+<tr class="memdesc:a77ad18c44b3fb2df92b30ece4dc7847b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns if either a <a class="el" href="class_monster.html" title="Monster class. ">Monster</a> is alive or dead.  <a href="#a77ad18c44b3fb2df92b30ece4dc7847b">More...</a><br /></td></tr>
 <tr class="separator:a77ad18c44b3fb2df92b30ece4dc7847b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d5460f3c1dadc9d1a7a21bf16fc7824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster.html#a2d5460f3c1dadc9d1a7a21bf16fc7824">fightTilDeath</a> (<a class="el" href="class_monster.html">Monster</a> &amp;opponent)</td></tr>
 <tr class="memdesc:a2d5460f3c1dadc9d1a7a21bf16fc7824"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fight takes place in this complex function.  <a href="#a2d5460f3c1dadc9d1a7a21bf16fc7824">More...</a><br /></td></tr>
 <tr class="separator:a2d5460f3c1dadc9d1a7a21bf16fc7824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ef1eba5e12b55fc24ec0d9893cbaa6e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_monster.html#a1ef1eba5e12b55fc24ec0d9893cbaa6e">attackEnemy</a> (<a class="el" href="class_monster.html">Monster</a> &amp;opponent)</td></tr>
-<tr class="memdesc:a1ef1eba5e12b55fc24ec0d9893cbaa6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function attacks another <a class="el" href="class_monster.html" title="Monster class. ">Monster</a> and sets cooldown for next attack.  <a href="#a1ef1eba5e12b55fc24ec0d9893cbaa6e">More...</a><br /></td></tr>
+<tr class="memdesc:a1ef1eba5e12b55fc24ec0d9893cbaa6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function attacks another <a class="el" href="class_monster.html" title="Monster class. ">Monster</a>.  <a href="#a1ef1eba5e12b55fc24ec0d9893cbaa6e">More...</a><br /></td></tr>
 <tr class="separator:a1ef1eba5e12b55fc24ec0d9893cbaa6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -203,7 +203,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </table>
 </div><div class="memdoc">
 
-<p>This function attacks another <a class="el" href="class_monster.html" title="Monster class. ">Monster</a> and sets cooldown for next attack. </p>
+<p>This function attacks another <a class="el" href="class_monster.html" title="Monster class. ">Monster</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">opponent</td><td></td></tr>
@@ -469,14 +469,14 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </table>
 </div><div class="memdoc">
 
-<p>This function returns if either a <a class="el" href="class_monster.html" title="Monster class. ">Monster</a> is dead or not. </p>
+<p>This function returns if either a <a class="el" href="class_monster.html" title="Monster class. ">Monster</a> is alive or dead. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True or false value based on the <a class="el" href="class_monster.html" title="Monster class. ">Monster</a>'s state(dead or not) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True or false value based on the <a class="el" href="class_monster.html" title="Monster class. ">Monster</a>'s state(alive or dead) </dd></dl>
 
 </div>
 </div>
@@ -539,7 +539,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="
 </table>
 </div><div class="memdoc">
 
-<p>This function resets the cooldown. </p>
+<p>This function resets the attack cooldown of the monster. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
