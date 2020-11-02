@@ -1,7 +1,7 @@
 {
 	"name": "Kowa,
-	"hp": 200,
-	"dmg": 85,
-	"attackcooldown": 5.5
+	"health_points": 200,
+	"damage": 85,
+	"attack_cooldown": 5.5
 }
 
