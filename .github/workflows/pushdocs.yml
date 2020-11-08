@@ -7,11 +7,10 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    container: haliscsharp/nehez_eldonteni:latest
     steps:
       - uses: actions/checkout@v2
-
-      - run: sudo apt-get install doxygen
-      - run: sudo apt-get install graphviz
+      
       - run: make doc
 
       - name: Push git subdirectory as branch

@@ -5,9 +5,9 @@ on: push
 jobs:
         Testing:
                 runs-on: ubuntu-latest
+                container: haliscsharp/nehez_eldonteni:latest
                 steps: 
                 - uses: actions/checkout@v2
-                - run: sudo apt-get install -y valgrind cppcheck
                 - run: make cppcheck
                 - uses: actions/upload-artifact@v2
                   with:
