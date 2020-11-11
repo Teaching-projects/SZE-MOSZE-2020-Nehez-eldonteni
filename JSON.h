@@ -19,6 +19,7 @@
 #include <string>
 #include <map>
 #include <variant>
+#include <list>
 
 typedef std::map<std::string, std::variant<std::string, int, double>> jsonMap;
 
@@ -26,6 +27,8 @@ class JSON
 {
 public:
 	JSON(jsonMap _jsonData):jsonData(_jsonData) {}
+	
+	typedef std::list<std::variant<std::string, int, double>> list;
 
 	/**
 	 * \brief This function reads data from file.
@@ -75,7 +78,7 @@ public:
 	 * \return The value paired with the given key.
 	*/
 	template <typename T>
-	T get(std::string key) {
+	inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(std::string key) {
 		if(jsonData.find(key) == jsonData.end()) {
 			throw ParseException("Wrong key"); 
 		}
@@ -87,6 +90,33 @@ public:
 			throw ParseException("Wrong type"); 
 		}
 	}
+
+	template <typename T>
+    inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string key){
+            if(!jsonData.count(key)){
+                throw ParseException("JSON is missing a key: " + key); 
+            }
+
+            JSON::list valueList;
+			
+			std::string fullList = std::get<std::string>(jsonData[key]);
+
+			unsigned int startPos = 0;
+			while (startPos < fullList.length())
+			{
+				int commaPos = fullList.find(',', startPos);
+				if (commaPos < 0)
+					commaPos = fullList.length();
+
+				std::string listMember = fullList.substr(startPos, commaPos - startPos);
+
+				startPos = commaPos + 1;
+
+				valueList.push_back(listMember);
+			}
+
+            return valueList;
+        }
 
 private:
 	/**
