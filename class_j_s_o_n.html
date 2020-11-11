@@ -65,6 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_j_s_o_n-members.html">List of all members</a>  </div>
@@ -84,6 +85,12 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_j_s_o_n_1_1_parse_exception.html" title="ParseException class.">ParseException</a> class.  <a href="class_j_s_o_n_1_1_parse_exception.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a200052290120970f650695312ad847b7"><td class="memItemLeft" align="right" valign="top"><a id="a200052290120970f650695312ad847b7"></a>
+typedef std::list&lt; std::variant&lt; std::string, int, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>list</b></td></tr>
+<tr class="separator:a200052290120970f650695312ad847b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2fc10324dada992c7d94096f3a39833"><td class="memItemLeft" align="right" valign="top"><a id="aa2fc10324dada992c7d94096f3a39833"></a>
@@ -92,10 +99,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa95c8567c7aa2e21dc93a9d4edbd6d32"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#aa95c8567c7aa2e21dc93a9d4edbd6d32">count</a> (std::string key)</td></tr>
 <tr class="memdesc:aa95c8567c7aa2e21dc93a9d4edbd6d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns if the map contains the given key.  <a href="class_j_s_o_n.html#aa95c8567c7aa2e21dc93a9d4edbd6d32">More...</a><br /></td></tr>
 <tr class="separator:aa95c8567c7aa2e21dc93a9d4edbd6d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e05c25394240770da452ee6c13ed5bf"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6e05c25394240770da452ee6c13ed5bf"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a6e05c25394240770da452ee6c13ed5bf">get</a> (std::string key)</td></tr>
-<tr class="memdesc:a6e05c25394240770da452ee6c13ed5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the value of the given key.  <a href="class_j_s_o_n.html#a6e05c25394240770da452ee6c13ed5bf">More...</a><br /></td></tr>
-<tr class="separator:a6e05c25394240770da452ee6c13ed5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a9fc677794a2825e03e3b30f46af20"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a10a9fc677794a2825e03e3b30f46af20"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, JSON::list &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a10a9fc677794a2825e03e3b30f46af20">get</a> (std::string key)</td></tr>
+<tr class="memdesc:a10a9fc677794a2825e03e3b30f46af20"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the value of the given key.  <a href="class_j_s_o_n.html#a10a9fc677794a2825e03e3b30f46af20">More...</a><br /></td></tr>
+<tr class="separator:a10a9fc677794a2825e03e3b30f46af20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memTemplParams" colspan="2"><a id="aebd177cf8aafe344b9c98c3b0346cafd"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, JSON::list &gt;::value, JSON::list &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (std::string key)</td></tr>
+<tr class="separator:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -151,8 +162,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6e05c25394240770da452ee6c13ed5bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e05c25394240770da452ee6c13ed5bf">&#9670;&nbsp;</a></span>get()</h2>
+<a id="a10a9fc677794a2825e03e3b30f46af20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10a9fc677794a2825e03e3b30f46af20">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +174,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T JSON::get </td>
+          <td class="memname">std::enable_if&lt;!std::is_same&lt;T, JSON::list&gt;::value, T&gt;::type JSON::get </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
