@@ -1,13 +1,13 @@
 {
-    "hero" : "Dark_Wanderer.json",
+    "map" : "map1.txt",
+    "hero" : "Dark_Wanderer.json;1;1",
     "monsters" : [
-        "Fallen.json",
-        "Fallen.json",
-        "Zombie.json",
-        "Fallen.json",
-        "Fallen.json",
-        "Zombie.json",
-        "Fallen.json",
-        "Blood_Raven.json"
+        "Fallen.json;1;3",
+        "Fallen.json;1;5",
+        "Fallen.json;1;5",
+        "Fallen.json;1;5",
+        "Fallen.json;8;3",
+        "Fallen.json;8;3",
+        "Blood_Raven.json;16;4"
     ]
 }

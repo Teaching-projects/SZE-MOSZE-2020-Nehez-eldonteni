@@ -1,7 +1,12 @@
 #include "Map.h"
 
 
-
+Map::type Map::get(int x, int y) const {
+    if (dataMap.size() < 0 || y < 0 || y >= (int)dataMap.size() || x < 0 || x >= (int)dataMap[y].size())
+        throw WrongIndexException("The given coordinates are out of bound!");
+    
+    return dataMap[y][x];
+}
 
 Map::mapType Map::readFile(const std::string filename){
     std::ifstream ifsMap(filename);
@@ -27,4 +32,18 @@ Map::mapType Map::readFile(const std::string filename){
 	ifsMap.close();
 
     return fileMap;
+}
+
+int Map::getHeight() const{
+    return dataMap.size();
+}
+
+int Map::getWidth() const{
+    unsigned int max = 0;
+    for (auto x:dataMap){
+        if (x.size() > max)
+            max = x.size();
+    }
+
+    return max;
 }
