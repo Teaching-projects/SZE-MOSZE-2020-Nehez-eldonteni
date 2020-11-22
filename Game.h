@@ -35,7 +35,7 @@ public:
 		int posy;
 	};
 	
-	Game() :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false) {};
+	Game() :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameHero() {	};
 
     Game(std::string mapfilename);
 	~Game();

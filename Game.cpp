@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(std::string mapfilename) :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false) {
+Game::Game(std::string mapfilename) :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameHero() {
     Map m(mapfilename);
     setMap(m);
 }
@@ -158,8 +158,8 @@ void Game::run(){
             std::vector<int> monstersInPos = getEveryMonsterIdxInPos(gameHero.posx, gameHero.posy);
 
             if (monstersInPos.size() > 0){
-                unsigned int j = 0;
-                while (gameHero.character->isAlive() && j < monstersInPos.size()){
+                int j = 0;
+                while (gameHero.character->isAlive() && j < (int)monstersInPos.size()){
                     gameHero.character->fightTilDeath(*gameMonsters[monstersInPos[j]].character);
 
                     j++;
