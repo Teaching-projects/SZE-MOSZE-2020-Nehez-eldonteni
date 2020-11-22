@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resetcooldown_57',['resetCooldown',['../class_monster.html#a25ce188a4b9c3fa05f43e7fdfddc4b47',1,'Monster']]]
+  ['occupiedexception_74',['OccupiedException',['../class_game_1_1_occupied_exception.html#afa068fd84938268b0c6ebb23100ef186',1,'Game::OccupiedException']]]
 ];
