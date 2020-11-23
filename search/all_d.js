@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['takedamage_33',['takeDamage',['../class_monster.html#a15d49c5ebaee321e856ce6ba9614ca4c',1,'Monster']]]
+  ['unit_38',['unit',['../struct_game_1_1unit.html',1,'Game']]]
 ];
