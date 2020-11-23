@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['resetcooldown_80',['resetCooldown',['../class_monster.html#a25ce188a4b9c3fa05f43e7fdfddc4b47',1,'Monster']]]
+  ['_7ehero_64',['~Hero',['../class_hero.html#a5aeef41ede5a80dc29c5acd7b553c4da',1,'Hero']]],
+  ['_7emonster_65',['~Monster',['../class_monster.html#a6ef9de67ef71edc86723aab1ef6d85f5',1,'Monster']]]
 ];
