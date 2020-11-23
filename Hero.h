@@ -23,7 +23,6 @@
 class Hero : public Monster
 {
 public:
-	Hero() {}
 	/// Constructor for the class that puts the input parameters into data members and passes the required variables to the base class.
 	Hero(std::string _name, int _maxHP, int _attack, double _cooldown, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _cdMultiplierPerLevel) 
 		:Monster(_name, _maxHP, _attack, _cooldown), 

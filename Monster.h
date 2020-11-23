@@ -23,7 +23,6 @@
 class Monster
 {
 public:
-	Monster() {}
 	/// Constructor for the class that puts the input parameters into data members
 	Monster(std::string _name, int _maxHP, int _attack, double _cooldown) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack(_attack), cooldown(_cooldown), currentCooldown(_cooldown)
 	{}

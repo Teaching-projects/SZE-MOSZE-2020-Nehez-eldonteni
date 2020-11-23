@@ -46,7 +46,6 @@ public:
 
     void run();
 
-    // exceptions
     class OccupiedException : public std::runtime_error
 	{
 		public:

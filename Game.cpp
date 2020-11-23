@@ -113,7 +113,6 @@ void Game::drawMap(){
                 }
             }
             catch (Map::WrongIndexException& e){
-                // if the map given is not rectangle fill the rest with wall
                 std::cout << "██";
             }
             
