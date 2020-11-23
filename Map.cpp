@@ -2,7 +2,7 @@
 
 
 Map::type Map::get(int x, int y) const {
-    if (dataMap.size() < 0 || y < 0 || y >= (int)dataMap.size() || x < 0 || x >= (int)dataMap[y].size())
+    if ((int)dataMap.size() < 0 || y < 0 || y >= (int)dataMap.size() || x < 0 || x >= (int)dataMap[y].size())
         throw WrongIndexException("The given coordinates are out of bound!");
     
     return dataMap[y][x];

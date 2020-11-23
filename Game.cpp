@@ -120,6 +120,12 @@ void Game::drawMap(){
         }
         std::cout << "║" << std::endl;
     }
+
+    std::cout << "╚";
+    for (int i = 0; i < mapWidth; i++)
+        std::cout << "══";
+    
+    std::cout << "╝" << std::endl;
 }
 
 void Game::run(){
@@ -127,6 +133,7 @@ void Game::run(){
         throw NotInitializedException("The game has not been initialized!");
     
     isGameStarted = true;
+    bool isTerminated = false;
 
     drawMap();
 
@@ -153,6 +160,11 @@ void Game::run(){
             gameHero.posx -= 1;
             wrongInput = false;
         }
+        else if (input == "quit"){
+            std::cout << "quiting " << std::endl;
+            isTerminated = true;
+        }
+
 
         if (!wrongInput){
             std::vector<int> monstersInPos = getEveryMonsterIdxInPos(gameHero.posx, gameHero.posy);
@@ -179,8 +191,13 @@ void Game::run(){
 
         drawMap();
 
-    } while (gameHero.character->isAlive() && gameMonsters.size() > 0);
+    } while (!isTerminated && (gameHero.character->isAlive() && gameMonsters.size() > 0));
     
-    if (gameHero.character->isAlive())
+    if (isTerminated){
+        std::cout << "Run terminated by user!" << std::endl;
+    }
+    else if (gameHero.character->isAlive())
         std::cout << gameHero.character->getName() << " cleared the map." << std::endl;
+    else
+        std::cout << gameHero.character->getName() << " died." << std::endl;
 }
