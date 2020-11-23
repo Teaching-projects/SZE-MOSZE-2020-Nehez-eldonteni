@@ -156,7 +156,7 @@ protected:
 	Damage attack;	///< Attack damage of the Monster
 	double cooldown;	///< Time needed between attacks of the Monster
 	double currentCooldown;	///< Time remaining for the Monster's next attack
-	double defense; ///< The ammount of damage the Monster can absorb
+	int defense; ///< The amount of damage the Monster can absorb
 
 	/**
 	 * \brief This function makes a Monster take damage from another Monster by subsracting damage from HP
