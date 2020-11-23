@@ -24,7 +24,7 @@ class Monster
 {
 public:
 	/// Constructor for the class that puts the input parameters into data members
-	Monster(std::string _name, int _maxHP, int _attack, double _cooldown) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack(_attack), cooldown(_cooldown), currentCooldown(_cooldown)
+	Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense)
 	{}
 	/// Virtual destructor for the class
 	virtual ~Monster() {}
@@ -48,11 +48,17 @@ public:
 	*/
 	int getMaxHealthPoints() const { return maxHP; }
 	/**
-	 * \brief Simple getter function that returns the attack damage of the Monster
+	 * \brief Simple getter function that returns the physical damage of the Monster
 	 * \param none
-	 * \return The attack damage of the Monster
+	 * \return The physical damage of the Monster
 	*/
-	int getDamage() const { return attack; }
+	int getPhysicalDamage() const { return attack.physical; }
+	/**
+	 * \brief Simple getter function that returns the magical damage of the Monster
+	 * \param none
+	 * \return The magical damage of the Monster
+	*/
+	int getMagicalDamage() const { return attack.magical; }
 	/**
 	 * \brief Simple getter function that returns the time needed between the Monster's attacks
 	 * \param none
@@ -65,6 +71,12 @@ public:
 	 * \return The current remaining cooldown of the Monster
 	*/
 	double getCurrentCooldown() const { return currentCooldown; }
+	/**
+	 * \brief Simple getter function that returns the the damage the Monster can absorb in an attack
+	 * \param none
+	 * \return The defense value of the Monster
+	*/
+	double getDefense() const { return defense; }
 
 	/**
 	 * \brief This function resets the attack cooldown of the monster
@@ -110,12 +122,41 @@ public:
 
 
 protected:
+	struct Damage {
+		int physical;
+		int magical;
+
+		Damage operator+(const Damage& other){
+			Damage tempDmg;
+			
+			tempDmg.physical = this->physical + other.physical;
+			tempDmg.magical = this->magical + other.magical;
+
+			return tempDmg;
+        }
+
+		Damage& operator+=(const Damage& other){
+			this->physical += other.physical;
+			this->magical += other.magical;
+
+			return *this;
+		}
+
+		Damage& operator*=(const Damage& other){
+			this->physical *= other.physical;
+			this->magical *= other.magical;
+			
+			return *this;
+		}
+	};
+
 	const std::string name;	///< Name of the Monster
 	int maxHP;	///< Maximum HP of the Monster
 	int currentHP;	///< Current HP of the Monster
-	int attack;	///< Attack damage of the Monster
+	Damage attack;	///< Attack damage of the Monster
 	double cooldown;	///< Time needed between attacks of the Monster
 	double currentCooldown;	///< Time remaining for the Monster's next attack
+	double defense; ///< The ammount of damage the Monster can absorb
 
 	/**
 	 * \brief This function makes a Monster take damage from another Monster by subsracting damage from HP
