@@ -14,20 +14,6 @@ Game::~Game(){
     }
 }
 
-bool Game::isOccupied(int x, int y){
-    if (isHeroSet && gameHero.posx == x && gameHero.posy == y)
-        return true;
-    else if (isMonstersSet){
-        unsigned int j = 0;
-        while (j < gameMonsters.size() && (gameMonsters[j].posx != x || gameMonsters[j].posy != y))
-            j++;
-        if (j < gameMonsters.size())
-            return true;
-    }
-
-    return false;
-}
-
 void Game::setMap(Map map){
     if (isGameStarted)
         throw GameAlreadyStartedException("Cannot change map: the game has already started!");
@@ -50,7 +36,7 @@ void Game::putHero(Hero hero, int x, int y){
     if (isHeroSet)
         throw AlreadyHasHeroException("Hero has been already set!");
 
-    if (isOccupied(x,y) || gameMap.get(x,y) == Map::type::Wall)
+    if (gameMap.get(x,y) == Map::type::Wall)
         throw OccupiedException("The position is occupied!");
     
     gameHero.character = new Hero(hero);
