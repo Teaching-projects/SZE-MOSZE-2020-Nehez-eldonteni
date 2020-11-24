@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['defense_70',['defense',['../class_monster.html#ad867513550d7fde7e4b79806fe90ae2f',1,'Monster']]]
+  ['maxhp_89',['maxHP',['../class_monster.html#a21dc0aa9f78dbffb7f1a1e0048dfbd4a',1,'Monster']]]
 ];
