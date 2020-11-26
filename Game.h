@@ -91,8 +91,8 @@ private:
     unit gameHero;
     std::vector<unit> gameMonsters;
 
-	bool isOccupied(int x, int y);
 	std::vector<int> getEveryMonsterIdxInPos(int x, int y);
+	void fightMonsters();
 	void drawMap();
 };
 

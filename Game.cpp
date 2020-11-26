@@ -113,12 +113,37 @@ void Game::drawMap(){
     std::cout << "╝" << std::endl;
 }
 
+void Game::fightMonsters(){
+    std::vector<int> monstersInPos = getEveryMonsterIdxInPos(gameHero.posx, gameHero.posy);
+
+    if (monstersInPos.size() > 0) {
+        int j = 0;
+        while (gameHero.character->isAlive() && j < (int)monstersInPos.size()){
+            gameHero.character->fightTilDeath(*gameMonsters[monstersInPos[j]].character);
+
+            j++;
+        }
+
+        std::sort(monstersInPos.begin(), monstersInPos.end());
+
+        j = j - 1;
+        while (j >= 0) {
+            delete gameMonsters[monstersInPos[j]].character;
+            gameMonsters.erase(gameMonsters.begin() + monstersInPos[j]);
+
+            j--;
+        }
+    }
+}
+
 void Game::run(){
     if (!isMapSet || !isHeroSet || !isMonstersSet)
         throw NotInitializedException("The game has not been initialized!");
     
     isGameStarted = true;
     bool isTerminated = false;
+
+    fightMonsters();
 
     drawMap();
 
@@ -151,28 +176,8 @@ void Game::run(){
         }
 
 
-        if (!wrongInput){
-            std::vector<int> monstersInPos = getEveryMonsterIdxInPos(gameHero.posx, gameHero.posy);
-
-            if (monstersInPos.size() > 0){
-                int j = 0;
-                while (gameHero.character->isAlive() && j < (int)monstersInPos.size()){
-                    gameHero.character->fightTilDeath(*gameMonsters[monstersInPos[j]].character);
-
-                    j++;
-                }
-
-                std::sort(monstersInPos.begin(), monstersInPos.end());
-
-                j = j - 1;
-                while (j >= 0) {
-                    delete gameMonsters[monstersInPos[j]].character;
-                    gameMonsters.erase(gameMonsters.begin() + monstersInPos[j]);
-
-                    j--;
-                }
-            }
-        }
+        if (!wrongInput)
+            fightMonsters();
 
         drawMap();
 
