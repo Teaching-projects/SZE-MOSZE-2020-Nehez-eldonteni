@@ -2,10 +2,12 @@
     "name": "Halis",
 	"base_health_points": 120,
 	"base_damage": 100,
-	"base_attack_cooldown": 4.3,
+    "base_attack_cooldown": 4.3,
+    "base_defense" : 20,
     "experience_per_level" : 100,
     "health_point_bonus_per_level" : 10,
     "damage_bonus_per_level" : 5,
-    "cooldown_multiplier_per_level": 0.9
+    "cooldown_multiplier_per_level": 0.9,
+    "defense_bonus_per_level" : 3
 }
 

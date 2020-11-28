@@ -102,8 +102,8 @@ TEST(MulTest, missingColonJSONTest) {
 // Character & Adventurer tests
 
 TEST(MulTest, HeroVSHeroTest) {
-	Hero ch1("Codos",300,70,12.5,100,10,5,0.9);
-	Hero ch2("Kowa",200,85,5.5,100,10,5,0.9);
+	Hero ch1("Codos",300,70,10,12.5,15,100,10,5,5,0.9,3);
+	Hero ch2("Kowa",200,85,12,5.5,11,100,10,5,5,0.9,3);
 
     ch1.fightTilDeath(ch2);
 
@@ -112,18 +112,18 @@ TEST(MulTest, HeroVSHeroTest) {
 }
 
 TEST(MulTest, HeroVSMonsterTest) {
-	Hero ch1("Codos",300,70,12.5,100,10,5,0.9);
-	Monster ch2("Kowa",200,85,5.5);
+	Hero ch1("Codos",300,70,10,12.5,15,100,10,5,5,0.9,3);
+	Monster ch2("Kowa",200,85,13,5.5,5);
 
     ch1.fightTilDeath(ch2);
 
     ASSERT_TRUE(!ch1.isAlive());
-    ASSERT_EQ(ch2.getHealthPoints(), 130);
+    ASSERT_EQ(ch2.getHealthPoints(), 125);
 }
 
 TEST(MulTest, MonsterVSHeroTest) {
-	Monster ch1("Codos",60,70,12.5);
-	Hero ch2("Kowa",200,85,5.5,100,10,5,0.9);
+	Monster ch1("Codos",60,70,11,12.5,4);
+	Hero ch2("Kowa",200,85,12,5.5,11,100,10,5,5,0.9,3);
 
     ch1.fightTilDeath(ch2);
 
@@ -132,13 +132,13 @@ TEST(MulTest, MonsterVSHeroTest) {
 }
 
 TEST(MulTest, MonsterVSMonsterTest) {
-	Monster ch1("Codos",150,70,12.5);
-	Monster ch2("Kowa",200,60,5.5);
+	Monster ch1("Codos",60,70,11,12.5,4);
+	Monster ch2("Kowa",200,85,13,5.5,5);
 
     ch1.fightTilDeath(ch2);
 
     ASSERT_TRUE(!ch1.isAlive());
-    ASSERT_EQ(ch2.getHealthPoints(), 130);
+    ASSERT_EQ(ch2.getHealthPoints(), 200);
 }
 
 int main(int argc, char* argv[]) {

@@ -3,7 +3,9 @@
     "lore" : "Blood Raven fought valiantly against Diablo in the catacombs beneath Tristram...She was never quite the same afterwards. It is now obvious she brought an evil influence back with her.",
 
     "health_points"   : 113,
-    "damage"          : 8,
+    "damage"          : 6,
+    "magical_damage" : 3,
     "attack_cooldown" : 1.2,
+    "defense" : 4,
     "race" : "undead"
 }

@@ -2,6 +2,7 @@
 	"name": "Kowa,
 	"health_points": 200,
 	"damage": 85,
-	"attack_cooldown": 5.5
+	"attack_cooldown": 5.5,
+	"defense" : 32
 }
 

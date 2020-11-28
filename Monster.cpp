@@ -4,14 +4,14 @@
 
 std::ostream &operator<<(std::ostream &os, const Monster &ch)
 {
-	os << ch.getName() << ": HP: " << ch.getHealthPoints() << ", DMG: " << ch.getDamage() << ", ATKSPEED: " << ch.getAttackCoolDown() << std::endl;
+	os << ch.getName() << ": HP: " << ch.getHealthPoints() << ", DMG (physical | magical): (" << ch.getPhysicalDamage() << " | " <<ch.getMagicalDamage() << "), ATKSPEED: " << ch.getAttackCoolDown() << std::endl;
 	return os;
 }
 
 Monster Monster::parse(const std::string& text) {
 	JSON data = JSON::parseFromFile(text);
 	
-	return Monster(data.get<std::string>("name"), data.get<int>("health_points"), data.get<int>("damage"),  data.get<double>("attack_cooldown"));
+	return Monster(data.get<std::string>("name"), data.get<int>("health_points"), data.get<int>("damage"), data.get<int>("magical_damage"),  data.get<double>("attack_cooldown"),  data.get<int>("defense"));
 }
 
 void Monster::fightTilDeath(Monster& opponent){
@@ -44,7 +44,15 @@ int Monster::takeDamage(Monster &opponent)
 {
 	int damageTaken = 0;
 
-	if (currentHP - opponent.getDamage() < 0)
+	int damageWithDefense = opponent.getPhysicalDamage() - defense;
+
+	if (damageWithDefense <= 0)
+		damageWithDefense = opponent.getMagicalDamage();
+	else
+		damageWithDefense += opponent.getMagicalDamage();
+	
+
+	if (currentHP - damageWithDefense < 0)
 	{
 		damageTaken = currentHP;
 
@@ -52,8 +60,8 @@ int Monster::takeDamage(Monster &opponent)
 	}
 	else
 	{
-		currentHP -= opponent.getDamage();
-		damageTaken = opponent.getDamage();
+		currentHP -= damageWithDefense;
+		damageTaken = damageWithDefense;
 	}
 
 	return damageTaken;
