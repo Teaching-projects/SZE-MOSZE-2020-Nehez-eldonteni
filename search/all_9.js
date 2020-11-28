@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['occupiedexception_29',['OccupiedException',['../class_game_1_1_occupied_exception.html',1,'Game::OccupiedException'],['../class_game_1_1_occupied_exception.html#afa068fd84938268b0c6ebb23100ef186',1,'Game::OccupiedException::OccupiedException()']]],
-  ['operator_3c_3c_30',['operator&lt;&lt;',['../class_monster.html#adced22bfe10d1e8e29fa82ea9489d8e8',1,'Monster']]]
+  ['nehez_5fdonteni_30',['nehez_donteni',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['name_31',['name',['../class_monster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0',1,'Monster']]],
+  ['notinitializedexception_32',['NotInitializedException',['../class_game_1_1_not_initialized_exception.html',1,'Game::NotInitializedException'],['../class_game_1_1_not_initialized_exception.html#a6c739a4f0b62100bcd47d2059f021e03',1,'Game::NotInitializedException::NotInitializedException()']]]
 ];

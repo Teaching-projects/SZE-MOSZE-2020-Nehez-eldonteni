@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['nehez_5fdonteni_26',['nehez_donteni',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['name_27',['name',['../class_monster.html#a4ce38cc9d6af5a37f54f90d2d7ab8ee0',1,'Monster']]],
-  ['notinitializedexception_28',['NotInitializedException',['../class_game_1_1_not_initialized_exception.html',1,'Game::NotInitializedException'],['../class_game_1_1_not_initialized_exception.html#a6c739a4f0b62100bcd47d2059f021e03',1,'Game::NotInitializedException::NotInitializedException()']]]
+  ['map_27',['Map',['../class_map.html',1,'']]],
+  ['maxhp_28',['maxHP',['../class_monster.html#a21dc0aa9f78dbffb7f1a1e0048dfbd4a',1,'Monster']]],
+  ['monster_29',['Monster',['../class_monster.html',1,'Monster'],['../class_monster.html#a107776a440efd527c767f6311117911f',1,'Monster::Monster()']]]
 ];
