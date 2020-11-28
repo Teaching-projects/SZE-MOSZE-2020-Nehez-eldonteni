@@ -56,11 +56,11 @@ public:
 	 * 
 	 * \brief ParseException class
 	*/
-	class ParseException : public std::string
+	class ParseException : public std::runtime_error
 	{
 		public:
 			///This is the constructor of the class
-			ParseException(std::string message) :std::string(message) {}
+			ParseException(const std::string& message) :std::runtime_error(message) {}
 	};
 	
 	/**
