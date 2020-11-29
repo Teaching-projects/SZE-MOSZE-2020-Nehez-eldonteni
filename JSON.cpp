@@ -128,14 +128,18 @@ JSON JSON::parseFromString(const std::string & text) {
 
 JSON JSON::parseFromFile(const std::string & fileName) {
 	std::ifstream ifsJSON(fileName);
-
+	
 	if (ifsJSON.fail())
 		throw ParseException("Couldn't open file");
-
+		
 	std::string line;
 	std::string textFromFile = "";
 
 	while (std::getline(ifsJSON, line)) {
+		if (line[line.length()-1] == '\r'){
+			line.erase(line.length() - 1);
+		}
+
 		textFromFile += line;
 	}
 

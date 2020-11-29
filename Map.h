@@ -30,9 +30,8 @@ public:
     typedef std::vector<std::vector<type>> mapType;
 
     Map() {}
-	Map(std::string filename) {
-        dataMap = readFile(filename);
-    }
+	Map(const std::string filename);
+    virtual ~Map() {}
 
     Map::type get(int x, int y) const;
 
@@ -46,9 +45,8 @@ public:
 			WrongIndexException(const std::string& message) :std::runtime_error(message) {}
 	};
 	
-private:
+protected:
 	mapType dataMap;
-    static mapType readFile(const std::string filename);
 };
 
 #endif

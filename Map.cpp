@@ -4,11 +4,11 @@
 Map::type Map::get(int x, int y) const {
     if ((int)dataMap.size() < 0 || y < 0 || y >= (int)dataMap.size() || x < 0 || x >= (int)dataMap[y].size())
         throw WrongIndexException("The given coordinates are out of bound!");
-    
+
     return dataMap[y][x];
 }
 
-Map::mapType Map::readFile(const std::string filename){
+Map::Map(const std::string filename){
     std::ifstream ifsMap(filename);
 
 	if (ifsMap.fail())
@@ -16,7 +16,7 @@ Map::mapType Map::readFile(const std::string filename){
 
     mapType fileMap;
 	std::string line;
-
+    int lc = 0;
 	while (std::getline(ifsMap, line)) {
         std::vector<type> lineMap;
 		for (auto c : line){
@@ -25,13 +25,13 @@ Map::mapType Map::readFile(const std::string filename){
             else if (c == ' ')
                 lineMap.push_back(type::Free);
         }
-
+        lc++;
         fileMap.push_back(lineMap);
 	}
 
 	ifsMap.close();
 
-    return fileMap;
+    dataMap = fileMap;
 }
 
 int Map::getHeight() const{

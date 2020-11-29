@@ -35,16 +35,17 @@ public:
 		int posy;
 	};
 	
-	Game() :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameHero() {	};
+	Game() :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameMap(), gameHero() {	};
 
     Game(std::string mapfilename);
 	~Game();
 
     void setMap(Map map);
+	void setMap(Map* map);
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
 
-    void run();
+    virtual void run();
 
     class OccupiedException : public std::runtime_error
 	{
@@ -81,13 +82,13 @@ public:
 			GameAlreadyStartedException(const std::string& message) :std::runtime_error(message) {}
 	};
 	
-private:
+protected:
 	bool isMapSet;
 	bool isHeroSet;
 	bool isMonstersSet;
 	bool isGameStarted;
 
-    Map gameMap;
+    Map* gameMap;
     unit gameHero;
     std::vector<unit> gameMonsters;
 
