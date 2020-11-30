@@ -98,10 +98,10 @@ Collaboration diagram for Hero:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a376d292fab134db4ff9407b4e7c3f2fe"><td class="memItemLeft" align="right" valign="top"><a id="a376d292fab134db4ff9407b4e7c3f2fe"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hero.html#a376d292fab134db4ff9407b4e7c3f2fe">Hero</a> (std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _magicDamagePerLevel, double _cdMultiplierPerLevel, double _defenseBonusPerLevel)</td></tr>
-<tr class="memdesc:a376d292fab134db4ff9407b4e7c3f2fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class that puts the input parameters into data members and passes the required variables to the base class. <br /></td></tr>
-<tr class="separator:a376d292fab134db4ff9407b4e7c3f2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e3e5c397e6166e89a609b6ac4c2e12"><td class="memItemLeft" align="right" valign="top"><a id="a29e3e5c397e6166e89a609b6ac4c2e12"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hero.html#a29e3e5c397e6166e89a609b6ac4c2e12">Hero</a> (std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, int _lightRadius, int _lightRadiusBonusPerLevel, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _magicDamagePerLevel, double _cdMultiplierPerLevel, double _defenseBonusPerLevel)</td></tr>
+<tr class="memdesc:a29e3e5c397e6166e89a609b6ac4c2e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class that puts the input parameters into data members and passes the required variables to the base class. <br /></td></tr>
+<tr class="separator:a29e3e5c397e6166e89a609b6ac4c2e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2940f4486e4eeab464aaa5033aab01d"><td class="memItemLeft" align="right" valign="top"><a id="ae2940f4486e4eeab464aaa5033aab01d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hero.html#ae2940f4486e4eeab464aaa5033aab01d">Hero</a> (<a class="el" href="class_monster.html">Monster</a> ch)</td></tr>
 <tr class="memdesc:ae2940f4486e4eeab464aaa5033aab01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Second constructor for the class that lets you make a <a class="el" href="class_hero.html" title="Hero class.">Hero</a> object from a <a class="el" href="class_monster.html" title="Monster class.">Monster</a> object. <br /></td></tr>
@@ -113,6 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17e77f3769e62aeb4e1807bbfc720f47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hero.html#a17e77f3769e62aeb4e1807bbfc720f47">getLevel</a> () const</td></tr>
 <tr class="memdesc:a17e77f3769e62aeb4e1807bbfc720f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the level of the <a class="el" href="class_hero.html" title="Hero class.">Hero</a>.  <a href="class_hero.html#a17e77f3769e62aeb4e1807bbfc720f47">More...</a><br /></td></tr>
 <tr class="separator:a17e77f3769e62aeb4e1807bbfc720f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb3f50ace2a337b9dfaa4d32c58f4307"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hero.html#abb3f50ace2a337b9dfaa4d32c58f4307">getLightRadius</a> () const</td></tr>
+<tr class="memdesc:abb3f50ace2a337b9dfaa4d32c58f4307"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the light radius of the <a class="el" href="class_hero.html" title="Hero class.">Hero</a>.  <a href="class_hero.html#abb3f50ace2a337b9dfaa4d32c58f4307">More...</a><br /></td></tr>
+<tr class="separator:abb3f50ace2a337b9dfaa4d32c58f4307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084850e5fcd438d000ea1d411e70f5bf"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hero.html#a084850e5fcd438d000ea1d411e70f5bf">attackEnemy</a> (<a class="el" href="class_monster.html">Monster</a> &amp;opponent)</td></tr>
 <tr class="memdesc:a084850e5fcd438d000ea1d411e70f5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is an override of the attackEnemy function in the base class.  <a href="class_hero.html#a084850e5fcd438d000ea1d411e70f5bf">More...</a><br /></td></tr>
 <tr class="separator:a084850e5fcd438d000ea1d411e70f5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,6 +284,40 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The level of the hero. </dd></dl>
+
+</div>
+</div>
+<a id="abb3f50ace2a337b9dfaa4d32c58f4307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb3f50ace2a337b9dfaa4d32c58f4307">&#9670;&nbsp;</a></span>getLightRadius()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Hero::getLightRadius </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function returns the light radius of the <a class="el" href="class_hero.html" title="Hero class.">Hero</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">opponent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The light radius of the hero. </dd></dl>
 
 </div>
 </div>
