@@ -102,8 +102,8 @@ TEST(MulTest, missingColonJSONTest) {
 // Character & Adventurer tests
 
 TEST(MulTest, HeroVSHeroTest) {
-	Hero ch1("Codos",300,70,10,12.5,15,100,10,5,5,0.9,3);
-	Hero ch2("Kowa",200,85,12,5.5,11,100,10,5,5,0.9,3);
+    Hero ch1("Codos",300,70,10,12.5,15,2,1,100,10,5,5,0.9,3);
+    Hero ch2("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3);
 
     ch1.fightTilDeath(ch2);
 
@@ -112,8 +112,8 @@ TEST(MulTest, HeroVSHeroTest) {
 }
 
 TEST(MulTest, HeroVSMonsterTest) {
-	Hero ch1("Codos",300,70,10,12.5,15,100,10,5,5,0.9,3);
-	Monster ch2("Kowa",200,85,13,5.5,5);
+    Hero ch1("Codos",300,70,10,12.5,15,2,1,100,10,5,5,0.9,3);
+    Monster ch2("Kowa",200,85,13,5.5,5);
 
     ch1.fightTilDeath(ch2);
 
@@ -122,8 +122,8 @@ TEST(MulTest, HeroVSMonsterTest) {
 }
 
 TEST(MulTest, MonsterVSHeroTest) {
-	Monster ch1("Codos",60,70,11,12.5,4);
-	Hero ch2("Kowa",200,85,12,5.5,11,100,10,5,5,0.9,3);
+    Monster ch1("Codos",60,70,11,12.5,4);
+    Hero ch2("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3);
 
     ch1.fightTilDeath(ch2);
 
@@ -132,8 +132,8 @@ TEST(MulTest, MonsterVSHeroTest) {
 }
 
 TEST(MulTest, MonsterVSMonsterTest) {
-	Monster ch1("Codos",60,70,11,12.5,4);
-	Monster ch2("Kowa",200,85,13,5.5,5);
+    Monster ch1("Codos",60,70,11,12.5,4);
+    Monster ch2("Kowa",200,85,13,5.5,5);
 
     ch1.fightTilDeath(ch2);
 
@@ -142,6 +142,6 @@ TEST(MulTest, MonsterVSMonsterTest) {
 }
 
 int main(int argc, char* argv[]) {
-	::testing::InitGoogleTest(&argc, argv);
+    ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
