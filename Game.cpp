@@ -73,15 +73,27 @@ void Game::drawMap(){
     int mapWidth = gameMap.getWidth();
     int mapHeight = gameMap.getHeight();
 
+    int light = dynamic_cast<Hero*>(gameHero.character)->getLightRadius();
+    
+    int left = gameHero.posx - light;
+    int right = gameHero.posx + light;
+    int top = gameHero.posy - light;
+    int bot = gameHero.posy + light;
+
+    if (left < 0) left = 0;
+    if (top < 0) top = 0;
+    if (right > mapWidth - 1) right = mapWidth - 1;
+    if (bot > mapHeight - 1) bot = mapHeight - 1;
+
     std::cout << "╔";
-    for (int i = 0; i < mapWidth; i++)
+    for (int i = left; i <= right; i++)
         std::cout << "══";
     
     std::cout << "╗" << std::endl;
 
-    for (int i = 0; i < mapHeight; i++) {
+    for (int i = top; i <= bot; i++) {
         std::cout << "║";
-        for (int j = 0; j < mapWidth; j++) {
+        for (int j = left; j <= right; j++) {
             try
             {
                 if (gameMap.get(j,i) == Map::type::Wall)
@@ -107,7 +119,7 @@ void Game::drawMap(){
     }
 
     std::cout << "╚";
-    for (int i = 0; i < mapWidth; i++)
+    for (int i = left; i <= right; i++)
         std::cout << "══";
     
     std::cout << "╝" << std::endl;
