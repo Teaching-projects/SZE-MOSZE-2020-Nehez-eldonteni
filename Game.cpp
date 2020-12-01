@@ -8,13 +8,25 @@ Game::Game(std::string mapfilename) :isMapSet(false), isHeroSet(false), isMonste
 
 Game::~Game(){
     delete gameHero.character;
-
+    delete gameMap;
     for (auto m:gameMonsters){
         delete m.character;
     }
 }
 
 void Game::setMap(Map map){
+    if (isGameStarted)
+        throw GameAlreadyStartedException("Cannot change map: the game has already started!");
+    
+    if (isHeroSet || isMonstersSet)
+        throw AlreadyHasUnitsException("The current map has units already so it cannot be changed!");
+    
+    gameMap = new Map(map);
+
+    isMapSet = true;
+}
+
+void Game::setMap(Map* map){
     if (isGameStarted)
         throw GameAlreadyStartedException("Cannot change map: the game has already started!");
     
@@ -36,7 +48,7 @@ void Game::putHero(Hero hero, int x, int y){
     if (isHeroSet)
         throw AlreadyHasHeroException("Hero has been already set!");
 
-    if (gameMap.get(x,y) == Map::type::Wall)
+    if (gameMap->get(x,y) == Map::type::Wall)
         throw OccupiedException("The position is occupied!");
     
     gameHero.character = new Hero(hero);
@@ -51,7 +63,7 @@ void Game::putMonster(Monster monster, int x, int y){
     if (!isMapSet)
         throw Map::WrongIndexException("No map has been assigned!");
     
-    if (gameMap.get(x,y) == Map::type::Wall)
+    if (gameMap->get(x,y) == Map::type::Wall)
         throw OccupiedException("The position is occupied!");
     
     gameMonsters.push_back({new Monster(monster), x, y});
@@ -70,8 +82,8 @@ std::vector<int> Game::getEveryMonsterIdxInPos(int x, int y){
 }
 
 void Game::drawMap(){
-    int mapWidth = gameMap.getWidth();
-    int mapHeight = gameMap.getHeight();
+    int mapWidth = gameMap->getWidth();
+    int mapHeight = gameMap->getHeight();
 
     int light = dynamic_cast<Hero*>(gameHero.character)->getLightRadius();
     
@@ -96,7 +108,7 @@ void Game::drawMap(){
         for (int j = left; j <= right; j++) {
             try
             {
-                if (gameMap.get(j,i) == Map::type::Wall)
+                if (gameMap->get(j,i) == Map::type::Wall)
                     std::cout << "██";
                 else if (gameHero.posx == j && gameHero.posy == i)
                     std::cout << "┣┫";
@@ -166,19 +178,19 @@ void Game::run(){
 
         bool wrongInput = true;
 
-        if (input == "north" && gameMap.get(gameHero.posx, gameHero.posy - 1) == Map::type::Free){
+        if (input == "north" && gameMap->get(gameHero.posx, gameHero.posy - 1) == Map::type::Free){
             gameHero.posy -= 1;
             wrongInput = false;
         }
-        else if (input == "south" && gameMap.get(gameHero.posx, gameHero.posy + 1) == Map::type::Free){
+        else if (input == "south" && gameMap->get(gameHero.posx, gameHero.posy + 1) == Map::type::Free){
             gameHero.posy += 1;
             wrongInput = false;
         }
-        else if (input == "east" && gameMap.get(gameHero.posx + 1, gameHero.posy) == Map::type::Free){
+        else if (input == "east" && gameMap->get(gameHero.posx + 1, gameHero.posy) == Map::type::Free){
             gameHero.posx += 1;
             wrongInput = false;
         }
-        else if (input == "west" && gameMap.get(gameHero.posx - 1, gameHero.posy) == Map::type::Free){
+        else if (input == "west" && gameMap->get(gameHero.posx - 1, gameHero.posy) == Map::type::Free){
             gameHero.posx -= 1;
             wrongInput = false;
         }

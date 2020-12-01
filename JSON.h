@@ -93,7 +93,7 @@ public:
 
 	template <typename T>
     inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string key){
-            if(!jsonData.count(key)){
+			if(!jsonData.count(key)){
                 throw ParseException("JSON is missing a key: " + key); 
             }
 
