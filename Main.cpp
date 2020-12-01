@@ -11,15 +11,6 @@
 #include "PreparedGame.h"
 
 
-
-
-struct characterData
-{
-    std::string name;
-    int x;
-    int y;
-};
-
 const std::map<int,std::string> error_messages = {
     { 1 , "Bad number of arguments. Only a single scenario file should be provided." },
     { 2 , "The provided scenario file is not accessible." },

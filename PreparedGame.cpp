@@ -4,7 +4,7 @@ void PreparedGame::loadGame(std::string fileName) {
     JSON gameJSON = JSON::parseFromFile(fileName);
 
     this->setMap(new MarkedMap(gameJSON.get<std::string>("map")));
-
+    
     MarkedMap* mm = dynamic_cast<MarkedMap*>(gameMap);
 
     this->putHero(Hero::parse(gameJSON.get<std::string>("hero")), mm->getHeroPosition().posx,mm->getHeroPosition().posy);

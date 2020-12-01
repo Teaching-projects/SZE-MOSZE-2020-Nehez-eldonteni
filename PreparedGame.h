@@ -25,14 +25,22 @@
 class PreparedGame : private Game
 {
 public:
+    /// Constructor for the class that initializes the game from a file
     PreparedGame(std::string fileName) {
         loadGame(fileName);
     }
 
-    virtual void run() { Game::run(); }
+    /**
+	 * \brief This function starts the game.
+	*/
+	virtual void run() { Game::run(); }
 
 private:
-    void loadGame(std::string fileName);
+    /**
+	 * \brief This function initializes the game from a file.
+	 * \param fileName
+	*/
+	void loadGame(std::string fileName);
 };
 
 #endif

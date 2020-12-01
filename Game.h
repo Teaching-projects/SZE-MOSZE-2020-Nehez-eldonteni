@@ -28,54 +28,107 @@
 class Game
 {
 public:
+	/**
+	 * \struct unit
+	*/
 	struct unit
 	{
-		Monster* character;
-		int posx;
-		int posy;
+		Monster* character; ///< The object of the unit
+		int posx; ///< the x position (left to right) of the unit
+		int posy; ///< the y position (top to bottom) of the unit
 	};
 	
+	/// Default constructor for the class
 	Game() :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameMap(), gameHero() {	};
-
+	// Constructor for the class that initializes the game via marked map file
     Game(std::string mapfilename);
+	// Destructor of the class
 	~Game();
 
-    void setMap(Map map);
+    /**
+	 * \brief This function sets the map for the game
+	 * \param map
+	*/
+	void setMap(Map map);
+	/**
+	 * \brief This function sets the map for the game with a map pointer
+	 * \param map
+	*/
 	void setMap(Map* map);
-    void putHero(Hero hero, int x, int y);
-    void putMonster(Monster monster, int x, int y);
+    /**
+	 * \brief This function sets the hero for the game
+	 * \param hero
+	 * \param x
+	 * \param y
+	*/
+	void putHero(Hero hero, int x, int y);
+    /**
+	 * \brief This function sets a monster for the game
+	 * \param monster
+	 * \param x
+	 * \param y
+	*/
+	void putMonster(Monster monster, int x, int y);
 
-    virtual void run();
+    /**
+	 * \brief This function starts the game
+	*/
+	virtual void run();
 
-    class OccupiedException : public std::runtime_error
+    /**
+	 * \class OccupiedException
+	 * 
+	 * \brief OccupiedException class
+	*/
+	class OccupiedException : public std::runtime_error
 	{
 		public:
 			///This is the constructor of the class
 			OccupiedException(const std::string& message) :std::runtime_error(message) {}
 	};
 
-    class AlreadyHasHeroException : public std::runtime_error
+    /**
+	 * \class AlreadyHasHeroException
+	 * 
+	 * \brief AlreadyHasHeroException class
+	*/
+	class AlreadyHasHeroException : public std::runtime_error
 	{
 		public:
 			///This is the constructor of the class
 			AlreadyHasHeroException(const std::string& message) :std::runtime_error(message) {}
 	};
 
-    class AlreadyHasUnitsException : public std::runtime_error
+    /**
+	 * \class AlreadyHasUnitsException
+	 * 
+	 * \brief AlreadyHasUnitsException class
+	*/
+	class AlreadyHasUnitsException : public std::runtime_error
 	{
 		public:
 			///This is the constructor of the class
 			AlreadyHasUnitsException(const std::string& message) :std::runtime_error(message) {}
 	};
 
-    class NotInitializedException : public std::runtime_error
+    /**
+	 * \class NotInitializedException
+	 * 
+	 * \brief NotInitializedException class
+	*/
+	class NotInitializedException : public std::runtime_error
 	{
 		public:
 			///This is the constructor of the class
 			NotInitializedException(const std::string& message) :std::runtime_error(message) {}
 	};
 
-    class GameAlreadyStartedException : public std::runtime_error
+    /**
+	 * \class GameAlreadyStartedException
+	 * 
+	 * \brief GameAlreadyStartedException class
+	*/
+	class GameAlreadyStartedException : public std::runtime_error
 	{
 		public:
 			///This is the constructor of the class
@@ -83,17 +136,29 @@ public:
 	};
 	
 protected:
-	bool isMapSet;
-	bool isHeroSet;
-	bool isMonstersSet;
-	bool isGameStarted;
+	bool isMapSet; ///< Stores whether a map has been provided or not
+	bool isHeroSet; ///< Stores whether a hero has been added or not
+	bool isMonstersSet; ///< Stores whether at least one monster has been put on the map or not
+	bool isGameStarted; ///< Stores whether the game has been started or not
 
-    Map* gameMap;
-    unit gameHero;
-    std::vector<unit> gameMonsters;
+    Map* gameMap; ///< The map in the game
+    unit gameHero; ///< The hero in the game
+    std::vector<unit> gameMonsters; ///< The monsters in the game
 
+	/**
+	 * \brief This function returns the index of every monster at the given coordinates
+	 * \param x
+	 * \param y
+	 * \return The index of every monster at the given coordinates 
+	*/
 	std::vector<int> getEveryMonsterIdxInPos(int x, int y);
+	/**
+	 * \brief This function makes the hero fight every monster in its position
+	*/
 	void fightMonsters();
+	/**
+	 * \brief This function draw the map to the output
+	*/
 	void drawMap();
 };
 

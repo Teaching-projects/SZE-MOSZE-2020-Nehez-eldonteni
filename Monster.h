@@ -122,10 +122,14 @@ public:
 
 
 protected:
+	/**
+	 * \struct Damage
+	*/
 	struct Damage {
-		int physical;
-		int magical;
+		int physical; ///< Physical damage
+		int magical; ///< Magical damage
 
+		/// + operator overloading
 		Damage operator+(const Damage& other){
 			Damage tempDmg;
 			
@@ -135,6 +139,7 @@ protected:
 			return tempDmg;
         }
 
+		/// += operator overloading
 		Damage& operator+=(const Damage& other){
 			this->physical += other.physical;
 			this->magical += other.magical;
@@ -142,6 +147,7 @@ protected:
 			return *this;
 		}
 
+		/// *= operator overloading
 		Damage& operator*=(const Damage& other){
 			this->physical *= other.physical;
 			this->magical *= other.magical;

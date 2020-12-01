@@ -91,6 +91,11 @@ public:
 		}
 	}
 
+	/**
+	 * \brief This function returns the list belonging to the given key.
+	 * \param text
+	 * \return The list paired with the given key.
+	*/
 	template <typename T>
     inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string key){
 			if(!jsonData.count(key)){
