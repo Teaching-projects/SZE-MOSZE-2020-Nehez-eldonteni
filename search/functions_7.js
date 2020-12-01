@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['notinitializedexception_86',['NotInitializedException',['../class_game_1_1_not_initialized_exception.html#a6c739a4f0b62100bcd47d2059f021e03',1,'Game::NotInitializedException']]]
+  ['map_122',['Map',['../class_map.html#a0f5ad0fd4563497b4214038cbca8b582',1,'Map']]],
+  ['markedmap_123',['MarkedMap',['../class_marked_map.html#a1ae31b7abacf85ab752652177c5125a0',1,'MarkedMap']]],
+  ['monster_124',['Monster',['../class_monster.html#a107776a440efd527c767f6311117911f',1,'Monster']]]
 ];

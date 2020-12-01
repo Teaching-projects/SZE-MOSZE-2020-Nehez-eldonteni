@@ -103,9 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a10a9fc677794a2825e03e3b30f46af20"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_same&lt; T, JSON::list &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#a10a9fc677794a2825e03e3b30f46af20">get</a> (std::string key)</td></tr>
 <tr class="memdesc:a10a9fc677794a2825e03e3b30f46af20"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the value of the given key.  <a href="class_j_s_o_n.html#a10a9fc677794a2825e03e3b30f46af20">More...</a><br /></td></tr>
 <tr class="separator:a10a9fc677794a2825e03e3b30f46af20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memTemplParams" colspan="2"><a id="aebd177cf8aafe344b9c98c3b0346cafd"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, JSON::list &gt;::value, JSON::list &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>get</b> (std::string key)</td></tr>
+<tr class="memitem:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; T, JSON::list &gt;::value, JSON::list &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_s_o_n.html#aebd177cf8aafe344b9c98c3b0346cafd">get</a> (std::string key)</td></tr>
+<tr class="memdesc:aebd177cf8aafe344b9c98c3b0346cafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function returns the list belonging to the given key.  <a href="class_j_s_o_n.html#aebd177cf8aafe344b9c98c3b0346cafd">More...</a><br /></td></tr>
 <tr class="separator:aebd177cf8aafe344b9c98c3b0346cafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -163,7 +163,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a10a9fc677794a2825e03e3b30f46af20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10a9fc677794a2825e03e3b30f46af20">&#9670;&nbsp;</a></span>get()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a10a9fc677794a2825e03e3b30f46af20">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,6 +196,43 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value paired with the given key. </dd></dl>
+
+</div>
+</div>
+<a id="aebd177cf8aafe344b9c98c3b0346cafd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebd177cf8aafe344b9c98c3b0346cafd">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;std::is_same&lt;T, JSON::list&gt;::value, JSON::list&gt;::type JSON::get </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This function returns the list belonging to the given key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The list paired with the given key. </dd></dl>
 
 </div>
 </div>

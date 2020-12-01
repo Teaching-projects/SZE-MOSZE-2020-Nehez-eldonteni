@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['characterdata_4',['characterData',['../structcharacter_data.html',1,'']]],
+  ['character_4',['character',['../struct_game_1_1unit.html#a2705e80ba0d171b97392db76db847375',1,'Game::unit']]],
   ['cooldown_5',['cooldown',['../class_monster.html#a1ba3290bba498348fdc00e92fcee7728',1,'Monster']]],
   ['count_6',['count',['../class_j_s_o_n.html#aa95c8567c7aa2e21dc93a9d4edbd6d32',1,'JSON']]],
   ['currentcooldown_7',['currentCooldown',['../class_monster.html#a16a270ab914231602914b4110be2beb0',1,'Monster']]],

@@ -81,33 +81,40 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_marked_map.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_marked_map.html">MarkedMap</a> : <span class="keyword">public</span> <a class="code" href="class_map.html">Map</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="struct_marked_map_1_1unit_pos.html">   27</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_marked_map_1_1unit_pos.html">unitPos</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">int</span> posx;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> posy;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">char</span> type;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_marked_map.html">MarkedMap</a>(<span class="keyword">const</span> std::string filename);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="struct_marked_map_1_1unit_pos.html">unitPos</a> getHeroPosition()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> hero; }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::vector&lt;unitPos&gt; getMonsterPositions(<span class="keywordtype">char</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="struct_marked_map_1_1unit_pos.html">   30</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_marked_map_1_1unit_pos.html">unitPos</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="struct_marked_map_1_1unit_pos.html#abe9f9b1ff0bf188215fe7afef6d3a62d">   32</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="struct_marked_map_1_1unit_pos.html#abe9f9b1ff0bf188215fe7afef6d3a62d">posx</a>; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="struct_marked_map_1_1unit_pos.html#abb0b209ef4bfec7ab9752cbed632b52b">   33</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="struct_marked_map_1_1unit_pos.html#abb0b209ef4bfec7ab9752cbed632b52b">posy</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="struct_marked_map_1_1unit_pos.html#a2aa10d35bdb9221f69d2b247cde37859">   34</a></span>&#160;        <span class="keywordtype">char</span> <a class="code" href="struct_marked_map_1_1unit_pos.html#a2aa10d35bdb9221f69d2b247cde37859">type</a>; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_marked_map.html#a1ae31b7abacf85ab752652177c5125a0">MarkedMap</a>(<span class="keyword">const</span> std::string filename);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::vector&lt;char&gt; getMonsterChars() {<span class="keywordflow">return</span> monsterChars;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    unitPos hero;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::vector&lt;unitPos&gt; monsters;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    std::vector&lt;char&gt; monsterChars;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_marked_map.html#ad3519d1698dce70f55875f14ba0e137d">   44</a></span>&#160;    <a class="code" href="struct_marked_map_1_1unit_pos.html">unitPos</a> <a class="code" href="class_marked_map.html#ad3519d1698dce70f55875f14ba0e137d">getHeroPosition</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> hero; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;unitPos&gt; <a class="code" href="class_marked_map.html#add99ea3dac26fe5ff42ec2b97985a837">getMonsterPositions</a>(<span class="keywordtype">char</span> c) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_marked_map.html#a899275bb9375e4e5b164e754fba3946e">   57</a></span>&#160;    std::vector&lt;char&gt; <a class="code" href="class_marked_map.html#a899275bb9375e4e5b164e754fba3946e">getMonsterChars</a>() {<span class="keywordflow">return</span> monsterChars;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    unitPos hero; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::vector&lt;unitPos&gt; monsters; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;char&gt; monsterChars; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_marked_map_html"><div class="ttname"><a href="class_marked_map.html">MarkedMap</a></div><div class="ttdoc">MarkedMap class.</div><div class="ttdef"><b>Definition:</b> MarkedMap.h:24</div></div>
-<div class="ttc" id="astruct_marked_map_1_1unit_pos_html"><div class="ttname"><a href="struct_marked_map_1_1unit_pos.html">MarkedMap::unitPos</a></div><div class="ttdef"><b>Definition:</b> MarkedMap.h:27</div></div>
+<div class="ttc" id="astruct_marked_map_1_1unit_pos_html_a2aa10d35bdb9221f69d2b247cde37859"><div class="ttname"><a href="struct_marked_map_1_1unit_pos.html#a2aa10d35bdb9221f69d2b247cde37859">MarkedMap::unitPos::type</a></div><div class="ttdeci">char type</div><div class="ttdoc">identification for the unit</div><div class="ttdef"><b>Definition:</b> MarkedMap.h:34</div></div>
+<div class="ttc" id="astruct_marked_map_1_1unit_pos_html_abb0b209ef4bfec7ab9752cbed632b52b"><div class="ttname"><a href="struct_marked_map_1_1unit_pos.html#abb0b209ef4bfec7ab9752cbed632b52b">MarkedMap::unitPos::posy</a></div><div class="ttdeci">int posy</div><div class="ttdoc">y coordinate of the unit</div><div class="ttdef"><b>Definition:</b> MarkedMap.h:33</div></div>
+<div class="ttc" id="astruct_marked_map_1_1unit_pos_html"><div class="ttname"><a href="struct_marked_map_1_1unit_pos.html">MarkedMap::unitPos</a></div><div class="ttdef"><b>Definition:</b> MarkedMap.h:30</div></div>
+<div class="ttc" id="aclass_marked_map_html_a899275bb9375e4e5b164e754fba3946e"><div class="ttname"><a href="class_marked_map.html#a899275bb9375e4e5b164e754fba3946e">MarkedMap::getMonsterChars</a></div><div class="ttdeci">std::vector&lt; char &gt; getMonsterChars()</div><div class="ttdoc">Getter function that returns every type of the monsters on the map.</div><div class="ttdef"><b>Definition:</b> MarkedMap.h:57</div></div>
+<div class="ttc" id="astruct_marked_map_1_1unit_pos_html_abe9f9b1ff0bf188215fe7afef6d3a62d"><div class="ttname"><a href="struct_marked_map_1_1unit_pos.html#abe9f9b1ff0bf188215fe7afef6d3a62d">MarkedMap::unitPos::posx</a></div><div class="ttdeci">int posx</div><div class="ttdoc">x coordinate of the unit</div><div class="ttdef"><b>Definition:</b> MarkedMap.h:32</div></div>
+<div class="ttc" id="aclass_marked_map_html_add99ea3dac26fe5ff42ec2b97985a837"><div class="ttname"><a href="class_marked_map.html#add99ea3dac26fe5ff42ec2b97985a837">MarkedMap::getMonsterPositions</a></div><div class="ttdeci">std::vector&lt; unitPos &gt; getMonsterPositions(char c) const</div><div class="ttdoc">Getter function that returns the position of the monsters that have the type given as parameter.</div><div class="ttdef"><b>Definition:</b> MarkedMap.cpp:54</div></div>
+<div class="ttc" id="aclass_marked_map_html_a1ae31b7abacf85ab752652177c5125a0"><div class="ttname"><a href="class_marked_map.html#a1ae31b7abacf85ab752652177c5125a0">MarkedMap::MarkedMap</a></div><div class="ttdeci">MarkedMap(const std::string filename)</div><div class="ttdoc">Constructor for the class that reads a marked map from the given file.</div><div class="ttdef"><b>Definition:</b> MarkedMap.cpp:4</div></div>
 <div class="ttc" id="aclass_map_html"><div class="ttname"><a href="class_map.html">Map</a></div><div class="ttdoc">Map class.</div><div class="ttdef"><b>Definition:</b> Map.h:22</div></div>
+<div class="ttc" id="aclass_marked_map_html_ad3519d1698dce70f55875f14ba0e137d"><div class="ttname"><a href="class_marked_map.html#ad3519d1698dce70f55875f14ba0e137d">MarkedMap::getHeroPosition</a></div><div class="ttdeci">unitPos getHeroPosition() const</div><div class="ttdoc">Getter function that returns the position of the hero.</div><div class="ttdef"><b>Definition:</b> MarkedMap.h:44</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

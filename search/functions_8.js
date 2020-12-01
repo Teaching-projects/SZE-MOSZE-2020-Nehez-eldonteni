@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['occupiedexception_87',['OccupiedException',['../class_game_1_1_occupied_exception.html#afa068fd84938268b0c6ebb23100ef186',1,'Game::OccupiedException']]]
+  ['notinitializedexception_125',['NotInitializedException',['../class_game_1_1_not_initialized_exception.html#a6c739a4f0b62100bcd47d2059f021e03',1,'Game::NotInitializedException']]]
 ];
