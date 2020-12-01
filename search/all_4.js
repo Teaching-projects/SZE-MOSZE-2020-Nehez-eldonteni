@@ -8,9 +8,8 @@ var searchData=
   ['getdefense_17',['getDefense',['../class_monster.html#a85db198b71d291aeb33fa1342b455f28',1,'Monster']]],
   ['gethealthpoints_18',['getHealthPoints',['../class_monster.html#acbfb552014439fe02d10f2492e60fe34',1,'Monster']]],
   ['getlevel_19',['getLevel',['../class_hero.html#a17e77f3769e62aeb4e1807bbfc720f47',1,'Hero']]],
-  ['getlightradius_20',['getLightRadius',['../class_hero.html#abb3f50ace2a337b9dfaa4d32c58f4307',1,'Hero']]],
-  ['getmagicaldamage_21',['getMagicalDamage',['../class_monster.html#ad0cc0de8870f9a5170a757e73c9fe009',1,'Monster']]],
-  ['getmaxhealthpoints_22',['getMaxHealthPoints',['../class_monster.html#a40a95011990070ee04c4e4518ad8a668',1,'Monster']]],
-  ['getname_23',['getName',['../class_monster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
-  ['getphysicaldamage_24',['getPhysicalDamage',['../class_monster.html#a6c970e972db4e7a515ecf387a0d6c9b3',1,'Monster']]]
+  ['getmagicaldamage_20',['getMagicalDamage',['../class_monster.html#ad0cc0de8870f9a5170a757e73c9fe009',1,'Monster']]],
+  ['getmaxhealthpoints_21',['getMaxHealthPoints',['../class_monster.html#a40a95011990070ee04c4e4518ad8a668',1,'Monster']]],
+  ['getname_22',['getName',['../class_monster.html#a28ae1112e37262ce150e3c02465b3dd5',1,'Monster']]],
+  ['getphysicaldamage_23',['getPhysicalDamage',['../class_monster.html#a6c970e972db4e7a515ecf387a0d6c9b3',1,'Monster']]]
 ];
