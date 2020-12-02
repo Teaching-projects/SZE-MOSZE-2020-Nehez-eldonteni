@@ -24,13 +24,13 @@ class Hero : public Monster
 {
 public:
 	/// Constructor for the class that puts the input parameters into data members and passes the required variables to the base class.
-	Hero(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _magicDamagePerLevel, double _cdMultiplierPerLevel, double _defenseBonusPerLevel) 
+	Hero(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, int _lightRadius, int _lightRadiusBonusPerLevel, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _magicDamagePerLevel, double _cdMultiplierPerLevel, double _defenseBonusPerLevel) 
 		:Monster(_name, _maxHP, _physicalAttack, _magicalAttack, _cooldown, _defense), 
-		xp(0), level(1), xpPerLevel(_xpPerLevel), hpPerLevel(_hpPerLevel), damagePerLevel(_damagePerLevel), magicDamagePerLevel(_magicDamagePerLevel), cdMultiplierPerLevel(_cdMultiplierPerLevel), defensePerLevel(_defenseBonusPerLevel) {}
+		xp(0), level(1), lightRadius(_lightRadius), lightRadiusBounusPerLevel(_lightRadiusBonusPerLevel), xpPerLevel(_xpPerLevel), hpPerLevel(_hpPerLevel), damagePerLevel(_damagePerLevel), magicDamagePerLevel(_magicDamagePerLevel), cdMultiplierPerLevel(_cdMultiplierPerLevel), defensePerLevel(_defenseBonusPerLevel) {}
 
 	/// Second constructor for the class that lets you make a Hero object from a Monster object.
 	Hero(Monster ch) :Monster(ch.getName(), ch.getMaxHealthPoints(), ch.getPhysicalDamage(), ch.getMagicalDamage(), ch.getAttackCoolDown(), ch.getDefense()), 
-	xp(0), level(1), xpPerLevel(0), hpPerLevel(0), damagePerLevel(0), magicDamagePerLevel(0), cdMultiplierPerLevel(0), defensePerLevel(0) {}
+	xp(0), level(1), lightRadius(2), lightRadiusBounusPerLevel(0), xpPerLevel(0), hpPerLevel(0), damagePerLevel(0), magicDamagePerLevel(0), cdMultiplierPerLevel(0), defensePerLevel(0) {}
 
 	/// Destruktor for the class.
 	~Hero(){}
@@ -50,6 +50,13 @@ public:
 	int getLevel() const { return level; }
 
 	/**
+	 * \brief This function returns the light radius of the Hero.
+	 * \param opponent
+	 * \return The light radius of the hero.
+	*/
+	int getLightRadius() const { return lightRadius; }
+
+	/**
 	 * \brief This function is an override of the attackEnemy function in the base class.
 	 * \param opponent
 	 * \return The damage inflicted on the opponent.
@@ -60,6 +67,8 @@ public:
 private:
 	int xp; ///< Experience points of the Hero
 	int level; ///< Level of the Hero
+	int lightRadius; ///< How far the hero can see
+	int lightRadiusBounusPerLevel; ///< Vision growth on levelup
 	double xpPerLevel; ///< The required XP ammount needed for levelup
 	double hpPerLevel; ///< Ammount of HP gain on levelup
 	double damagePerLevel; ///< Ammount of physical damage gain on levelup
