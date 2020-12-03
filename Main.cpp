@@ -7,8 +7,14 @@
 #include <iterator>
 #include <list>
 #include <vector>
+#include <ostream>
+#include <fstream>
 
 #include "PreparedGame.h"
+#include "HeroTextRenderer.h"
+#include "ObserverTextRenderer.h"
+#include "CharacterSVGRenderer.h"
+#include "ObserverSVGRenderer.h"
 
 
 const std::map<int,std::string> error_messages = {
@@ -33,8 +39,20 @@ int main(int argc, char** argv){
     try {
         PreparedGame pg(argv[1]);
         
+        pg.registerRenderer(new HeroTextRenderer());
+        pg.registerRenderer(new HeroTextRenderer(new std::ofstream("log.txt")));
+        pg.registerRenderer(new ObserverTextRenderer(new std::ofstream("logo.txt")));
+        pg.registerRenderer(new CharacterSVGRenderer("output.svg"));
+        pg.registerRenderer(new ObserverSVGRenderer("outputo.svg"));
+
         pg.run();
 
-    } catch (const JSON::ParseException& e) {bad_exit(4);}
+    } catch (const JSON::ParseException& e) {
+        bad_exit(4);
+    }
+    catch (const std::runtime_error& e) {
+        std::cerr << e.what() << std::endl;
+    }
+
     return 0;
 }

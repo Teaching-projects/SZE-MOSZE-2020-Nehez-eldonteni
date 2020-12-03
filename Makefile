@@ -1,4 +1,4 @@
-OBJS := Monster.o Hero.o Main.o JSON.o Map.o MarkedMap.o Game.o PreparedGame.o
+OBJS := Monster.o Hero.o Main.o JSON.o Map.o MarkedMap.o Game.o PreparedGame.o HeroTextRenderer.o ObserverTextRenderer.o CharacterSVGRenderer.o ObserverSVGRenderer.o
 
 build: $(OBJS)
 	g++ -fPIC -std=c++17 -Wall -Wextra -o game $(OBJS)
@@ -23,6 +23,18 @@ Game.o: Game.cpp Game.h Monster.h Hero.h Map.h
 
 PreparedGame.o: PreparedGame.cpp PreparedGame.h Game.h Monster.h Hero.h Map.h MarkedMap.h
 	g++ -std=c++17 -Wall -Wextra -c PreparedGame.cpp
+
+HeroTextRenderer.o: HeroTextRenderer.cpp HeroTextRenderer.h Game.h PreparedGame.h TextRenderer.h Renderer.h
+	g++ -std=c++17 -Wall -Wextra -c HeroTextRenderer.cpp
+
+ObserverTextRenderer.o: ObserverTextRenderer.cpp ObserverTextRenderer.h Game.h PreparedGame.h TextRenderer.h Renderer.h
+	g++ -std=c++17 -Wall -Wextra -c ObserverTextRenderer.cpp
+
+CharacterSVGRenderer.o: CharacterSVGRenderer.cpp CharacterSVGRenderer.h Game.h PreparedGame.h SVGRenderer.h Renderer.h
+	g++ -std=c++17 -Wall -Wextra -c CharacterSVGRenderer.cpp
+
+ObserverSVGRenderer.o: ObserverSVGRenderer.cpp ObserverSVGRenderer.h Game.h PreparedGame.h SVGRenderer.h Renderer.h
+	g++ -std=c++17 -Wall -Wextra -c ObserverSVGRenderer.cpp
 
 Main.o: Main.cpp Game.h Monster.h Hero.h JSON.h
 	clang++ -fPIC -std=c++17 -Wall -Wextra -c Main.cpp

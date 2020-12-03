@@ -70,7 +70,7 @@ public:
 	};
 	
 protected:
-	mapType dataMap;
+	mapType dataMap; ///< Contains the map structure (walls and free space)
 };
 
 #endif

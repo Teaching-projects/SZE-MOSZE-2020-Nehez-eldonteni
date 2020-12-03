@@ -23,4 +23,21 @@ void PreparedGame::loadGame(std::string fileName) {
         }
     }
 
+    std::string wallFilename;
+    std::string freeFilename;
+    try{
+        wallFilename = gameJSON.get<std::string>("wall_texture");
+        freeFilename = gameJSON.get<std::string>("free_texture");
+    } catch (const std::exception& e){
+        std::cout << "asd";
+        wallFilename = "";
+        freeFilename = "";
+    }
+
+    this->setWallTexture(wallFilename);
+    this->setFreeTexture(freeFilename);
+}
+
+void PreparedGame::registerRenderer(Renderer* r){
+    renderers.push_back(r);
 }

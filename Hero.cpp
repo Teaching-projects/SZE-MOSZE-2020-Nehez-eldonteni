@@ -44,7 +44,31 @@ Hero Hero::parse(const std::string& fileName){
 		lightPerLvl = 1;
 	}
 	
+	try{
+		std::string filename = data.get<std::string>("texture");
+		std::ifstream ifs(filename);
+		if (ifs.is_open()) {
+			std::string fullTexture = "";
+			std::string line = "";
+			while (fullTexture == "" && std::getline(ifs, line))
+			{
+				unsigned int j = 0;
+				while (j < line.length() - 5 && line.substr(j,5) != "image") j++;
+				if (j < line.length() - 5)
+					fullTexture = line;
+			}
+			ifs.close();
 
-	return Hero(data.get<std::string>("name"), data.get<int>("base_health_points"), data.get<int>("base_damage"), data.get<int>("base_magical_damage"), data.get<double>("base_attack_cooldown"), data.get<int>("base_defense"), data.get<int>("light_radius"), 
-		lightPerLvl, data.get<int>("experience_per_level"),  data.get<int>("health_point_bonus_per_level"), data.get<int>("damage_bonus_per_level"), data.get<int>("magical_damage_bonus_per_level"), data.get<double>("cooldown_multiplier_per_level"), data.get<int>("defense_bonus_per_level"));
+			return Hero(data.get<std::string>("name"), data.get<int>("base_health_points"), data.get<int>("base_damage"), data.get<int>("base_magical_damage"), data.get<double>("base_attack_cooldown"), data.get<int>("base_defense"), data.get<int>("light_radius"), 
+				lightPerLvl, data.get<int>("experience_per_level"),  data.get<int>("health_point_bonus_per_level"), data.get<int>("damage_bonus_per_level"), data.get<int>("magical_damage_bonus_per_level"), data.get<double>("cooldown_multiplier_per_level"), data.get<int>("defense_bonus_per_level"), fullTexture);
+		}
+		else
+		{
+			throw std::runtime_error("SVG file not found!");
+		}
+	}
+	catch(const std::exception& e){
+		return Hero(data.get<std::string>("name"), data.get<int>("base_health_points"), data.get<int>("base_damage"), data.get<int>("base_magical_damage"), data.get<double>("base_attack_cooldown"), data.get<int>("base_defense"), data.get<int>("light_radius"), 
+			lightPerLvl, data.get<int>("experience_per_level"),  data.get<int>("health_point_bonus_per_level"), data.get<int>("damage_bonus_per_level"), data.get<int>("magical_damage_bonus_per_level"), data.get<double>("cooldown_multiplier_per_level"), data.get<int>("defense_bonus_per_level"), "");
+	}
 }

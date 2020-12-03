@@ -39,6 +39,7 @@ public:
 
     /**
 	 * \brief Getter function that returns the position of the hero
+	 * \param none
      * \return The position of the hero
 	*/
 	unitPos getHeroPosition() const { return hero; }
@@ -52,9 +53,10 @@ public:
 
     /**
 	 * \brief Getter function that returns every type of the monsters on the map
+	 * \param none
      * \return The type of the monsters
 	*/
-	std::vector<char> getMonsterChars() {return monsterChars;}
+	std::vector<char> getMonsterChars() const {return monsterChars;}
 
 private:
     unitPos hero; ///< Position of the hero

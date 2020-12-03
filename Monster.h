@@ -24,8 +24,9 @@ class Monster
 {
 public:
 	/// Constructor for the class that puts the input parameters into data members
-	Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense)
-	{}
+	Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense) {}
+	/// Constructor for the class that puts the input parameters into data members with SVG texture
+	Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, std::string _texture) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense), texture(_texture) {}
 	/// Virtual destructor for the class
 	virtual ~Monster() {}
 
@@ -77,6 +78,13 @@ public:
 	 * \return The defense value of the Monster
 	*/
 	double getDefense() const { return defense; }
+	/**
+	 * \brief Simple getter function that returns the texture of the Monster
+	 * \param none
+	 * \return The texture of the Monster
+	*/
+	std::string getTexture() const { return texture; }
+
 
 	/**
 	 * \brief This function resets the attack cooldown of the monster
@@ -104,6 +112,7 @@ public:
 	
 	/**
 	 * \brief The fight takes place in this complex function
+	 * \param none
 	 * \param opponent
 	 * 
 	 * In this function the Monsters attack each other and start their attack cooldowns. They fight until one of them reaches 0 HP and dies.
@@ -163,6 +172,7 @@ protected:
 	double cooldown;	///< Time needed between attacks of the Monster
 	double currentCooldown;	///< Time remaining for the Monster's next attack
 	int defense; ///< The amount of damage the Monster can absorb
+	std::string texture; ///< The SVG texture of the mosnter
 
 	/**
 	 * \brief This function makes a Monster take damage from another Monster by subsracting damage from HP
