@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['unit_91',['unit',['../struct_game_1_1unit.html',1,'Game']]],
-  ['unitpos_92',['unitPos',['../struct_marked_map_1_1unit_pos.html',1,'MarkedMap']]]
+  ['parseexception_120',['ParseException',['../class_j_s_o_n_1_1_parse_exception.html',1,'JSON']]],
+  ['preparedgame_121',['PreparedGame',['../class_prepared_game.html',1,'']]]
 ];

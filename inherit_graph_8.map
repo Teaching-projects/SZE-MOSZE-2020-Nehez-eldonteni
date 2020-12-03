@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_renderer.html" title="Renderer class." alt="" coords="5,81,87,108"/>
+<area shape="rect" id="node2" href="$class_s_v_g_renderer.html" title="SVGRenderer class." alt="" coords="135,56,243,83"/>
+<area shape="rect" id="node5" href="$class_text_renderer.html" title="TextRenderer class." alt="" coords="135,107,243,133"/>
+<area shape="rect" id="node3" href="$class_character_s_v_g_renderer.html" title="CharacterSVGRenderer class." alt="" coords="291,5,461,32"/>
+<area shape="rect" id="node4" href="$class_observer_s_v_g_renderer.html" title="ObserverSVGRenderer class." alt="" coords="293,56,459,83"/>
+<area shape="rect" id="node6" href="$class_hero_text_renderer.html" title="HeroTextRenderer class." alt="" coords="307,107,445,133"/>
+<area shape="rect" id="node7" href="$class_observer_text_renderer.html" title="ObserverTextRenderer class." alt="" coords="293,157,459,184"/>
+</map>

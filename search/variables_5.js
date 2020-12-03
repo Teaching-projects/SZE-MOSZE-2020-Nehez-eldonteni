@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['magical_158',['magical',['../struct_monster_1_1_damage.html#a21332a3ef855b906d2cc02f23419ea69',1,'Monster::Damage']]],
-  ['maxhp_159',['maxHP',['../class_monster.html#a21dc0aa9f78dbffb7f1a1e0048dfbd4a',1,'Monster']]]
+  ['isgamestarted_211',['isGameStarted',['../class_game.html#ab6901cb29c3af8065ef6285cf68f65a0',1,'Game']]],
+  ['isheroset_212',['isHeroSet',['../class_game.html#aacfe492e9c64c92316b217cb94954754',1,'Game']]],
+  ['ismapset_213',['isMapSet',['../class_game.html#a2bc7cba10a3d1f728d481d68926e342b',1,'Game']]],
+  ['ismonstersset_214',['isMonstersSet',['../class_game.html#ae33a6a80e4912a6a1a3df89d98b3f6f8',1,'Game']]]
 ];
