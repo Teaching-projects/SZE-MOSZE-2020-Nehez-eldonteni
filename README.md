@@ -17,10 +17,10 @@ The details of games and prepared games are also stored in `.json` files. The ga
 
 Multiple renderers can be *assigned* to games and prepared games, which control how the games are being *displayed*.
 The `Renderer` is an *absract class*. Multiple types of renderers have been *derived* from the `Renderer`:
-    - `HeroTextRenderer`: Provides *text based display* solution
-    - `ObserverTextRenderer`: Provides *text based display* solution that shows the whole map(normally it's limited by the hero's vision)
-    - `CharacterSVGRenderer`: Provides an *svg file based display* solution with the hero vision limit
-    - `ObserverSVGRenderer`: Provides an *svg file based display* solution for the *full* map
+- `HeroTextRenderer`: Provides *text based display* solution
+- `ObserverTextRenderer`: Provides *text based display* solution that shows the whole map(normally it's limited by the hero's vision)
+- `CharacterSVGRenderer`: Provides an *svg file based display* solution with the hero vision limit
+- `ObserverSVGRenderer`: Provides an *svg file based display* solution for the *full* map
 
 All the text renderers can take *outputstream objects*(with `std::cout` as *default value* if there is *no given parameter*), on the other hand svg renderers take filenames.
 
