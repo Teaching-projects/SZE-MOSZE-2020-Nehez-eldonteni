@@ -12,6 +12,10 @@ Game::~Game(){
     for (auto m:gameMonsters){
         delete m.character;
     }
+
+    for (auto r : renderers){
+        delete r;
+    }
 }
 
 void Game::setMap(Map map){
@@ -24,6 +28,93 @@ void Game::setMap(Map map){
     gameMap = new Map(map);
 
     isMapSet = true;
+}
+
+void Game::setWallTexture(std::string filename) {
+
+    std::ifstream ifs(filename);
+
+    if (ifs.is_open()) {
+        std::string fullTexture = "";
+        std::string line = "";
+        while (std::getline(ifs, line))
+        {
+            unsigned int j = 0;
+            while (j < line.length() - 5 && line.substr(j,5) != "image") j++;
+            if (j < line.length() - 5)
+                fullTexture = line;
+        }
+
+        wallTexture = fullTexture;
+    }
+    else
+    {
+        throw std::runtime_error("SVG file not found!");
+    }
+}
+
+void Game::setFreeTexture(std::string filename){
+
+    std::ifstream ifs(filename);
+
+    if (ifs.is_open()) {
+        std::string fullTexture = "";
+        std::string line = "";
+        while (std::getline(ifs, line))
+        {
+            unsigned int j = 0;
+            while (j < line.length() - 5 && line.substr(j,5) != "image") j++;
+            if (j < line.length() - 5)
+                fullTexture = line;
+        }
+
+        freeTexture = fullTexture;
+    }
+    else
+    {
+        throw std::runtime_error("SVG file not found!");
+    } 
+}
+
+std::map<std::string, std::string> Game::getEveryMonsterNameAndTexture() const{
+    std::map<std::string, std::string> textures;
+
+    for (auto m: gameMonsters) {
+        std::string closeName = "";
+        for (auto c: m.character->getName()){
+            if (c != ' ')
+                closeName += c;
+        }
+        std::pair<std::string, std::string> tt = {closeName, m.character->getTexture()};
+        
+        unsigned int j = 0;
+        for (auto texture: textures){
+            if (texture.first != tt.first)
+                j++;
+        }
+        if (j >= textures.size()){
+            textures[tt.first] = tt.second;
+        }
+    }
+
+    return textures;
+}
+
+std::string Game::getMonsterNameInPos(int x, int y) const{
+    unsigned int i = 0;
+    while (i < gameMonsters.size() && (gameMonsters[i].posx != x || gameMonsters[i].posy != y)) {
+        i++;
+    }
+    if (i < gameMonsters.size()){
+        std::string closeName = "";
+        for (auto c: gameMonsters[i].character->getName()){
+            if (c != ' ')
+                closeName += c;
+        }
+        return closeName;
+    }
+    else
+        return "";    
 }
 
 void Game::setMap(Map* map){
@@ -71,7 +162,11 @@ void Game::putMonster(Monster monster, int x, int y){
     isMonstersSet = true;
 }
 
-std::vector<int> Game::getEveryMonsterIdxInPos(int x, int y){
+void Game::registerRenderer(Renderer* r){
+    renderers.push_back(r);
+}
+
+std::vector<int> Game::getEveryMonsterIdxInPos(int x, int y) const{
     std::vector<int> monsterIdx;
     for (unsigned int i = 0; i < gameMonsters.size(); i++) {
         if (gameMonsters[i].posx == x && gameMonsters[i].posy == y)
@@ -82,59 +177,9 @@ std::vector<int> Game::getEveryMonsterIdxInPos(int x, int y){
 }
 
 void Game::drawMap(){
-    int mapWidth = gameMap->getWidth();
-    int mapHeight = gameMap->getHeight();
-
-    int light = dynamic_cast<Hero*>(gameHero.character)->getLightRadius();
-    
-    int left = gameHero.posx - light;
-    int right = gameHero.posx + light;
-    int top = gameHero.posy - light;
-    int bot = gameHero.posy + light;
-
-    if (left < 0) left = 0;
-    if (top < 0) top = 0;
-    if (right > mapWidth - 1) right = mapWidth - 1;
-    if (bot > mapHeight - 1) bot = mapHeight - 1;
-
-    std::cout << "╔";
-    for (int i = left; i <= right; i++)
-        std::cout << "══";
-    
-    std::cout << "╗" << std::endl;
-
-    for (int i = top; i <= bot; i++) {
-        std::cout << "║";
-        for (int j = left; j <= right; j++) {
-            try
-            {
-                if (gameMap->get(j,i) == Map::type::Wall)
-                    std::cout << "██";
-                else if (gameHero.posx == j && gameHero.posy == i)
-                    std::cout << "┣┫";
-                else{
-                    int monsterCountInPos = getEveryMonsterIdxInPos(j, i).size();
-                    if (monsterCountInPos == 1)
-                        std::cout << "M░";
-                    else if (monsterCountInPos > 1)
-                        std::cout << "MM";
-                    else
-                        std::cout << "░░";
-                }
-            }
-            catch (Map::WrongIndexException& e){
-                std::cout << "██";
-            }
-            
-        }
-        std::cout << "║" << std::endl;
+    for (auto x : renderers){
+        x->render(*this);
     }
-
-    std::cout << "╚";
-    for (int i = left; i <= right; i++)
-        std::cout << "══";
-    
-    std::cout << "╝" << std::endl;
 }
 
 void Game::fightMonsters(){

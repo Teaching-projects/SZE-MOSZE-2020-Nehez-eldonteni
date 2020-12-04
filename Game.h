@@ -24,12 +24,14 @@
 #include "Map.h"
 #include "Hero.h"
 #include "Monster.h"
+#include "Renderer.h"
 
 class Game
 {
 public:
 	/**
 	 * \struct unit
+	 * \brief unit struct
 	*/
 	struct unit
 	{
@@ -51,6 +53,16 @@ public:
 	*/
 	void setMap(Map map);
 	/**
+	 * \brief This function sets the wall texture for the SVG output
+	 * \param filename
+	*/
+	void setWallTexture(std::string filename);
+	/**
+	 * \brief This function sets the free texture for the SVG output
+	 * \param filename
+	*/
+	void setFreeTexture(std::string filename);
+	/**
 	 * \brief This function sets the map for the game with a map pointer
 	 * \param map
 	*/
@@ -70,8 +82,60 @@ public:
 	*/
 	void putMonster(Monster monster, int x, int y);
 
+	/**
+	 * \brief This function registers a renderer
+	 * \param renderer
+	*/
+	virtual void registerRenderer(Renderer*);
+
+	/**
+	 * \brief This function returns the map of the game
+	 * \param none
+	 * \return The map
+	*/
+	Map* getMap() const {return gameMap;}
+	/**
+	 * \brief This function returns the hero of the game
+	 * \param none
+	 * \return The hero
+	*/
+	unit getHero() const {return gameHero;}
+	/**
+	 * \brief This function returns the wall texture of the game
+	 * \param none
+	 * \return The wall texture
+	*/
+	std::string getWallTexture() const {return wallTexture;}
+	/**
+	 * \brief This function returns the free texture of the game
+	 * \param none
+	 * \return The free texture
+	*/
+	std::string getFreeTexture() const {return freeTexture;}
+	/**
+	 * \brief This function returns every monster name and texture in the game
+	 * \param none
+	 * \return String vector containing every mosnters name and texture
+	*/
+	std::map<std::string, std::string> getEveryMonsterNameAndTexture() const;
+	/**
+	 * \brief This function returns the index of every monster at the given coordinates
+	 * \param x
+	 * \param y
+	 * \return The index of every monster at the given coordinates 
+	*/
+	std::vector<int> getEveryMonsterIdxInPos(int x, int y) const;
+	/**
+	 * \brief This function returns the name of the monster at the given coordinates
+	 * \param x
+	 * \param y
+	 * \return The name of the monster at the given coordinates 
+	*/
+	std::string getMonsterNameInPos(int x, int y) const;
+
     /**
 	 * \brief This function starts the game
+	 * \param none
 	*/
 	virtual void run();
 
@@ -144,14 +208,10 @@ protected:
     Map* gameMap; ///< The map in the game
     unit gameHero; ///< The hero in the game
     std::vector<unit> gameMonsters; ///< The monsters in the game
+	std::string wallTexture; ///< SVG texture for walls
+	std::string freeTexture; ///< SVG texture for free space
+	std::vector<Renderer*> renderers; ///< Registered renderers for the program output
 
-	/**
-	 * \brief This function returns the index of every monster at the given coordinates
-	 * \param x
-	 * \param y
-	 * \return The index of every monster at the given coordinates 
-	*/
-	std::vector<int> getEveryMonsterIdxInPos(int x, int y);
 	/**
 	 * \brief This function makes the hero fight every monster in its position
 	*/

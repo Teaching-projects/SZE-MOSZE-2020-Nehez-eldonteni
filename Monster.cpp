@@ -11,7 +11,32 @@ std::ostream &operator<<(std::ostream &os, const Monster &ch)
 Monster Monster::parse(const std::string& text) {
 	JSON data = JSON::parseFromFile(text);
 	
-	return Monster(data.get<std::string>("name"), data.get<int>("health_points"), data.get<int>("damage"), data.get<int>("magical_damage"),  data.get<double>("attack_cooldown"),  data.get<int>("defense"));
+	try{
+		std::string filename = data.get<std::string>("texture");
+		std::ifstream ifs(filename);
+		if (ifs.is_open()) {
+			std::string fullTexture = "";
+			std::string line = "";
+			while (fullTexture == "" && std::getline(ifs, line))
+			{
+				unsigned int j = 0;
+				while (j < line.length() - 5 && line.substr(j,5) != "image") j++;
+				if (j < line.length() - 5)
+					fullTexture = line;
+			}
+			ifs.close();
+
+			return Monster(data.get<std::string>("name"), data.get<int>("health_points"), data.get<int>("damage"), data.get<int>("magical_damage"),  data.get<double>("attack_cooldown"),  data.get<int>("defense"), fullTexture);
+		}
+		else
+		{
+			throw std::runtime_error("SVG file not found!");
+		}
+		
+	}
+	catch(const std::exception& e){
+		return Monster(data.get<std::string>("name"), data.get<int>("health_points"), data.get<int>("damage"), data.get<int>("magical_damage"),  data.get<double>("attack_cooldown"),  data.get<int>("defense"), "");
+	}
 }
 
 void Monster::fightTilDeath(Monster& opponent){

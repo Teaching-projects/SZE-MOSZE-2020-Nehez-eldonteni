@@ -6,5 +6,6 @@
     "health_points" : 10, 
     "defense" : 2,
     "damage" : 1, "magical_damage" : 1, "attack_cooldown" : 2.8,
-    "race" : "undead"
+    "race" : "undead",
+    "texture" : "zombie.svg"
 }

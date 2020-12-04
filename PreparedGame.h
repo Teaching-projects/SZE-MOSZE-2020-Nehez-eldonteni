@@ -21,6 +21,7 @@
 #include "MarkedMap.h"
 #include "Monster.h"
 #include "Hero.h"
+#include "Renderer.h"
 
 class PreparedGame : private Game
 {
@@ -34,6 +35,11 @@ public:
 	 * \brief This function starts the game.
 	*/
 	virtual void run() { Game::run(); }
+	/**
+	 * \brief This function registers a renderer
+	 * \param renderer
+	*/
+	virtual void registerRenderer(Renderer*);
 
 private:
     /**

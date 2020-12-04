@@ -22,6 +22,10 @@
 class Map
 {
 public:
+	/** 
+	 * \enum type
+	 *  \brief enum type for Wall and Free blocks
+	*/
     enum type {
         Wall,
         Free
@@ -70,7 +74,7 @@ public:
 	};
 	
 protected:
-	mapType dataMap;
+	mapType dataMap; ///< Contains the map structure (walls and free space)
 };
 
 #endif
