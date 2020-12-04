@@ -26,6 +26,7 @@ class MarkedMap : public Map
 public:
     /**
      * \struct unitPos
+     * \brief unit position
     */
     struct unitPos
     {

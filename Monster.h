@@ -133,6 +133,7 @@ public:
 protected:
 	/**
 	 * \struct Damage
+	 * \brief magical and physical damage
 	*/
 	struct Damage {
 		int physical; ///< Physical damage
