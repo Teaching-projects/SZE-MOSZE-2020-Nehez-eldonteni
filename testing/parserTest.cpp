@@ -3,7 +3,9 @@
 #include "../JSON.h"
 #include "../Monster.h"
 #include "../Hero.h"
-
+#include "../Map.h"
+#include "../MarkedMap.h"
+#include "../Game.h"
 
 // JSON tests
 
@@ -139,6 +141,44 @@ TEST(MulTest, MonsterVSMonsterTest) {
 
     ASSERT_TRUE(!ch1.isAlive());
     ASSERT_EQ(ch2.getHealthPoints(), 200);
+}
+
+// Game/Map tests
+
+TEST(MulTest, MapDimensionsTest) {
+    Map m("../map1.txt");
+    
+    ASSERT_EQ(m.getHeight(), 7);
+    ASSERT_EQ(m.getWidth(), 20);
+}
+
+TEST(MulTest, MarkedMapTest) {
+    MarkedMap mm("../markedmap1.txt");
+    
+    ASSERT_EQ(mm.getHeight(), 7);
+    ASSERT_EQ(mm.getWidth(), 20);
+
+    ASSERT_EQ(mm.getHeroPosition().posx, 1);
+    ASSERT_EQ(mm.getHeroPosition().posy, 1);
+}
+
+TEST(MulTest, GameTest) {
+    Game g("../map1.txt");
+
+    Monster ch1("Codos",60,70,11,12.5,4,"");
+    Hero ch2("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,""); 
+
+    g.putHero(ch2, 1, 2);
+    g.putMonster(ch1, 1, 5);
+    
+    ASSERT_EQ(g.getMap()->getHeight(), 7);
+    ASSERT_EQ(g.getMap()->getWidth(), 20);
+
+    ASSERT_EQ(g.getHero().character->getName(), "Kowa");
+    ASSERT_EQ(g.getHero().posx, 1);
+    ASSERT_EQ(g.getHero().posy, 2);
+
+    ASSERT_EQ(g.getMonsterNameInPos(1, 5), "Codos");
 }
 
 int main(int argc, char* argv[]) {

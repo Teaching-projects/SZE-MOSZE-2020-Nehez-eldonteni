@@ -53,8 +53,7 @@ memcheck:
 outputTests:
 	> testing/fight.txt
 
-	cat testing/input1.txt | ./game preparedgame1.json | tail -1 >> testing/fight.txt
-	cat testing/input2.txt | ./game preparedgame2.json | tail -1 >> testing/fight.txt
+	cat testing/input1.txt | ./game preparedgame1.json >> testing/fight.txt
 
 	if [ "$$(diff testing/fight.txt testing/manual_calculation.txt)" = "" ]; then echo "Successful comparison! No difference between files." && exit 0; else echo "Something went wrong! There is a difference." && exit 1; fi
 
