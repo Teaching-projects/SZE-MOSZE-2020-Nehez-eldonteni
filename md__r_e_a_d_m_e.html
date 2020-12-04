@@ -67,17 +67,38 @@ $(function() {
 <div class="title">nehez_donteni </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Team project for MOSZE This project contains an RPG game made for a SZE university class.</p>
-<p>About the program: The character class contains all information about the fighting opponents such as name, hp, attack value and cooldown. The initialization of the object is done through the constructor where the name, hp and attack value must be given. One character can attack another by calling the "attackEnemy" method and passing the opponent as parameter. This method calls the "takeDamage" method which decreases the hp of the character by the attack value of the character given as parameter. It also sets the characters attack cooldown for the next attack. The ostream operator(&lt;&lt;) has been overwritten to ease the output of the information about the character.</p>
-<p>The adventurer class is inherited from the character class. It adds an xp system for the character. It works by giving the character the ammount of xp it inflicted on the enemy. For every 100 xp the adventurer levels up increases its maximum hp and attack by 10%, regenerates its hp to full and decreases the attack cooldown by 10%.</p>
-<p>Both character's information is given through commmand line arguments. After that, the program creates the two objects and starts a loop where the two characters fight each other until one of them dies (hp goes down to 0). This logic is inside of the character class and it can be started by calling one of the characters fight method and give the other character as parameter.</p>
-<p>Every character's information is stored in json files inside the "testing/units" folder. The program reads the json files given as command line arguments with a static method in character.h (if anything is wrong with the files it throws a custom exception). This function uses the JSONParser class which can read data from file, iostream and string. It reads out all the information and feeds it to the constructor which creates the new characters. After this, the created characters start fighting. The outcome of the fight is shown on the command line output.</p>
-<p>We have a shell script that outputs all the scenarios into a single file and compares it to the manually calculated results to make sure the program works properly.</p>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
+Team project for MOSZE</h1>
+<p>This project contains an RPG game made for a SZE university class.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+About the program:</h2>
+<p>The program is simulating a classic RPG game where a <code>hero</code> clears <code>maps</code> full of <code>monsters</code>. While the hero grinds through all the enemies he gains multiple <code>powerups</code> and <code>stats</code> so he can face stronger and stronger enemies on the way.</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Core functionallity:</h2>
+<p>The game is controlled by the <code><a class="el" href="class_game.html" title="Game class.">Game</a></code> or the <code><a class="el" href="class_prepared_game.html" title="PreparedGame class.">PreparedGame</a></code> class. The difference between them is that the <code><a class="el" href="class_prepared_game.html" title="PreparedGame class.">PreparedGame</a></code> class asks for a <code>.json</code> file which contains all the required information to start the game, such as the <code>map</code>, <code>hero</code> and <code>monsters</code>, meanwhile the <code><a class="el" href="class_game.html" title="Game class.">Game</a></code> class only asks for the <code>map</code> at the start and the <code>hero</code> and <code>monsters</code> are <em>imported</em> via <em>methods</em>.</p>
+<p>The <code>maps</code> are <code>.txt</code> files. The normal <code>maps</code> have <code>#</code> characters where the walls are and &lsquo;&rsquo; '(whitespace)<code>where the</code>hero<code>can walk. They can be imported by the</code><a class="el" href="class_map.html" title="Map class.">Map</a><code>class. For the</code>prepared games<code>there is a different kind of</code>map<code>called a</code>marked map<code>. It's similar the normal</code>map<code>but it conatains more information: the</code>starting position<code>of the</code>hero<code>and a *layout of monsters*. Every</code>monster<code>is *identified by* it's</code>character<code>and these</code>characters<code>are *marked* on the</code>map<code>. The</code>characters<code>are *assigned* to the</code>monsters<code>in the</code>preparedgame.json` files.</p>
+<p>The <code>hero</code> and <code>monster</code> <em>attributes</em> are stored in <code>.json</code> files. These <em>attributes</em> are pretty common in RPG games such as <b>Damage</b>, <b>Magical Damage</b>, <b>HP</b>, <b>Attack Cooldown</b>.</p>
+<p>The details of <code>games</code> and <code>prepared games</code> are also stored in <code>.json</code> files. The <code>game</code> class can take a <code>filename</code> in it's <em>constructor</em>, but it can be added later via the <code>game.setMap()</code> <em>method</em>. The <code><a class="el" href="class_prepared_game.html" title="PreparedGame class.">PreparedGame</a></code> class on the other hand takes a <code>.json</code> file that contains a <code>map</code>, a <code>hero</code> and the <code>monsters</code> by their <code>filenames</code>.</p>
+<p>Multiple <code>renderers</code> can be <em>assigned</em> to <code>games</code> and <code>prepared games</code>, which control how the <code>games</code> are being <em>displayed</em>. The <code><a class="el" href="class_renderer.html" title="Renderer class.">Renderer</a></code> is an <em>absract class</em>. Multiple types of <code>renderers</code> have been <em>derived</em> from the <code><a class="el" href="class_renderer.html" title="Renderer class.">Renderer</a></code>:</p><ul>
+<li><code><a class="el" href="class_hero_text_renderer.html" title="HeroTextRenderer class.">HeroTextRenderer</a></code>: Provides <em>text based display</em> solution<ul>
+<li><code><a class="el" href="class_observer_text_renderer.html" title="ObserverTextRenderer class.">ObserverTextRenderer</a></code>: Provides <em>text based display</em> solution that shows the whole <code>map</code>(normally it's limited by the <code>hero's</code> <code>vision</code>)</li>
+</ul>
+</li>
+<li><code><a class="el" href="class_character_s_v_g_renderer.html" title="CharacterSVGRenderer class.">CharacterSVGRenderer</a></code>: Provides an <em>svg file based display</em> solution with the <code>hero</code> <code>vision</code> limit</li>
+<li><code><a class="el" href="class_observer_s_v_g_renderer.html" title="ObserverSVGRenderer class.">ObserverSVGRenderer</a></code>: Provides an <em>svg file based display</em> solution for the <em>full</em> <code>map</code></li>
+</ul>
+<p>All the <code>text renderers</code> can take <code>outputstream objects</code>(with <code>std::cout</code> as <em>default value</em> if there is <em>no given parameter</em>), on the other hand <code>svg renderers</code> take <code>filenames</code>.</p>
+<p>The <code>.json</code> files are all <em>processed</em> by the <code><a class="el" href="class_j_s_o_n.html" title="JSON class.">JSON</a></code> class which <em>parses</em> the <em>files</em> and <em>reads</em> all the information needed for the program.</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Testing</h2>
+<p>We implemented multiple <code>tests</code> to make sure the program works as expected. We test the <code>classes</code>, <code>inputs</code>, <code>code outputs</code>, <code>syntax</code> and <code>memory usage</code>. All the <code>tests</code> are <em>executed</em> in a <code>Docker container</code> witht the <em>latest Ubuntu</em> system. <code>Git workflows</code> <em>start and run</em> the <code>tests</code> <b>on every push</b>.</p>
 <p>We also have some Git Actions pipelines that tests the program in multiple ways:</p><ul>
 <li>Output_test: check for memory leaks, errors and warnings</li>
 <li>JSONParse_tests: checks all possible ways to read json via JSONParse class</li>
 </ul>
-<p>The documentation for the project is pushed to github pages after every adjustment. </p>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Documentation</h2>
+<p>The <a href="https://teaching-projects.github.io/SZE-MOSZE-2020-Nehez-eldonteni/index.html">documentation</a> for the project is pushed to github pages after every adjustment. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
