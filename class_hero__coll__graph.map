@@ -1,5 +1,5 @@
 <map id="Hero" name="Hero">
 <area shape="rect" id="node1" title="Hero class." alt="" coords="48,171,101,197"/>
 <area shape="rect" id="node2" href="$class_monster.html" title="Monster class." alt="" coords="37,95,112,121"/>
-<area shape="rect" id="node3" href="$struct_monster_1_1_damage.html" title=" " alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node3" href="$struct_monster_1_1_damage.html" title="magical and physical damage" alt="" coords="5,5,144,32"/>
 </map>
