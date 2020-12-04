@@ -31,6 +31,7 @@ class Game
 public:
 	/**
 	 * \struct unit
+	 * \brief unit struct
 	*/
 	struct unit
 	{

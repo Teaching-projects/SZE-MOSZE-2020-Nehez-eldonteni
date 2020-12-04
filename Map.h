@@ -22,6 +22,10 @@
 class Map
 {
 public:
+	/** 
+	 * \enum type
+	 *  \brief enum type for Wall and Free blocks
+	*/
     enum type {
         Wall,
         Free
