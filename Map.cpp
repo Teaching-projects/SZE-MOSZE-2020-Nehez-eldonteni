@@ -1,7 +1,7 @@
 #include "Map.h"
 
 
-Map::type Map::get(int x, int y) const {
+Map::type Map::get(const int x, const int y) const {
     if ((int)dataMap.size() < 0 || y < 0 || y >= (int)dataMap.size() || x < 0 || x >= (int)dataMap[y].size())
         throw WrongIndexException("The given coordinates are out of bound!");
 

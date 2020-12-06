@@ -1,7 +1,7 @@
 #include "Hero.h"
 
 
-void Hero::increaseXP(int xpAmmount)
+void Hero::increaseXP(const int xpAmmount)
 {
 	this->xp += xpAmmount;
 

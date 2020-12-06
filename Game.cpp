@@ -1,7 +1,7 @@
 #include "Game.h"
 
 
-Game::Game(std::string mapfilename) :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameHero() {
+Game::Game(const std::string mapfilename) :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameHero() {
     Map m(mapfilename);
     setMap(m);
 }
@@ -18,7 +18,7 @@ Game::~Game(){
     }
 }
 
-void Game::setMap(Map map){
+void Game::setMap(const Map map){
     if (isGameStarted)
         throw GameAlreadyStartedException("Cannot change map: the game has already started!");
     
@@ -30,7 +30,7 @@ void Game::setMap(Map map){
     isMapSet = true;
 }
 
-void Game::setWallTexture(std::string filename) {
+void Game::setWallTexture(const std::string filename) {
 
     std::ifstream ifs(filename);
 
@@ -53,7 +53,7 @@ void Game::setWallTexture(std::string filename) {
     }
 }
 
-void Game::setFreeTexture(std::string filename){
+void Game::setFreeTexture(const std::string filename){
 
     std::ifstream ifs(filename);
 
@@ -100,7 +100,7 @@ std::map<std::string, std::string> Game::getEveryMonsterNameAndTexture() const{
     return textures;
 }
 
-std::string Game::getMonsterNameInPos(int x, int y) const{
+std::string Game::getMonsterNameInPos(const int x, const int y) const{
     unsigned int i = 0;
     while (i < gameMonsters.size() && (gameMonsters[i].posx != x || gameMonsters[i].posy != y)) {
         i++;
@@ -129,7 +129,7 @@ void Game::setMap(Map* map){
     isMapSet = true;
 }
 
-void Game::putHero(Hero hero, int x, int y){
+void Game::putHero(const Hero hero, const int x, const int y){
     if (isGameStarted)
         throw GameAlreadyStartedException("Cannot put hero: the game has already started!");
     
@@ -150,7 +150,7 @@ void Game::putHero(Hero hero, int x, int y){
     isHeroSet = true;
 }
 
-void Game::putMonster(Monster monster, int x, int y){ 
+void Game::putMonster(const Monster monster, const int x, const int y){ 
     if (!isMapSet)
         throw Map::WrongIndexException("No map has been assigned!");
     

@@ -1,6 +1,6 @@
 #include "PreparedGame.h"
 
-void PreparedGame::loadGame(std::string fileName) {
+void PreparedGame::loadGame(const std::string fileName) {
     JSON gameJSON = JSON::parseFromFile(fileName);
 
     this->setMap(new MarkedMap(gameJSON.get<std::string>("map")));

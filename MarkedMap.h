@@ -50,7 +50,7 @@ public:
 	 * \param c
      * \return The position of the monsters
 	*/
-	std::vector<unitPos> getMonsterPositions(char c) const;
+	std::vector<unitPos> getMonsterPositions(const char c) const;
 
     /**
 	 * \brief Getter function that returns every type of the monsters on the map

@@ -46,7 +46,7 @@ public:
      * \param y
 	 * \return The type of the place on the map
 	*/
-	Map::type get(int x, int y) const;
+	Map::type get(const int x, const int y) const;
 
     /**
 	 * \brief Simple getter function that returns the height of the map
