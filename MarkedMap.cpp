@@ -51,7 +51,7 @@ MarkedMap::MarkedMap(const std::string filename){
     dataMap = fileMap;
 }
 
-std::vector<MarkedMap::unitPos> MarkedMap::getMonsterPositions(char c) const {
+std::vector<MarkedMap::unitPos> MarkedMap::getMonsterPositions(const char c) const {
     std::vector<unitPos> results;
     for (auto m : monsters) {
         if (m.type == c)

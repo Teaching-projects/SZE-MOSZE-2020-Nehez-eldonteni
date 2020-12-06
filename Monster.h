@@ -24,9 +24,9 @@ class Monster
 {
 public:
 	/// Constructor for the class that puts the input parameters into data members
-	Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense) {}
+	Monster(const std::string _name, const int _maxHP, const int _physicalAttack, const int _magicalAttack, const double _cooldown, const double _defense) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense) {}
 	/// Constructor for the class that puts the input parameters into data members with SVG texture
-	Monster(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, std::string _texture) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense), texture(_texture) {}
+	Monster(const std::string _name, const int _maxHP, const int _physicalAttack, const int _magicalAttack, const double _cooldown, const double _defense, const std::string _texture) :name(_name), maxHP(_maxHP), currentHP(_maxHP), attack({_physicalAttack, _magicalAttack}), cooldown(_cooldown), currentCooldown(_cooldown), defense(_defense), texture(_texture) {}
 	/// Virtual destructor for the class
 	virtual ~Monster() {}
 

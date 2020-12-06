@@ -24,12 +24,12 @@ class Hero : public Monster
 {
 public:
 	/// Constructor for the class that puts the input parameters into data members and passes the required variables to the base class.
-	Hero(std::string _name, int _maxHP, int _physicalAttack, int _magicalAttack, double _cooldown, double _defense, int _lightRadius, int _lightRadiusBonusPerLevel, double _xpPerLevel, double _hpPerLevel, double _damagePerLevel, double _magicDamagePerLevel, double _cdMultiplierPerLevel, double _defenseBonusPerLevel, std::string _texture) 
+	Hero(const std::string _name, const int _maxHP, const int _physicalAttack, const int _magicalAttack, const double _cooldown, const double _defense, const int _lightRadius, const int _lightRadiusBonusPerLevel, const double _xpPerLevel, const double _hpPerLevel, const double _damagePerLevel, const double _magicDamagePerLevel, const double _cdMultiplierPerLevel, const double _defenseBonusPerLevel, const std::string _texture) 
 		:Monster(_name, _maxHP, _physicalAttack, _magicalAttack, _cooldown, _defense, _texture), 
 		xp(0), level(1), lightRadius(_lightRadius), lightRadiusBounusPerLevel(_lightRadiusBonusPerLevel), xpPerLevel(_xpPerLevel), hpPerLevel(_hpPerLevel), damagePerLevel(_damagePerLevel), magicDamagePerLevel(_magicDamagePerLevel), cdMultiplierPerLevel(_cdMultiplierPerLevel), defensePerLevel(_defenseBonusPerLevel) {}
 
 	/// Second constructor for the class that lets you make a Hero object from a Monster object.
-	Hero(Monster ch) :Monster(ch.getName(), ch.getMaxHealthPoints(), ch.getPhysicalDamage(), ch.getMagicalDamage(), ch.getAttackCoolDown(), ch.getDefense(), ch.getTexture()), 
+	Hero(const Monster ch) :Monster(ch.getName(), ch.getMaxHealthPoints(), ch.getPhysicalDamage(), ch.getMagicalDamage(), ch.getAttackCoolDown(), ch.getDefense(), ch.getTexture()), 
 	xp(0), level(1), lightRadius(2), lightRadiusBounusPerLevel(0), xpPerLevel(0), hpPerLevel(0), damagePerLevel(0), magicDamagePerLevel(0), cdMultiplierPerLevel(0), defensePerLevel(0) {}
 
 	/// Destruktor for the class.
@@ -82,7 +82,7 @@ private:
 	 * 
 	 * In this function if the Hero reached the required ammount of xp (xpPerLevel) it levels up, raising its max hp, attack, heals to full and lowers its cooldown.
 	*/
-	void increaseXP(int xpAmmount);
+	void increaseXP(const int xpAmmount);
 };
 
 #endif

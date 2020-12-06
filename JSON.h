@@ -68,7 +68,7 @@ public:
 	 * \param text
 	 * \return The key found in the map (true/false).
 	*/
-	bool count(std::string key){
+	bool count(const std::string key){
 		return jsonData.count(key);
 	}
 
@@ -78,7 +78,7 @@ public:
 	 * \return The value paired with the given key.
 	*/
 	template <typename T>
-	inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(std::string key) {
+	inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(const std::string key) {
 		if(jsonData.find(key) == jsonData.end()) {
 			throw ParseException("Wrong key"); 
 		}
@@ -97,7 +97,7 @@ public:
 	 * \return The list paired with the given key.
 	*/
 	template <typename T>
-    inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(std::string key){
+    inline typename std::enable_if<std::is_same<T, JSON::list>::value, JSON::list>::type get(const std::string key){
 			if(!jsonData.count(key)){
                 throw ParseException("JSON is missing a key: " + key); 
             }

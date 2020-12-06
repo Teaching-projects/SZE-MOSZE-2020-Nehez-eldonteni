@@ -43,7 +43,7 @@ public:
 	/// Default constructor for the class
 	Game() :isMapSet(false), isHeroSet(false), isMonstersSet(false), isGameStarted(false), gameMap(), gameHero() {	};
 	// Constructor for the class that initializes the game via marked map file
-    Game(std::string mapfilename);
+    Game(const std::string mapfilename);
 	// Destructor of the class
 	~Game();
 
@@ -51,17 +51,17 @@ public:
 	 * \brief This function sets the map for the game
 	 * \param map
 	*/
-	void setMap(Map map);
+	void setMap(const Map map);
 	/**
 	 * \brief This function sets the wall texture for the SVG output
 	 * \param filename
 	*/
-	void setWallTexture(std::string filename);
+	void setWallTexture(const std::string filename);
 	/**
 	 * \brief This function sets the free texture for the SVG output
 	 * \param filename
 	*/
-	void setFreeTexture(std::string filename);
+	void setFreeTexture(const std::string filename);
 	/**
 	 * \brief This function sets the map for the game with a map pointer
 	 * \param map
@@ -73,14 +73,14 @@ public:
 	 * \param x
 	 * \param y
 	*/
-	void putHero(Hero hero, int x, int y);
+	void putHero(const Hero hero, const int x, const int y);
     /**
 	 * \brief This function sets a monster for the game
 	 * \param monster
 	 * \param x
 	 * \param y
 	*/
-	void putMonster(Monster monster, int x, int y);
+	void putMonster(const Monster monster, const int x, const int y);
 
 	/**
 	 * \brief This function registers a renderer
@@ -124,14 +124,14 @@ public:
 	 * \param y
 	 * \return The index of every monster at the given coordinates 
 	*/
-	std::vector<int> getEveryMonsterIdxInPos(int x, int y) const;
+	std::vector<int> getEveryMonsterIdxInPos(const int x, const int y) const;
 	/**
 	 * \brief This function returns the name of the monster at the given coordinates
 	 * \param x
 	 * \param y
 	 * \return The name of the monster at the given coordinates 
 	*/
-	std::string getMonsterNameInPos(int x, int y) const;
+	std::string getMonsterNameInPos(const int x, const int y) const;
 
     /**
 	 * \brief This function starts the game

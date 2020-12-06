@@ -27,7 +27,7 @@ class PreparedGame : private Game
 {
 public:
     /// Constructor for the class that initializes the game from a file
-    PreparedGame(std::string fileName) {
+    PreparedGame(const std::string fileName) {
         loadGame(fileName);
     }
 
@@ -46,7 +46,7 @@ private:
 	 * \brief This function initializes the game from a file.
 	 * \param fileName
 	*/
-	void loadGame(std::string fileName);
+	void loadGame(const std::string fileName);
 };
 
 #endif
