@@ -5,7 +5,7 @@ var searchData=
   ['parsefromfile_177',['parseFromFile',['../class_j_s_o_n.html#abc450ba5a4dd1c69754408c55d22da4c',1,'JSON']]],
   ['parsefromstream_178',['parseFromStream',['../class_j_s_o_n.html#a758c56273583ac45534be352849a7879',1,'JSON']]],
   ['parsefromstring_179',['parseFromString',['../class_j_s_o_n.html#ac27bac8830e4e679f4085732a6922e6a',1,'JSON']]],
-  ['preparedgame_180',['PreparedGame',['../class_prepared_game.html#a63a251bd6edf4b74a456e1c4bf37fabd',1,'PreparedGame']]],
-  ['puthero_181',['putHero',['../class_game.html#a2c9bbc80ff60480af1bbdf06cd3380a7',1,'Game']]],
-  ['putmonster_182',['putMonster',['../class_game.html#a5fc59a7c9f21b26c9b6502217dc5aa5d',1,'Game']]]
+  ['preparedgame_180',['PreparedGame',['../class_prepared_game.html#aa3f9810118ec1d99d46a59f404ff0bef',1,'PreparedGame']]],
+  ['puthero_181',['putHero',['../class_game.html#af4daec42c10d38bca461d631f299cf1f',1,'Game']]],
+  ['putmonster_182',['putMonster',['../class_game.html#a6c1e4c3b27e6ecb2b5c233fee4d69c60',1,'Game']]]
 ];

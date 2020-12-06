@@ -83,7 +83,7 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_prepared_game.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_prepared_game.html">PreparedGame</a> : <span class="keyword">private</span> <a class="code" href="class_game.html">Game</a></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_prepared_game.html#a63a251bd6edf4b74a456e1c4bf37fabd">   30</a></span>&#160;    <a class="code" href="class_prepared_game.html#a63a251bd6edf4b74a456e1c4bf37fabd">PreparedGame</a>(std::string fileName) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_prepared_game.html#aa3f9810118ec1d99d46a59f404ff0bef">   30</a></span>&#160;    <a class="code" href="class_prepared_game.html#aa3f9810118ec1d99d46a59f404ff0bef">PreparedGame</a>(<span class="keyword">const</span> std::string fileName) {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        loadGame(fileName);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
@@ -91,14 +91,14 @@ $(function() {
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_prepared_game.html#a8473e4de485c76eabc8be27526f8fe82">registerRenderer</a>(<a class="code" href="class_renderer.html">Renderer</a>*);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> loadGame(std::string fileName);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> loadGame(<span class="keyword">const</span> std::string fileName);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdoc">Renderer class.</div><div class="ttdef"><b>Definition:</b> Renderer.h:19</div></div>
+<div class="ttc" id="aclass_prepared_game_html_aa3f9810118ec1d99d46a59f404ff0bef"><div class="ttname"><a href="class_prepared_game.html#aa3f9810118ec1d99d46a59f404ff0bef">PreparedGame::PreparedGame</a></div><div class="ttdeci">PreparedGame(const std::string fileName)</div><div class="ttdoc">Constructor for the class that initializes the game from a file.</div><div class="ttdef"><b>Definition:</b> PreparedGame.h:30</div></div>
 <div class="ttc" id="aclass_prepared_game_html"><div class="ttname"><a href="class_prepared_game.html">PreparedGame</a></div><div class="ttdoc">PreparedGame class.</div><div class="ttdef"><b>Definition:</b> PreparedGame.h:26</div></div>
-<div class="ttc" id="aclass_prepared_game_html_a63a251bd6edf4b74a456e1c4bf37fabd"><div class="ttname"><a href="class_prepared_game.html#a63a251bd6edf4b74a456e1c4bf37fabd">PreparedGame::PreparedGame</a></div><div class="ttdeci">PreparedGame(std::string fileName)</div><div class="ttdoc">Constructor for the class that initializes the game from a file.</div><div class="ttdef"><b>Definition:</b> PreparedGame.h:30</div></div>
 <div class="ttc" id="aclass_prepared_game_html_a8473e4de485c76eabc8be27526f8fe82"><div class="ttname"><a href="class_prepared_game.html#a8473e4de485c76eabc8be27526f8fe82">PreparedGame::registerRenderer</a></div><div class="ttdeci">virtual void registerRenderer(Renderer *)</div><div class="ttdoc">This function registers a renderer.</div><div class="ttdef"><b>Definition:</b> PreparedGame.cpp:41</div></div>
 <div class="ttc" id="aclass_prepared_game_html_a78ef9e67cb3095f95cdbf4265a7ada5c"><div class="ttname"><a href="class_prepared_game.html#a78ef9e67cb3095f95cdbf4265a7ada5c">PreparedGame::run</a></div><div class="ttdeci">virtual void run()</div><div class="ttdoc">This function starts the game.</div><div class="ttdef"><b>Definition:</b> PreparedGame.h:37</div></div>
 <div class="ttc" id="aclass_game_html_a1ab78f5ed0d5ea879157357cf2fb2afa"><div class="ttname"><a href="class_game.html#a1ab78f5ed0d5ea879157357cf2fb2afa">Game::run</a></div><div class="ttdeci">virtual void run()</div><div class="ttdoc">This function starts the game.</div><div class="ttdef"><b>Definition:</b> Game.cpp:208</div></div>
