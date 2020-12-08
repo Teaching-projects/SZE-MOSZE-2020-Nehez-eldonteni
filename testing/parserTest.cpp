@@ -101,7 +101,60 @@ TEST(MulTest, missingColonJSONTest) {
     }
 }
 
-// Character & Adventurer tests
+// Monster/Hero tests
+
+TEST(MulTest, MonsterData) {
+    Monster ch1("Kowa",200,85,13,5.5,5,"test.json");
+
+    ASSERT_EQ(ch1.getName(), "Kowa");
+    ASSERT_EQ(ch1.getAttackCoolDown(), 5.5);
+    ASSERT_EQ(ch1.getCurrentCooldown(), 5.5);
+    ASSERT_EQ(ch1.getDefense(), 5);
+    ASSERT_EQ(ch1.getMaxHealthPoints(), 200);
+    ASSERT_EQ(ch1.getHealthPoints(), 200);
+    ASSERT_EQ(ch1.getPhysicalDamage(), 85);
+    ASSERT_EQ(ch1.getMagicalDamage(), 13);
+    ASSERT_EQ(ch1.getTexture(), "test.json");
+}
+
+TEST(MulTest, HeroData) {
+    Hero ch1("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,"nevergonnagiveyouup.json");
+
+    ASSERT_EQ(ch1.getName(), "Kowa");
+    ASSERT_EQ(ch1.getAttackCoolDown(), 5.5);
+    ASSERT_EQ(ch1.getCurrentCooldown(), 5.5);
+    ASSERT_EQ(ch1.getDefense(), 11);
+    ASSERT_EQ(ch1.getMaxHealthPoints(), 200);
+    ASSERT_EQ(ch1.getHealthPoints(), 200);
+    ASSERT_EQ(ch1.getPhysicalDamage(), 85);
+    ASSERT_EQ(ch1.getMagicalDamage(), 12);
+    ASSERT_EQ(ch1.getLevel(), 1);
+    ASSERT_EQ(ch1.getLightRadius(), 2);
+    ASSERT_EQ(ch1.getTexture(), "nevergonnagiveyouup.json");
+}
+
+TEST(MulTest, HeroLevelupTest) {
+    Hero ch1("Kowa",200,75,15,5.5,11,2,1,50,10,5,5,0.9,3,"");
+    Monster ch2("Codos",300,70,11,12.5,1,"");
+
+    ASSERT_EQ(ch1.getLevel(), 1);
+
+    ch1.attackEnemy(ch2);
+
+    ASSERT_EQ(ch1.getLevel(), 2);
+
+    ASSERT_EQ(ch1.getAttackCoolDown(), 4.95);
+    ASSERT_EQ(ch1.getDefense(), 14);
+    ASSERT_EQ(ch1.getMaxHealthPoints(), 210);
+    ASSERT_EQ(ch1.getHealthPoints(), 210);
+    ASSERT_EQ(ch1.getPhysicalDamage(), 80);
+    ASSERT_EQ(ch1.getMagicalDamage(), 20);
+    ASSERT_EQ(ch1.getLightRadius(), 3);
+
+    ch1.attackEnemy(ch2);
+
+    ASSERT_EQ(ch1.getLevel(), 4);
+}
 
 TEST(MulTest, HeroVSHeroTest) {
     Hero ch1("Codos",300,70,10,12.5,15,2,1,100,10,5,5,0.9,3,"");
@@ -145,11 +198,14 @@ TEST(MulTest, MonsterVSMonsterTest) {
 
 // Game/Map tests
 
-TEST(MulTest, MapDimensionsTest) {
+TEST(MulTest, MapTest) {
     Map m("../map1.txt");
     
     ASSERT_EQ(m.getHeight(), 7);
     ASSERT_EQ(m.getWidth(), 20);
+
+    ASSERT_EQ(m.get(1,0), Map::type::Wall);
+    ASSERT_EQ(m.get(1,1), Map::type::Free);
 }
 
 TEST(MulTest, MarkedMapTest) {
@@ -157,6 +213,9 @@ TEST(MulTest, MarkedMapTest) {
     
     ASSERT_EQ(mm.getHeight(), 7);
     ASSERT_EQ(mm.getWidth(), 20);
+
+    ASSERT_EQ(mm.get(1,0), Map::type::Wall);
+    ASSERT_EQ(mm.get(1,1), Map::type::Free);
 
     ASSERT_EQ(mm.getHeroPosition().posx, 1);
     ASSERT_EQ(mm.getHeroPosition().posy, 1);
