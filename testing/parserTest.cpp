@@ -101,7 +101,60 @@ TEST(MulTest, missingColonJSONTest) {
     }
 }
 
-// Character & Adventurer tests
+// Monster/Hero tests
+
+TEST(MulTest, MonsterData) {
+    Monster ch1("Kowa",200,85,13,5.5,5,"test");
+
+    ASSERT_EQ(ch1.getName(), "Kowa");
+    ASSERT_EQ(ch1.getAttackCoolDown(), 5.5);
+    ASSERT_EQ(ch1.getCurrentCooldown(), 5.5);
+    ASSERT_EQ(ch1.getDefense(), 5);
+    ASSERT_EQ(ch1.getMaxHealthPoints(), 200);
+    ASSERT_EQ(ch1.getHealthPoints(), 200);
+    ASSERT_EQ(ch1.getPhysicalDamage(), 85);
+    ASSERT_EQ(ch1.getMagicalDamage(), 13);
+    ASSERT_EQ(ch1.getTexture(), "test");
+}
+
+TEST(MulTest, HeroData) {
+    Hero ch1("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,"nevergonnagiveyouup");
+
+    ASSERT_EQ(ch1.getName(), "Kowa");
+    ASSERT_EQ(ch1.getAttackCoolDown(), 5.5);
+    ASSERT_EQ(ch1.getCurrentCooldown(), 5.5);
+    ASSERT_EQ(ch1.getDefense(), 11);
+    ASSERT_EQ(ch1.getMaxHealthPoints(), 200);
+    ASSERT_EQ(ch1.getHealthPoints(), 200);
+    ASSERT_EQ(ch1.getPhysicalDamage(), 85);
+    ASSERT_EQ(ch1.getMagicalDamage(), 12);
+    ASSERT_EQ(ch1.getLevel(), 1);
+    ASSERT_EQ(ch1.getLightRadius(), 2);
+    ASSERT_EQ(ch1.getTexture(), "nevergonnagiveyouup");
+}
+
+TEST(MulTest, HeroLevelupTest) {
+    Hero ch1("Kowa",200,75,15,5.5,11,2,1,50,10,5,5,0.9,3,"");
+    Monster ch2("Codos",300,70,11,12.5,1,"");
+
+    ASSERT_EQ(ch1.getLevel(), 1);
+
+    ch1.attackEnemy(ch2);
+
+    ASSERT_EQ(ch1.getLevel(), 2);
+
+    ASSERT_EQ(ch1.getAttackCoolDown(), 4.95);
+    ASSERT_EQ(ch1.getDefense(), 14);
+    ASSERT_EQ(ch1.getMaxHealthPoints(), 210);
+    ASSERT_EQ(ch1.getHealthPoints(), 210);
+    ASSERT_EQ(ch1.getPhysicalDamage(), 80);
+    ASSERT_EQ(ch1.getMagicalDamage(), 20);
+    ASSERT_EQ(ch1.getLightRadius(), 3);
+
+    ch1.attackEnemy(ch2);
+
+    ASSERT_EQ(ch1.getLevel(), 4);
+}
 
 TEST(MulTest, HeroVSHeroTest) {
     Hero ch1("Codos",300,70,10,12.5,15,2,1,100,10,5,5,0.9,3,"");
@@ -145,11 +198,14 @@ TEST(MulTest, MonsterVSMonsterTest) {
 
 // Game/Map tests
 
-TEST(MulTest, MapDimensionsTest) {
+TEST(MulTest, MapTest) {
     Map m("../map1.txt");
     
     ASSERT_EQ(m.getHeight(), 7);
     ASSERT_EQ(m.getWidth(), 20);
+
+    ASSERT_EQ(m.get(1,0), Map::type::Wall);
+    ASSERT_EQ(m.get(1,1), Map::type::Free);
 }
 
 TEST(MulTest, MarkedMapTest) {
@@ -158,27 +214,38 @@ TEST(MulTest, MarkedMapTest) {
     ASSERT_EQ(mm.getHeight(), 7);
     ASSERT_EQ(mm.getWidth(), 20);
 
+    ASSERT_EQ(mm.get(1,0), Map::type::Wall);
+    ASSERT_EQ(mm.get(1,1), Map::type::Free);
+
     ASSERT_EQ(mm.getHeroPosition().posx, 1);
     ASSERT_EQ(mm.getHeroPosition().posy, 1);
 }
 
 TEST(MulTest, GameTest) {
-    Game g("../map1.txt");
+    Game g;
 
+    g.setMap(Map("../map1.txt"));
+    
     Monster ch1("Codos",60,70,11,12.5,4,"");
     Hero ch2("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,""); 
 
     g.putHero(ch2, 1, 2);
     g.putMonster(ch1, 1, 5);
     
+    g.setFreeTexture("../free.svg");
+    g.setWallTexture("../wall.svg");
+
     ASSERT_EQ(g.getMap()->getHeight(), 7);
     ASSERT_EQ(g.getMap()->getWidth(), 20);
 
     ASSERT_EQ(g.getHero().character->getName(), "Kowa");
     ASSERT_EQ(g.getHero().posx, 1);
     ASSERT_EQ(g.getHero().posy, 2);
-
+    
     ASSERT_EQ(g.getMonsterNameInPos(1, 5), "Codos");
+
+    ASSERT_EQ(g.getWallTexture(), "  <image id=\"wall\" width=\"10\" height=\"10\" xlink:href=\"data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAS0lEQVQYlY2QUQoAMAhCLXb/Kzc2MFoLyp8gHioKAMNAi4hZzYvIvUqIjwzRQKNjhCN05NEZzlXcsdMDMq7q7GDu9HXmjt08s8EBbLiJJxDWRkaVAAAAAElFTkSuQmCC\"/>");
+    ASSERT_EQ(g.getFreeTexture(), "  <image id=\"free\" width=\"10\" height=\"10\" xlink:href=\"data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHElEQVQYlWMMDg7+z0AEYCJGEcOoQuooZGBgAAAzDQIMbC7MnwAAAABJRU5ErkJggg==\"/>");
 }
 
 int main(int argc, char* argv[]) {

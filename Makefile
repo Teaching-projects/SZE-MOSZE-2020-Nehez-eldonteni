@@ -18,25 +18,25 @@ Monster.o: Monster.cpp Monster.h JSON.h
 Hero.o: Hero.cpp Hero.h Monster.h JSON.h
 	g++ -std=c++17 -Wall -Wextra -c Hero.cpp
 
-Game.o: Game.cpp Game.h Monster.h Hero.h Map.h
+Game.o: Game.cpp Game.h Monster.h Hero.h Map.h Renderer.h
 	g++ -std=c++17 -Wall -Wextra -c Game.cpp
 
-PreparedGame.o: PreparedGame.cpp PreparedGame.h Game.h Monster.h Hero.h Map.h MarkedMap.h
+PreparedGame.o: PreparedGame.cpp PreparedGame.h Game.h Monster.h Hero.h Map.h MarkedMap.h JSON.h Renderer.h
 	g++ -std=c++17 -Wall -Wextra -c PreparedGame.cpp
 
-HeroTextRenderer.o: HeroTextRenderer.cpp HeroTextRenderer.h Game.h PreparedGame.h TextRenderer.h Renderer.h
+HeroTextRenderer.o: HeroTextRenderer.cpp HeroTextRenderer.h Game.h PreparedGame.h TextRenderer.h Renderer.h Hero.h Monster.h Map.h MarkedMap.h
 	g++ -std=c++17 -Wall -Wextra -c HeroTextRenderer.cpp
 
-ObserverTextRenderer.o: ObserverTextRenderer.cpp ObserverTextRenderer.h Game.h PreparedGame.h TextRenderer.h Renderer.h
+ObserverTextRenderer.o: ObserverTextRenderer.cpp ObserverTextRenderer.h Game.h PreparedGame.h TextRenderer.h Renderer.h Hero.h Monster.h Map.h MarkedMap.h
 	g++ -std=c++17 -Wall -Wextra -c ObserverTextRenderer.cpp
 
-CharacterSVGRenderer.o: CharacterSVGRenderer.cpp CharacterSVGRenderer.h Game.h PreparedGame.h SVGRenderer.h Renderer.h
+CharacterSVGRenderer.o: CharacterSVGRenderer.cpp CharacterSVGRenderer.h Game.h PreparedGame.h SVGRenderer.h Renderer.h Hero.h Monster.h Map.h MarkedMap.h
 	g++ -std=c++17 -Wall -Wextra -c CharacterSVGRenderer.cpp
 
-ObserverSVGRenderer.o: ObserverSVGRenderer.cpp ObserverSVGRenderer.h Game.h PreparedGame.h SVGRenderer.h Renderer.h
+ObserverSVGRenderer.o: ObserverSVGRenderer.cpp ObserverSVGRenderer.h Game.h PreparedGame.h SVGRenderer.h Renderer.h Hero.h Monster.h Map.h MarkedMap.h
 	g++ -std=c++17 -Wall -Wextra -c ObserverSVGRenderer.cpp
 
-Main.o: Main.cpp Game.h Monster.h Hero.h JSON.h
+Main.o: Main.cpp Game.h PreparedGame.h Map.h MarkedMap.h Monster.h Hero.h JSON.h Renderer.h TextRenderer.h SVGRenderer.h HeroTextRenderer.h ObserverTextRenderer.h CharacterSVGRenderer.h ObserverSVGRenderer.h
 	clang++ -fPIC -std=c++17 -Wall -Wextra -c Main.cpp
 
 
