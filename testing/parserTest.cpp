@@ -104,7 +104,7 @@ TEST(MulTest, missingColonJSONTest) {
 // Monster/Hero tests
 
 TEST(MulTest, MonsterData) {
-    Monster ch1("Kowa",200,85,13,5.5,5,"test.json");
+    Monster ch1("Kowa",200,85,13,5.5,5,"test");
 
     ASSERT_EQ(ch1.getName(), "Kowa");
     ASSERT_EQ(ch1.getAttackCoolDown(), 5.5);
@@ -114,11 +114,11 @@ TEST(MulTest, MonsterData) {
     ASSERT_EQ(ch1.getHealthPoints(), 200);
     ASSERT_EQ(ch1.getPhysicalDamage(), 85);
     ASSERT_EQ(ch1.getMagicalDamage(), 13);
-    ASSERT_EQ(ch1.getTexture(), "test.json");
+    ASSERT_EQ(ch1.getTexture(), "test");
 }
 
 TEST(MulTest, HeroData) {
-    Hero ch1("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,"nevergonnagiveyouup.json");
+    Hero ch1("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,"nevergonnagiveyouup");
 
     ASSERT_EQ(ch1.getName(), "Kowa");
     ASSERT_EQ(ch1.getAttackCoolDown(), 5.5);
@@ -130,7 +130,7 @@ TEST(MulTest, HeroData) {
     ASSERT_EQ(ch1.getMagicalDamage(), 12);
     ASSERT_EQ(ch1.getLevel(), 1);
     ASSERT_EQ(ch1.getLightRadius(), 2);
-    ASSERT_EQ(ch1.getTexture(), "nevergonnagiveyouup.json");
+    ASSERT_EQ(ch1.getTexture(), "nevergonnagiveyouup");
 }
 
 TEST(MulTest, HeroLevelupTest) {
@@ -222,22 +222,30 @@ TEST(MulTest, MarkedMapTest) {
 }
 
 TEST(MulTest, GameTest) {
-    Game g("../map1.txt");
+    Game g;
 
+    g.setMap(Map("../map1.txt"));
+    
     Monster ch1("Codos",60,70,11,12.5,4,"");
     Hero ch2("Kowa",200,85,12,5.5,11,2,1,100,10,5,5,0.9,3,""); 
 
     g.putHero(ch2, 1, 2);
     g.putMonster(ch1, 1, 5);
     
+    g.setFreeTexture("../free.svg");
+    g.setWallTexture("../wall.svg");
+
     ASSERT_EQ(g.getMap()->getHeight(), 7);
     ASSERT_EQ(g.getMap()->getWidth(), 20);
 
     ASSERT_EQ(g.getHero().character->getName(), "Kowa");
     ASSERT_EQ(g.getHero().posx, 1);
     ASSERT_EQ(g.getHero().posy, 2);
-
+    
     ASSERT_EQ(g.getMonsterNameInPos(1, 5), "Codos");
+
+    ASSERT_EQ(g.getWallTexture(), "  <image id=\"wall\" width=\"10\" height=\"10\" xlink:href=\"data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAS0lEQVQYlY2QUQoAMAhCLXb/Kzc2MFoLyp8gHioKAMNAi4hZzYvIvUqIjwzRQKNjhCN05NEZzlXcsdMDMq7q7GDu9HXmjt08s8EBbLiJJxDWRkaVAAAAAElFTkSuQmCC\"/>");
+    ASSERT_EQ(g.getFreeTexture(), "  <image id=\"free\" width=\"10\" height=\"10\" xlink:href=\"data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHElEQVQYlWMMDg7+z0AEYCJGEcOoQuooZGBgAAAzDQIMbC7MnwAAAABJRU5ErkJggg==\"/>");
 }
 
 int main(int argc, char* argv[]) {
